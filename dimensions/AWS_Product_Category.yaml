@@ -1,0 +1,98 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2867
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh14840\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 #Dimension Details\
+\
+is_active: true\
+name: AWS Product Category\
+description: test app\
+source: Billing\
+dimension_type: AccountGroup\
+dimension_template_type: Custom\
+is_cost_anomaly_detection_enabled: false\
+\
+\
+#Version Configuration\
+\
+start_date: 2025-01-01T00:00:00.000Z\
+end_date: 2025-12-31T23:59:59.000Z\
+enable_cost_center: false\
+attributes: []\
+access_granted_identities:\
+  user_groups: []\
+  roles:\
+    - tenant_id: 67c6a34c424280e760d6f4e4\
+      role_ids: []\
+grouping_rules:\
+  - name: All Product\
+    description: rule description\
+    grouping_rule_id: 6953bbc62c651dbce9597ff8\
+    rule_type: UserDefined\
+    attributes: []\
+    filters:\
+      __type: QueryOperatorBinaryLogic\
+      a:\
+        __type: ServiceCategoryQueryOperator\
+        service_categories:\
+          - AI and Machine Learning\
+          - Analytics\
+          - Business Applications\
+          - Compute\
+          - Databases\
+          - Developer Tools\
+          - Integration\
+          - Management and Governance\
+          - Migration\
+          - Networking\
+          - Other\
+          - Security\
+          - Storage\
+          - Web\
+      b:\
+        __type: QueryOperatorBinaryLogic\
+        a:\
+          __type: TenantQueryOperator\
+          tenant_ids:\
+            - 67c6a34c424280e760d6f4e4\
+        b:\
+          __type: ServiceAccountNativeDetailsQueryOperator\
+          native_details:\
+            - type: ServiceAccountNativeDetailsBaseForAws\
+            - type: ServiceAccountNativeDetailsForCostCenterAws\
+            - type: ServiceAccountNativeDetailsBaseForCostCenterDimension\
+            - type: ServiceAccountNativeDetailsForAwsEksCluster\
+        op: And\
+      op: And\
+    access_granted_identities:\
+      user_groups: []\
+      roles:\
+        - tenant_id: 67c6a34c424280e760d6f4e4\
+          role_ids: []\
+    dependent_grouping_rule: []\
+    cost_anomaly_configuration:\
+      threshold:\
+        impact:\
+          minimum_cost_impact: 0\
+          minimum_cost_impact_percentage: 0\
+          op: OR\
+        minimum_cost_spend: 0\
+        op: OR\
+      notification:\
+        notifications_enabled: false\
+        daily_summary_email_enabled: false\
+        notify_on_detection: false\
+        notify_on_detection_emails: []\
+        daily_summary_emails: []\
+    platform_filters:\
+      __type: TenantQueryOperator\
+      tenant_ids: []\
+  - name: Unallocated\
+    description: System defined rule to capture unallocated cost.\
+    grouping_rule_id: unallocated-cost-rule\
+    rule_type: System\
+\
+}

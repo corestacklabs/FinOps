@@ -1,0 +1,518 @@
+{
+  "title": "AWS Management Account Explorer",
+  "showTitle": false,
+  "widgetPrimaryColor": "#FFFFFF",
+  "widgetSecondaryColor": "#0076E1",
+  "flavor": "FinOps",
+  "cloud": "AWS",
+  "bannerSegments": [
+    {
+      "widthRatio": 1,
+      "branding": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#0076E1",
+        "text": "AWS Management Account Explorer",
+        "horizontalPlacement": "Center",
+        "verticalPlacement": "Middle"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "config": {
+        "__type": "FilterWidgetConfiguration",
+        "id": "976ef520-6544-1ed9-06e9-551b0498f86a",
+        "size": 0,
+        "name": "Parameters",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "context": {
+          "currency": "USD",
+          "organizationCurrency": false,
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta",
+            "zone": "GMT"
+          },
+          "query": {
+            "__type": "QueryOperatorBinaryLogic",
+            "a": {
+              "__type": "QueryOperatorBinaryLogic",
+              "a": {
+                "__type": "TenantQueryOperator",
+                "tenant_ids": [
+                  "wildcardTenantId"
+                ]
+              },
+              "b": {
+                "__type": "ServiceAccountNativeDetailsQueryOperator",
+                "native_details": [
+                  {
+                    "type": "ServiceAccountNativeDetailsBaseForAws"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForCostCenterAws"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAwsEksCluster"
+                  }
+                ]
+              },
+              "op": "And"
+            },
+            "b": {
+                "__type": "ServiceAccountStatusQueryOperator",
+                "statuses": [
+                  "active"
+                ]
+              },
+            "op": "And"
+          },
+          "billingSource": "raw_cost",
+          "granularity": "month",
+          "overrideQuery": true,
+          "overrideBillingSource": true,
+          "overrideGranularity": true,
+          "overrideTenants": false,
+          "overrideCloudProviders": false,
+          "overrideCloudAccounts": false,
+          "overrideCurrency": true,
+          "overrideTimeRange": true
+        },
+        "contextId": "90da6f6d-379a-6cf6-8c00-e3a06969010e"
+      },
+      "outline": {
+        "left": 0,
+        "top": 0,
+        "width": 12,
+        "height": 4
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "39260c7e-2273-ac1c-03d8-3aa5241ef08c",
+        "size": 0,
+        "name": "AWS Management Account - Cost Insights",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "Collapsible",
+        "numCols": 8,
+        "numRows": 1,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "ffbeff6b-00b0-48b1-9bdd-d333d90f3704",
+              "size": 0,
+              "name": "Total Account Spend",
+              "description": "AWS spend across multiple management accounts and its member accounts",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "90da6f6d-379a-6cf6-8c00-e3a06969010e",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAwsEksCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "035dbecb-6df3-ab07-20d3-843cc4d91b05",
+              "size": 0,
+              "name": "Top AWS Management Account",
+              "description": "Top AWS Management Account by Spend and Spend",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "90da6f6d-379a-6cf6-8c00-e3a06969010e",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAwsEksCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "TopGroupBy",
+              "group_by_account_type": {
+                "type": "ServiceAccountNativeDetailsForAwsManagementAccount"
+              }
+            },
+            "outline": {
+              "left": 2,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "ce1dc627-085b-3edd-9f59-ccbe83fc3888",
+              "size": 0,
+              "name": "Top AWS OU",
+              "description": "Top AWS Organization Unit by Spend and its spend.",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "90da6f6d-379a-6cf6-8c00-e3a06969010e",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAwsEksCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "TopGroupBy",
+              "group_by_account_type": {
+                "type": "ServiceAccountNativeDetailsForAwsOrganizationUnit"
+              }
+            },
+            "outline": {
+              "left": 4,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "122f9aa5-e508-5e18-464b-2f18f7caea46",
+              "size": 0,
+              "name": "Top AWS Member Account",
+              "description": "Top AWS Member Account by Spend and Spend",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "90da6f6d-379a-6cf6-8c00-e3a06969010e",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAwsEksCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "TopGroupBy",
+              "group_by_account_type": {
+                "type": "ServiceAccountNativeDetailsForAwsMemberAccount"
+              }
+            },
+            "outline": {
+              "left": 6,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 4,
+        "width": 12,
+        "height": 4
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "ba20387d-58b6-21dd-6c3d-9e3a1ba576b6",
+        "size": 0,
+        "name": "Spend Trend & Variation Trend by AWS Management Accounts",
+        "description": "Its primary purpose is to help users track and compare cloud cost trends across different AWS management accounts (often used for different customers in an MSP or enterprise setting).",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "AlwaysShow",
+        "numCols": 1,
+        "numRows": 3,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostSpendByDimensionWidgetConfiguration",
+              "id": "f4f2b3b8-ddc3-e1c2-6141-e9a6c52644ad",
+              "size": 0,
+              "name": "Cost Spend by AWS Management Account",
+              "description": "Its primary purpose is to help users track spend by AWS management accounts (often used for different customers in an MSP or enterprise setting)",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "90da6f6d-379a-6cf6-8c00-e3a06969010e",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAwsEksCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": false
+              },
+              "chartType": "StackedColumn",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "dimensionDetails": {
+                "selector": "service_account_id"
+              },
+              "dimension_by_account_type": {
+                "type": "ServiceAccountNativeDetailsForAwsManagementAccount"
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 1,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostTrendWidgetConfiguration",
+              "id": "fd780623-22ce-6b78-7884-0d3ca6b708e9",
+              "size": 0,
+              "name": "Cost Trend by AWS Management Account",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "90da6f6d-379a-6cf6-8c00-e3a06969010e",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAwsEksCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": false,
+                "overrideGranularity": false
+              },
+              "chartType": "StackedColumn",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "group_by_account_type": {
+                "type": "ServiceAccountNativeDetailsForAwsManagementAccount"
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 1,
+              "width": 1,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostVariationWidgetConfiguration",
+              "id": "0ba2bf5c-fc3d-2166-8410-467c83f420c4",
+              "size": 0,
+              "name": "Cost Variation by AWS Management Account",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "90da6f6d-379a-6cf6-8c00-e3a06969010e",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAwsEksCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": false
+              },
+              "chartType": "StackedColumn",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "group_by_account_type": {
+                "type": "ServiceAccountNativeDetailsForAwsManagementAccount"
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 2,
+              "width": 1,
+              "height": 1
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 8,
+        "width": 12,
+        "height": 21
+      }
+    }
+  ],
+  "filterScope": [
+    {
+      "visible": true,
+      "condition": {
+        "__type": "ServiceAccountNativeDetailsQueryOperator",
+        "native_details": [
+          {
+            "type": "ServiceAccountNativeDetailsBaseForAws"
+          },
+          {
+            "type": "ServiceAccountNativeDetailsForCostCenterAws"
+          },
+          {
+            "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+          },
+          {
+            "type": "ServiceAccountNativeDetailsForAwsEksCluster"
+          }
+        ]
+      }
+    }
+  ]
+}

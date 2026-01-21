@@ -1,0 +1,284 @@
+{
+  "title": "Dimension Anomaly Summary",
+  "showTitle": false,
+  "widgetPrimaryColor": "#FFFFFF",
+  "widgetSecondaryColor": "#0076E1",
+  "flavor": "FinOps",
+  "bannerSegments": [
+    {
+      "widthRatio": 1,
+      "branding": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#0076E1",
+        "text": "Dimension Anomaly Summary",
+        "horizontalPlacement": "Center",
+        "verticalPlacement": "Middle"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "config": {
+        "__type": "FilterWidgetConfiguration",
+        "id": "156e5e54-b21d-7528-30e6-5bc4c1467dc0",
+        "size": 0,
+        "name": "Filter",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "context": {
+          "currency": "USD",
+          "organizationCurrency": false,
+          "timeRange": {
+            "range": "Previous3Months",
+            "zoneCreated": "Asia/Calcutta",
+            "zone": "UTC"
+          },
+          "billingSource": "raw_cost",
+          "granularity": "day",
+          "overrideQuery": true,
+          "overrideBillingSource": true,
+          "overrideGranularity": true,
+          "overrideTenants": false,
+          "overrideCloudProviders": false,
+          "overrideCloudAccounts": false,
+          "overrideCurrency": true,
+          "overrideTimeRange": true
+        },
+        "contextId": "6b5d91db-17a6-b613-cdb4-97f96ef05985"
+      },
+      "outline": {
+        "left": 0,
+        "top": 0,
+        "width": 12,
+        "height": 3
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "90a50396-e444-f036-49ba-758b237eaece",
+        "size": 0,
+        "name": "     ",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "AlwaysShow",
+        "numCols": 8,
+        "numRows": 32,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "22b6c5b9-5c6b-038f-974e-c23e05e51211",
+              "size": 0,
+              "name": "Total Cost Impact",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "6b5d91db-17a6-b613-cdb4-97f96ef05985",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideCurrency": false
+              },
+              "summaryType": "TotalCostImpactByBilling"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 2,
+              "height": 5
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "1740e1de-c5b8-0d8b-78b9-253e4621655c",
+              "size": 0,
+              "name": "Total Cost Spend",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "6b5d91db-17a6-b613-cdb4-97f96ef05985",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "granularity": "month",
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideGranularity": true,
+                "overrideCurrency": false
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 2,
+              "top": 0,
+              "width": 2,
+              "height": 5
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "d1f54a86-5a8e-2798-8aea-005bf10affe4",
+              "size": 0,
+              "name": "Total Anomalies",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "6b5d91db-17a6-b613-cdb4-97f96ef05985",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideCurrency": false
+              },
+              "summaryType": "TotalAnomaliesByBilling"
+            },
+            "outline": {
+              "left": 4,
+              "top": 0,
+              "width": 2,
+              "height": 5
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "5d6646d0-15de-c945-7a1e-d834b8ba3f43",
+              "size": 0,
+              "name": "Dimension Group With Most Anomalies",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "6b5d91db-17a6-b613-cdb4-97f96ef05985",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideCurrency": false
+              },
+              "summaryType": "DimensionGroupWithMostAnomalies"
+            },
+            "outline": {
+              "left": 6,
+              "top": 0,
+              "width": 2,
+              "height": 5
+            }
+          },
+          {
+            "config": {
+              "__type": "CostTrendByDimensionGroupWidgetConfiguration",
+              "id": "4be5e77d-8e0c-7b79-cde9-c4f9dc540e79",
+              "size": 0,
+              "name": "Cost Trend By Dimension Group",
+              "description": "This widget shows the cost trend for the dimension group selected in the global parameters. The data is displayed according to the granularity defined for the selected dimension.",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "6b5d91db-17a6-b613-cdb4-97f96ef05985",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideCurrency": false
+              },
+              "hideWidgetFiltering": true,
+              "chartType": "Line",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 5,
+              "width": 8,
+              "height": 14
+            }
+          },
+          {
+            "config": {
+              "__type": "CostImpactByDimensionGroupWidgetConfiguration",
+              "id": "cc9e90e9-c551-d1ca-8f22-6a8981127113",
+              "size": 0,
+              "name": "Cost Impact By Dimension Group",
+              "description": "The widget identifies unusual cost patterns across the selected dimensions, helping detect anomalies at business-relevant levels",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "6b5d91db-17a6-b613-cdb4-97f96ef05985",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideCurrency": false
+              },
+              "hideWidgetFiltering": true,
+              "chartType": "Line",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 19,
+              "width": 8,
+              "height": 13
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 3,
+        "width": 12,
+        "height": 22
+      }
+    }
+  ],
+  "filterScope": [
+    {
+      "visible": true,
+      "condition": {
+        "__type": "BillingSourceQueryOperator",
+        "billing_sources": [
+          "raw_cost"
+        ]
+      }
+    }
+  ]
+}

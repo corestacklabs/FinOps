@@ -1,0 +1,143 @@
+{
+  "title": "Cost Posture - Admin View",
+  "showTitle": false,
+  "widgetPrimaryColor": "#FFFFFF",
+  "widgetSecondaryColor": "#0076E1",
+  "flavor": "FinOps",
+  "bannerSegments": [
+    {
+      "widthRatio": 1,
+      "branding": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#0076E1",
+        "text": "Cost Posture (Legacy) Admin Views",
+        "horizontalPlacement": "Center",
+        "verticalPlacement": "Middle"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "config": {
+        "__type": "FilterWidgetConfiguration",
+        "id": "9e34bbc0-f5ac-1c13-1c87-de5822ee1f7a",
+        "size": 0,
+        "name": "Parameters",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "context": {
+          "currency": "USD",
+          "organizationCurrency": false,
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta",
+            "zone": "UTC"
+          },
+          "query": {
+            "__type": "QueryOperatorBinaryLogic",
+            "a": {
+              "__type": "TenantQueryOperator",
+              "tenant_ids": [
+                "wildcardTenantId"
+              ]
+            },
+            "b": {
+              "__type": "ServiceAccountStatusQueryOperator",
+              "statuses": [
+                "active"
+              ]
+            },
+            "op": "And"
+          },
+          "billingSource": "raw_cost",
+          "granularity": "month",
+          "overrideQuery": true,
+          "overrideBillingSource": true,
+          "overrideGranularity": true,
+          "overrideTenants": true,
+          "overrideCloudProviders": true,
+          "overrideCloudAccounts": true,
+          "overrideCurrency": true,
+          "overrideTimeRange": true
+        },
+        "contextId": "1ebc1cb2-a38f-8081-116e-54fa383c5ba4"
+      },
+      "outline": {
+        "left": 0,
+        "top": 0,
+        "width": 12,
+        "height": 3
+      }
+    },
+    {
+      "config": {
+        "__type": "CostSummaryWidgetConfigurationModel",
+        "id": "f754576a-9dac-26a0-b8c2-41028701bf5f",
+        "size": 0,
+        "name": "Total Cloud Spend",
+        "description": "Provides total cloud spend on AWS Management, Azure EA, Azure CSP, GCP Billing & Parent Billing Accounts & across various dimensions",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "1ebc1cb2-a38f-8081-116e-54fa383c5ba4",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta"
+          },
+          "overrideQuery": false
+        },
+        "summaryType": "Total"
+      },
+      "outline": {
+        "left": 0,
+        "top": 3,
+        "width": 12,
+        "height": 2
+      }
+    },
+    {
+      "config": {
+        "__type": "CostTrendWidgetConfiguration",
+        "id": "6b32f5cd-575c-6693-ff16-a228f57bb39c",
+        "size": 0,
+        "name": "Cost Trend",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "1ebc1cb2-a38f-8081-116e-54fa383c5ba4",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta"
+          },
+          "overrideQuery": false
+        },
+        "chartType": "Datatable",
+        "chartLimit": "None",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        },
+        "group_by_details": {
+          "selector": "service_name"
+        },
+        "group_by_tag_status": false
+      },
+      "outline": {
+        "left": 0,
+        "top": 5,
+        "width": 12,
+        "height": 9
+      }
+    }
+  ],
+  "filterScope": [],
+  "savedViews": []
+}

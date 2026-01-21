@@ -1,0 +1,701 @@
+{
+  "title": "Multi Cloud CFO Dashboard",
+  "showTitle": false,
+  "widgetPrimaryColor": "#FFFFFF",
+  "widgetSecondaryColor": "#0076E1",
+  "flavor": "FinOps",
+  "bannerSegments": [
+    {
+      "widthRatio": 1,
+      "branding": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#0076E1",
+        "text": "Multi Cloud CFO Dashboard",
+        "horizontalPlacement": "Center",
+        "verticalPlacement": "Middle"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "config": {
+        "__type": "FilterWidgetConfiguration",
+        "id": "756bc5eb-f902-d670-3247-3baeb81afbd9",
+        "size": 0,
+        "name": "Parameters",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "context": {
+          "currency": "USD",
+          "organizationCurrency": false,
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta",
+            "zone": "UTC"
+          },
+          "query": {
+            "__type": "QueryOperatorBinaryLogic",
+            "a": {
+              "__type": "ServiceAccountStatusQueryOperator",
+              "statuses": [
+                "active"
+              ]
+            },
+            "b": {
+              "__type": "QueryOperatorBinaryLogic",
+              "a": {
+                "__type": "TenantQueryOperator",
+                "tenant_ids": [
+                  "wildcardTenantId"
+                ]
+              },
+              "b": {
+                "__type": "ServiceAccountNativeDetailsQueryOperator",
+                "native_details": [
+                  {
+                    "type": "ServiceAccountNativeDetailsBaseForAws"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForCostCenterAws"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAwsEksCluster"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureSubscription"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureCspMaster"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureCspPartner"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureEaAccount"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForCostCenterAzure"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureAksCluster"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
+                  }
+                ]
+              },
+              "op": "And"
+            },
+            "op": "And"
+          },
+          "billingSource": "raw_cost",
+          "granularity": "month",
+          "overrideQuery": true,
+          "overrideBillingSource": true,
+          "overrideGranularity": true,
+          "overrideTenants": false,
+          "overrideCloudProviders": false,
+          "overrideCloudAccounts": false,
+          "overrideCurrency": true,
+          "overrideTimeRange": true
+        },
+        "contextId": "2da74657-dfc9-767b-3012-267adbc8a8ac"
+      },
+      "outline": {
+        "left": 0,
+        "top": 0,
+        "width": 12,
+        "height": 3
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "35d3469f-1382-4a89-1a44-3126298ba5c8",
+        "size": 0,
+        "name": "Multi Cloud Summary",
+        "description": "Provides summary of costs for all tenants/cloud/cloud accounts across various dimensions.",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "Collapsible",
+        "numCols": 8,
+        "numRows": 1,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "8055ae89-4526-8aa2-b3d3-a057c9f2a7e1",
+              "size": 0,
+              "name": "Cloud Spend",
+              "description": "Total Cloud Spend based on the global parameters selected",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "cf0ec638-225f-6969-872b-5cc14ec12fae",
+              "size": 0,
+              "name": "Top Tenant",
+              "description": "Provides the Top Tenant and related spend filtered by the global parameters selected",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "TopGroupBy",
+              "groupByDetails": {
+                "selector": "tenant_id"
+              }
+            },
+            "outline": {
+              "left": 2,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "ab2decc9-2af4-1ea2-8360-db25abf78823",
+              "size": 0,
+              "name": "Top Cloud",
+              "description": "Provides the Top Cloud and related spend filtered by the global parameters selected",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "TopGroupBy",
+              "groupByDetails": {
+                "selector": "service_name"
+              }
+            },
+            "outline": {
+              "left": 4,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "5d1c385a-dfbd-08e3-f910-e1da691e8c8e",
+              "size": 0,
+              "name": "Top Region",
+              "description": "Provides the Top Region and related spend filtered by the global parameters selected",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "TopGroupBy",
+              "groupByDetails": {
+                "selector": "location"
+              }
+            },
+            "outline": {
+              "left": 6,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 3,
+        "width": 12,
+        "height": 3
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "f72a545e-6646-1f24-8a72-3de43b46cb47",
+        "size": 0,
+        "name": "Cloud Spend",
+        "description": "Provides Cost Spend Trend by Cloud, Tenant, Region, Product Category & Charge Category across all cloud accounts based on the global parameters selected.",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "Collapsible",
+        "numCols": 8,
+        "numRows": 5,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostTrendWidgetConfiguration",
+              "id": "06d09ed1-4d1c-b431-7f4d-3e576e3a7c90",
+              "size": 0,
+              "name": "Cloud Spend Trend",
+              "description": "Provides Spend Trend by cloud provider based on the global parameters selected",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "chartType": "StackedColumn",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "group_by_details": {
+                "selector": "service_name"
+              },
+              "group_by_tag_status": false,
+              "group_by_tag_keys": false
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 8,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSpendByCloudTenantWidgetConfiguration",
+              "id": "a3ccf973-e951-8521-4654-00ea3c4cc37f",
+              "size": 0,
+              "name": "Spend By Tenant",
+              "description": "Provides Spend Trend by Tenant based on the global parameters selected",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "chartType": "Flow",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 1,
+              "width": 8,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSpendByRegionWidgetConfiguration",
+              "id": "640c59de-8d59-3895-e50d-576ad31438f0",
+              "size": 0,
+              "name": "Spend By Region",
+              "description": "Provides Spend Trend by Region based on the global parameters selected",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "chartType": "Map",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 2,
+              "width": 8,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSpendByCloudResourceWidgetConfiguration",
+              "id": "a4411b8f-2381-a3c0-e755-16d7a1da7040",
+              "size": 0,
+              "name": "Spend By Product Category",
+              "description": "Provides Spend Trend by Product Category based on the global parameters selected",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "chartType": "Flow",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "categoryType": "ProductCategory"
+            },
+            "outline": {
+              "left": 0,
+              "top": 3,
+              "width": 8,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSpendByDimensionWidgetConfiguration",
+              "id": "5f2d84ce-c88d-fc4a-5a59-6fa0d8e69e57",
+              "size": 0,
+              "name": "Top Spend by Charge Category",
+              "description": "Provides Spend Trend by Charge Category based on the global parameters selected",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "chartType": "StackedColumn",
+              "chartLimit": "Top5PlusOther",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "dimensionDetails": {
+                "selector": "line_item_type"
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 4,
+              "width": 8,
+              "height": 1
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 6,
+        "width": 12,
+        "height": 44
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "487b5193-f31e-2161-effc-ad160ab8a3e5",
+        "size": 0,
+        "name": "Govern",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "Collapsible",
+        "numCols": 2,
+        "numRows": 2,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostTrendWidgetConfiguration",
+              "id": "713124ff-558c-12cc-83c1-31e4970bb424",
+              "size": 0,
+              "name": "Cost Trend By Tag Status",
+              "description": "Provides Spend Trend by Tag Status (Tagged/Untagged) based on the global parameters selected",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "chartType": "StackedColumn",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "group_by_tag_status": true
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 2,
+              "height": 2
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 50,
+        "width": 12,
+        "height": 10
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "53df96a0-db05-b05f-16b1-2d66f0d120e2",
+        "size": 0,
+        "name": "Budget",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "Collapsible",
+        "numCols": 8,
+        "numRows": 2,
+        "widgets": [
+          {
+            "config": {
+              "__type": "BudgetDriftWidgetConfiguration",
+              "id": "84809ce8-62d4-a6ae-86d5-18b536340cd2",
+              "size": 0,
+              "name": "Top Budget by Tenant (based on Actual cost)",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "chartType": "GroupedColumn",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "configurationType": "actual"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 8,
+              "height": 2
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 60,
+        "width": 12,
+        "height": 8
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "a25d4829-f03f-5cad-373f-2688c60d4fa4",
+        "size": 0,
+        "name": "Cost Impact",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "Collapsible",
+        "numCols": 8,
+        "numRows": 1,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostAnomalyImpactByBillingWidgetConfiguration",
+              "id": "eb541780-f29d-ff70-455a-e14a1a98918d",
+              "size": 0,
+              "name": "Cost Anomaly Impact By Cloud",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "navigationDescriptors": [
+                {}
+              ],
+              "chartType": "Flow",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": false
+              },
+              "categoryType": "CloudAccount"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 8,
+              "height": 1
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 68,
+        "width": 12,
+        "height": 9
+      }
+    },
+    {
+      "config": {
+        "__type": "CostOptimizationByOptimizationTypeWidgetConfiguration",
+        "id": "b707df25-b309-c04f-db7c-d2877450e2ed",
+        "size": 0,
+        "name": "Cost Optimization Opportunities by Usage",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+        "context": {
+          "timeRange": {
+            "range": "Today",
+            "zoneCreated": "America/New_York",
+            "zone": "GMT"
+          },
+          "overrideQuery": false
+        },
+        "chartType": "TreeMap",
+        "chartLimit": "None",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        },
+        "optimizationType": "Usage"
+      },
+      "outline": {
+        "left": 0,
+        "top": 77,
+        "width": 12,
+        "height": 8
+      }
+    }
+  ],
+  "filterScope": []
+}

@@ -1,0 +1,453 @@
+{
+  "title": "Multi Cloud FOCUS Cost Posture",
+  "showTitle": false,
+  "widgetPrimaryColor": "#FFFFFF",
+  "widgetSecondaryColor": "#0076E1",
+  "flavor": "FinOps",
+  "bannerSegments": [
+    {
+      "widthRatio": 1,
+      "branding": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#0076E1",
+        "text": "Multi Cloud Cost Posture - Feb 17",
+        "horizontalPlacement": "Center",
+        "verticalPlacement": "Middle"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "config": {
+        "__type": "FilterWidgetConfiguration",
+        "id": "6adf55ac-644b-6a1d-c276-f8df6410075e",
+        "size": 0,
+        "name": " ",
+        "refreshRateInSeconds": 300,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "context": {
+          "currency": "USD",
+          "organizationCurrency": false,
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta",
+            "zone": "UTC"
+          },
+          "query": {
+            "__type": "QueryOperatorBinaryLogic",
+            "a": {
+              "__type": "ServiceAccountStatusQueryOperator",
+              "statuses": [
+                "active"
+              ]
+            },
+            "b": {
+              "__type": "QueryOperatorBinaryLogic",
+              "a": {
+                "__type": "TenantQueryOperator",
+                "tenant_ids": [
+                  "wildcardTenantId"
+                ]
+              },
+              "b": {
+                "__type": "ServiceAccountNativeDetailsQueryOperator",
+                "native_details": [
+                  {
+                    "type": "ServiceAccountNativeDetailsBaseForAws"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForCostCenterAws"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAwsEksCluster"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureSubscription"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureCspMaster"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureCspPartner"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureEaAccount"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForCostCenterAzure"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureAksCluster"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsBaseForGcp"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForOciTenancy"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForCostCenterOci"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForOciOkeCluster"
+                  }
+                ]
+              },
+              "op": "And"
+            },
+            "op": "And"
+          },
+          "billingSource": "raw_cost",
+          "granularity": "month",
+          "overrideQuery": true,
+          "overrideBillingSource": true,
+          "overrideGranularity": true,
+          "overrideTenants": false,
+          "overrideCloudProviders": false,
+          "overrideCloudAccounts": false,
+          "overrideCurrency": true,
+          "overrideTimeRange": true
+        },
+        "contextId": "6a80b23b-a9d7-3221-a4f0-33a441fe0e2f"
+      },
+      "outline": {
+        "left": 0,
+        "top": 0,
+        "width": 12,
+        "height": 3
+      }
+    },
+    {
+      "config": {
+        "__type": "CostSummaryWidgetConfigurationModel",
+        "id": "6a49fb39-9c5f-06f9-aeb6-f6e5ca5a70d1",
+        "size": 0,
+        "name": "Total Cloud Spend",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "6a80b23b-a9d7-3221-a4f0-33a441fe0e2f",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "America/Los_Angeles"
+          },
+          "overrideQuery": false
+        },
+        "summaryType": "Total"
+      },
+      "outline": {
+        "left": 0,
+        "top": 3,
+        "width": 4,
+        "height": 2
+      }
+    },
+    {
+      "config": {
+        "__type": "CostSummaryWidgetConfigurationModel",
+        "id": "1bf73a37-2f97-6745-7c23-f360d920097f",
+        "size": 0,
+        "name": "AWS Cloud Spend",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": false,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "6a80b23b-a9d7-3221-a4f0-33a441fe0e2f",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "America/Los_Angeles"
+          },
+          "query": {
+            "__type": "ServiceAccountNativeDetailsQueryOperator",
+            "native_details": [
+              {
+                "type": "ServiceAccountNativeDetailsBaseForAws"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForCostCenterAws"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAwsEksCluster"
+              }
+            ]
+          },
+          "overrideQuery": true
+        },
+        "summaryType": "Total"
+      },
+      "outline": {
+        "left": 4,
+        "top": 3,
+        "width": 2,
+        "height": 2
+      }
+    },
+    {
+      "config": {
+        "__type": "CostSummaryWidgetConfigurationModel",
+        "id": "28be6c65-06d2-3af2-3cac-42153463030f",
+        "size": 0,
+        "name": "Azure Cloud Spend",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": false,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "6a80b23b-a9d7-3221-a4f0-33a441fe0e2f",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "America/Los_Angeles"
+          },
+          "query": {
+            "__type": "ServiceAccountNativeDetailsQueryOperator",
+            "native_details": [
+              {
+                "type": "ServiceAccountNativeDetailsForAzureSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspPartner"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForCostCenterAzure"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureAksCluster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
+              }
+            ]
+          },
+          "overrideQuery": true
+        },
+        "summaryType": "Total"
+      },
+      "outline": {
+        "left": 6,
+        "top": 3,
+        "width": 2,
+        "height": 2
+      }
+    },
+    {
+      "config": {
+        "__type": "CostSummaryWidgetConfigurationModel",
+        "id": "bc0884f3-bd91-c01c-8b85-2d6edfb28f14",
+        "size": 0,
+        "name": "GCP Cloud Spend",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "6a80b23b-a9d7-3221-a4f0-33a441fe0e2f",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "America/Los_Angeles"
+          },
+          "query": {
+            "__type": "ServiceAccountNativeDetailsQueryOperator",
+            "native_details": [
+              {
+                "type": "ServiceAccountNativeDetailsBaseForGcp"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+              }
+            ]
+          },
+          "overrideQuery": true
+        },
+        "summaryType": "Total"
+      },
+      "outline": {
+        "left": 8,
+        "top": 3,
+        "width": 2,
+        "height": 2
+      }
+    },
+    {
+      "config": {
+        "__type": "CostSummaryWidgetConfigurationModel",
+        "id": "14d3ec96-91eb-3ea9-880e-063792a1de5c",
+        "size": 0,
+        "name": "Cloud Spend",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "6a80b23b-a9d7-3221-a4f0-33a441fe0e2f",
+        "context": {
+          "timeRange": {
+            "zoneCreated": "Asia/Calcutta",
+            "zone": "GMT"
+          },
+          "query": {
+            "__type": "ServiceAccountNativeDetailsQueryOperator",
+            "native_details": [
+              {
+                "type": "ServiceAccountNativeDetailsForOciTenancy"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForCostCenterOci"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForOciOkeCluster"
+              }
+            ]
+          },
+          "overrideQuery": true,
+          "overrideTimeRange": false
+        },
+        "summaryType": "Total"
+      },
+      "outline": {
+        "left": 10,
+        "top": 3,
+        "width": 2,
+        "height": 2
+      }
+    },
+    {
+      "config": {
+        "__type": "CostTrendWidgetConfiguration",
+        "id": "afef2be9-d6eb-b6df-a505-0a155b9006b6",
+        "size": 0,
+        "name": "Cost Trend",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "6a80b23b-a9d7-3221-a4f0-33a441fe0e2f",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "America/Los_Angeles"
+          },
+          "overrideQuery": false
+        },
+        "chartType": "StackedColumn",
+        "chartLimit": "None",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        },
+        "group_by_details": {
+          "selector": "service_account_id"
+        }
+      },
+      "outline": {
+        "left": 0,
+        "top": 5,
+        "width": 12,
+        "height": 14
+      }
+    }
+  ],
+  "filterScope": [],
+  "savedViews": []
+}

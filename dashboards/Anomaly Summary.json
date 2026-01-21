@@ -1,0 +1,543 @@
+{
+  "title": "Anomaly Summary",
+  "showTitle": false,
+  "widgetPrimaryColor": "#FFFFFF",
+  "widgetSecondaryColor": "#0076E1",
+  "flavor": "FinOps",
+  "bannerSegments": [
+    {
+      "widthRatio": 1,
+      "branding": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#0076E1",
+        "text": "Anomaly Summary",
+        "horizontalPlacement": "Center",
+        "verticalPlacement": "Middle"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "config": {
+        "__type": "FilterWidgetConfiguration",
+        "id": "a68f3a91-ac71-a4c7-845b-a4eec2ef6645",
+        "size": 0,
+        "name": "Filter",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "context": {
+          "currency": "USD",
+          "organizationCurrency": false,
+          "timeRange": {
+            "range": "Previous3Months",
+            "zoneCreated": "Asia/Calcutta",
+            "zone": "UTC"
+          },
+          "query": {
+            "__type": "QueryOperatorBinaryLogic",
+            "a": {
+              "__type": "TenantQueryOperator",
+              "tenant_ids": [
+                "wildcardTenantId"
+              ]
+            },
+            "b": {
+              "__type": "ServiceAccountStatusQueryOperator",
+              "statuses": [
+                "active"
+              ]
+            },
+            "op": "And"
+          },
+          "billingSource": "raw_cost",
+          "granularity": "day",
+          "overrideQuery": true,
+          "overrideBillingSource": true,
+          "overrideGranularity": true,
+          "overrideTenants": true,
+          "overrideCloudProviders": true,
+          "overrideCloudAccounts": true,
+          "overrideCurrency": true,
+          "overrideTimeRange": true
+        },
+        "contextId": "fc7f2618-9a12-0f8d-e958-5cd97e41eb7f"
+      },
+      "outline": {
+        "left": 0,
+        "top": 0,
+        "width": 12,
+        "height": 3
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "edc4b067-98f2-2a93-48b4-ea448f96cb43",
+        "size": 0,
+        "name": "Cost Anomaly Based on Resource Category",
+        "description": "The resource category dimension uses daily cost data for each resource category to identify and analyze cost spikes. This information is then rolled up to border categories, such as product category and cloud account, to provide comprehensive view of cost trends.",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "Collapsible",
+        "numCols": 6,
+        "numRows": 25,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "bb9a820a-b04f-1a7b-406e-46db68d2ef61",
+              "size": 0,
+              "name": "Total Cost Impact",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "fc7f2618-9a12-0f8d-e958-5cd97e41eb7f",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideCurrency": false
+              },
+              "summaryType": "TotalCostImpactByBilling"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 2,
+              "height": 3
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "c9f94a0d-9c2f-6347-2d30-4413cf2dca35",
+              "size": 0,
+              "name": "Total Cloud Spend",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "fc7f2618-9a12-0f8d-e958-5cd97e41eb7f",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "granularity": "month",
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideGranularity": true,
+                "overrideCurrency": false
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 2,
+              "top": 0,
+              "width": 2,
+              "height": 3
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "d5307eb4-8498-0203-ff5d-fea84699d30a",
+              "size": 0,
+              "name": "Total Anomalies",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "fc7f2618-9a12-0f8d-e958-5cd97e41eb7f",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideCurrency": false
+              },
+              "summaryType": "TotalAnomaliesByBilling"
+            },
+            "outline": {
+              "left": 4,
+              "top": 0,
+              "width": 2,
+              "height": 3
+            }
+          },
+          {
+            "config": {
+              "__type": "CostTrendByCloudWidgetConfiguration",
+              "id": "2f4711f5-fa10-7b55-c07e-e0427e608885",
+              "size": 0,
+              "name": "Cost Trend By Cloud Provider",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "fc7f2618-9a12-0f8d-e958-5cd97e41eb7f",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideCurrency": false
+              },
+              "hideWidgetFiltering": true,
+              "chartType": "Line",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "granularity": "month"
+            },
+            "outline": {
+              "left": 0,
+              "top": 3,
+              "width": 6,
+              "height": 8
+            }
+          },
+          {
+            "config": {
+              "__type": "CostAnomalyImpactByBillingWidgetConfiguration",
+              "id": "3ddceae1-5f40-151b-1585-2d8c457e08cf",
+              "size": 0,
+              "name": "Cost Anomaly Impact",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "fc7f2618-9a12-0f8d-e958-5cd97e41eb7f",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideCurrency": false
+              },
+              "navigationDescriptors": [
+                {}
+              ],
+              "hideWidgetFiltering": true,
+              "chartType": "Line",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "categoryType": "CloudProvider"
+            },
+            "outline": {
+              "left": 0,
+              "top": 11,
+              "width": 6,
+              "height": 8
+            }
+          },
+          {
+            "config": {
+              "__type": "CostAnomalyImpactByBillingWidgetConfiguration",
+              "id": "4f997420-4501-d77b-3d10-d7541637b933",
+              "size": 0,
+              "name": "Cost Impact By Cloud Account",
+              "description": "Anomalies are detected at resource category level for each cloud account and then cost impacts are rolled up to the cloud accounts to understand which cloud accounts have the most cost impact.",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "fc7f2618-9a12-0f8d-e958-5cd97e41eb7f",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideCurrency": false
+              },
+              "navigationDescriptors": [
+                {}
+              ],
+              "hideWidgetFiltering": true,
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": false
+              },
+              "categoryType": "CloudAccount"
+            },
+            "outline": {
+              "left": 0,
+              "top": 19,
+              "width": 2,
+              "height": 6
+            }
+          },
+          {
+            "config": {
+              "__type": "CostAnomalyImpactByBillingWidgetConfiguration",
+              "id": "c0945fa8-142e-ccdd-11b4-98fa348180d2",
+              "size": 0,
+              "name": "Cost Impact Product Category",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "fc7f2618-9a12-0f8d-e958-5cd97e41eb7f",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideCurrency": false
+              },
+              "navigationDescriptors": [
+                {}
+              ],
+              "hideWidgetFiltering": true,
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": false
+              },
+              "categoryType": "ProductCategory"
+            },
+            "outline": {
+              "left": 2,
+              "top": 19,
+              "width": 2,
+              "height": 6
+            }
+          },
+          {
+            "config": {
+              "__type": "CostAnomalyImpactByBillingWidgetConfiguration",
+              "id": "d3123f50-8ba2-92ca-a611-6a70c755055e",
+              "size": 0,
+              "name": "Cost Impact By Resource Category",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "fc7f2618-9a12-0f8d-e958-5cd97e41eb7f",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideCurrency": false
+              },
+              "navigationDescriptors": [
+                {}
+              ],
+              "hideWidgetFiltering": true,
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": false
+              },
+              "categoryType": "ResourceCategory"
+            },
+            "outline": {
+              "left": 4,
+              "top": 19,
+              "width": 2,
+              "height": 6
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 3,
+        "width": 12,
+        "height": 26
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "2b33db2a-d032-dcfb-e085-7e5689737382",
+        "size": 0,
+        "name": "Cloud account dimension",
+        "description": "Cloud account dimension uses daily data for each cloud account to identify and analyze the cost spikes.",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "Collapsible",
+        "numCols": 6,
+        "numRows": 11,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "8d023148-b891-67a8-ead1-b90d73ebb7bf",
+              "size": 0,
+              "name": "Total Cost Impact",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "fc7f2618-9a12-0f8d-e958-5cd97e41eb7f",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideCurrency": false
+              },
+              "summaryType": "TotalCostImpactByCloudAccount"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 2,
+              "height": 3
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "da373f37-1fe0-85c4-ecd3-d132611d7077",
+              "size": 0,
+              "name": "Total Cost Spend",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "fc7f2618-9a12-0f8d-e958-5cd97e41eb7f",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "granularity": "month",
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideGranularity": true,
+                "overrideCurrency": false
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 2,
+              "top": 0,
+              "width": 2,
+              "height": 3
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "e2fae1c7-2cb7-ca62-759e-9be9afe51a9f",
+              "size": 0,
+              "name": "Total Anomalies",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "fc7f2618-9a12-0f8d-e958-5cd97e41eb7f",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideCurrency": false
+              },
+              "summaryType": "TotalAnomaliesByCloudAccount"
+            },
+            "outline": {
+              "left": 4,
+              "top": 0,
+              "width": 2,
+              "height": 3
+            }
+          },
+          {
+            "config": {
+              "__type": "CostAnomalyImpactByCloudAccountWidgetConfiguration",
+              "id": "8ba37f7d-9888-2468-903c-835062425b35",
+              "size": 0,
+              "name": "Cost Anomaly based on Cloud Accounts",
+              "description": "Costs are monitored at the cloud account scope and any anomalies detected are surfaced here.",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "fc7f2618-9a12-0f8d-e958-5cd97e41eb7f",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false,
+                "overrideBillingSource": false,
+                "overrideCurrency": false
+              },
+              "navigationDescriptors": [
+                {}
+              ],
+              "hideWidgetFiltering": true,
+              "chartType": "Bar",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": false
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 3,
+              "width": 6,
+              "height": 8
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 29,
+        "width": 12,
+        "height": 11
+      }
+    }
+  ],
+  "filterScope": [
+    {
+      "visible": true,
+      "condition": {
+        "__type": "BillingSourceQueryOperator",
+        "billing_sources": [
+          "raw_cost"
+        ]
+      }
+    }
+  ]
+}

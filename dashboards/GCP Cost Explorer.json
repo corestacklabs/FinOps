@@ -1,0 +1,1211 @@
+{
+  "title": "GCP Cost Explorer",
+  "showTitle": false,
+  "widgetPrimaryColor": "#FFFFFF",
+  "widgetSecondaryColor": "#0076E1",
+  "flavor": "FinOps",
+  "cloud": "GCP",
+  "bannerSegments": [
+    {
+      "widthRatio": 1,
+      "branding": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#0076E1",
+        "text": "GCP Cost Explorer",
+        "horizontalPlacement": "Center",
+        "verticalPlacement": "Middle"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "config": {
+        "__type": "FilterWidgetConfiguration",
+        "id": "8ed123d2-24ce-a334-a472-8e1d4410300b",
+        "size": 0,
+        "name": "Parameters",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "context": {
+          "currency": "USD",
+          "organizationCurrency": false,
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta",
+            "zone": "GMT"
+          },
+          "query": {
+            "__type": "QueryOperatorBinaryLogic",
+            "a": {
+              "__type": "ServiceAccountStatusQueryOperator",
+              "statuses": [
+                "active"
+              ]
+            },
+            "b": {
+              "__type": "QueryOperatorBinaryLogic",
+              "a": {
+                "__type": "TenantQueryOperator",
+                "tenant_ids": [
+                  "wildcardTenantId"
+                ]
+              },
+              "b": {
+                "__type": "ServiceAccountNativeDetailsQueryOperator",
+                "native_details": [
+                  {
+                    "type": "ServiceAccountNativeDetailsBaseForGcp"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                  },
+                  {
+                    "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                  }
+                ]
+              },
+              "op": "And"
+            },
+            "op": "And"
+          },
+          "billingSource": "raw_cost",
+          "granularity": "month",
+          "overrideQuery": true,
+          "overrideBillingSource": true,
+          "overrideGranularity": true,
+          "overrideTenants": false,
+          "overrideCloudProviders": false,
+          "overrideCloudAccounts": false,
+          "overrideCurrency": true,
+          "overrideTimeRange": true
+        },
+        "contextId": "5a121798-7d57-0fd2-5a2b-0b096bd0b016"
+      },
+      "outline": {
+        "left": 0,
+        "top": 0,
+        "width": 12,
+        "height": 4
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "e70f22c7-52d3-4077-0269-8af7c5c2a7d5",
+        "size": 0,
+        "name": "GCP Cost Summary",
+        "description": "Provides summary of costs for GCP cloud accounts across various dimensions.",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "Collapsible",
+        "numCols": 8,
+        "numRows": 2,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "a445eec3-ba3f-f8fb-24ab-9bb0b200b463",
+              "size": 0,
+              "name": "GCP Cloud Spend",
+              "description": "Provides the total cloud spend on GCP based on global parameters selected.",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5a121798-7d57-0fd2-5a2b-0b096bd0b016",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "6c46bfd9-3f70-e2c1-2b66-8e267f73ede7",
+              "size": 0,
+              "name": "Average Cost Per Day",
+              "description": "Provides the average cloud spend per day on GCP based on global parameters selected.",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5a121798-7d57-0fd2-5a2b-0b096bd0b016",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "AverageCostPerPeriod"
+            },
+            "outline": {
+              "left": 2,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "695aaab7-b700-243e-6952-9588ddf79cde",
+              "size": 0,
+              "name": "Max Cost Incurred Period",
+              "description": "Provides the Maximum cloud spend per granularity period on GCP based on global parameters selected.\n",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5a121798-7d57-0fd2-5a2b-0b096bd0b016",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "MaxPerPeriod"
+            },
+            "outline": {
+              "left": 4,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "2d114087-e373-fa10-f563-3305714a8b2e",
+              "size": 0,
+              "name": "Min Cost Incurred Date",
+              "description": "Provides the Minimum cloud spend per granularity period ( Day, month, year) on GCP based on global parameters selected.\n",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5a121798-7d57-0fd2-5a2b-0b096bd0b016",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "MinPerPeriod"
+            },
+            "outline": {
+              "left": 6,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "e705451f-f872-fd53-68cb-cd9240bf299a",
+              "size": 0,
+              "name": "Top Tenant by Spend",
+              "description": "Provides the Top Tenant and related spend filtered by the parameters selected.",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5a121798-7d57-0fd2-5a2b-0b096bd0b016",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "TopGroupBy",
+              "groupByDetails": {
+                "selector": "tenant_id"
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 1,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "a1a0289b-5c92-df43-79db-de9362486dee",
+              "size": 0,
+              "name": "Top Region by Spend",
+              "description": "Provides the Top Region and related spend filtered by the parameters selected.",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5a121798-7d57-0fd2-5a2b-0b096bd0b016",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "TopGroupBy",
+              "groupByDetails": {
+                "selector": "location"
+              }
+            },
+            "outline": {
+              "left": 2,
+              "top": 1,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "f5197055-17fc-c590-e55c-ba25a5989ee0",
+              "size": 0,
+              "name": "Top Service",
+              "description": "Provides the Top Service and related spend filtered by the parameters selected.",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5a121798-7d57-0fd2-5a2b-0b096bd0b016",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "TopGroupBy",
+              "groupByDetails": {
+                "selector": "product_category"
+              }
+            },
+            "outline": {
+              "left": 4,
+              "top": 1,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "a22365f3-28a7-4212-a79f-778fce6a027e",
+              "size": 0,
+              "name": "Top GCP Project",
+              "description": "Provides the Top GCP Project and related spend filtered by the parameters selected.",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5a121798-7d57-0fd2-5a2b-0b096bd0b016",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "TopGroupBy",
+              "group_by_account_type": {
+                "type": "ServiceAccountNativeDetailsForGcpProject"
+              }
+            },
+            "outline": {
+              "left": 6,
+              "top": 1,
+              "width": 2,
+              "height": 1
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 4,
+        "width": 12,
+        "height": 5
+      }
+    },
+    {
+      "config": {
+        "__type": "CostTrendWidgetConfiguration",
+        "id": "44fa1bb7-106d-8878-6351-f00816d8da18",
+        "size": 0,
+        "name": "GCP Cost Trend",
+        "description": "This provides GCP cost trend by granularity selected in the global parameters. Allows to group by various dimensions to get insights and allows drill down for analysis. Allows forecasting cost trend across various dimensions for up to 12 months or 14 days based on granularity. Select \"To Now\" presets in time range for Forecasting to be enabled.",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "5a121798-7d57-0fd2-5a2b-0b096bd0b016",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta"
+          },
+          "query": {
+            "__type": "ServiceAccountNativeDetailsQueryOperator",
+            "native_details": [
+              {
+                "type": "ServiceAccountNativeDetailsBaseForGcp"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+              }
+            ]
+          },
+          "overrideQuery": false
+        },
+        "chartType": "StackedColumn",
+        "chartLimit": "None",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        }
+      },
+      "outline": {
+        "left": 0,
+        "top": 9,
+        "width": 12,
+        "height": 8
+      }
+    },
+    {
+      "config": {
+        "__type": "CostVariationWidgetConfiguration",
+        "id": "528336a4-339d-c87a-b7a4-8f059a78d90f",
+        "size": 0,
+        "name": "GCP Cost Variation",
+        "description": "Provides variation of cost based on previous period. Period is based on the granularity selected. Ex: If granularity is monthly, each record shows the cost difference/variation from the previous month. This provides an easy way to understand increase or decrease in cloud spend and analyze changes very rapidly.",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "5a121798-7d57-0fd2-5a2b-0b096bd0b016",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta"
+          },
+          "query": {
+            "__type": "ServiceAccountNativeDetailsQueryOperator",
+            "native_details": [
+              {
+                "type": "ServiceAccountNativeDetailsBaseForGcp"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+              }
+            ]
+          },
+          "overrideQuery": false
+        },
+        "chartType": "StackedColumn",
+        "chartLimit": "None",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        }
+      },
+      "outline": {
+        "left": 0,
+        "top": 17,
+        "width": 12,
+        "height": 8
+      }
+    }
+  ],
+  "filterScope": [
+    {
+      "visible": true,
+      "condition": {
+        "__type": "ServiceAccountNativeDetailsQueryOperator",
+        "native_details": [
+          {
+            "type": "ServiceAccountNativeDetailsBaseForGcp"
+          },
+          {
+            "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+          },
+          {
+            "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+          },
+          {
+            "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+          },
+          {
+            "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+          }
+        ]
+      }
+    }
+  ],
+  "savedViews": [
+    {
+      "name": "GCP-Cost-Daily-QTN",
+      "view": {
+        "__type": "DashboardViewState",
+        "widgets": [
+          {
+            "id": "8ed123d2-24ce-a334-a472-8e1d4410300b",
+            "__type": "FilterWidgetViewState",
+            "context": {
+              "currency": "USD",
+              "organizationCurrency": false,
+              "timeRange": {
+                "range": "Quarter",
+                "zoneCreated": "Asia/Calcutta",
+                "zone": "GMT"
+              },
+              "query": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "TenantQueryOperator",
+                  "tenant_ids": ["67c6bb81424280e760f90a3a"
+                  ]
+                },
+                "b": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "op": "And"
+              },
+              "billingSource": "raw_cost",
+              "granularity": "month",
+              "overrideQuery": true,
+              "overrideBillingSource": true,
+              "overrideGranularity": true,
+              "overrideTenants": false,
+              "overrideCloudProviders": false,
+              "overrideCloudAccounts": false,
+              "overrideCurrency": true,
+              "overrideTimeRange": true
+            }
+          },
+          {
+            "id": "44fa1bb7-106d-8878-6351-f00816d8da18",
+            "__type": "ChartWidgetViewState",
+            "groupBy": [],
+            "viewAs": "StackedColumn",
+            "limit": "None",
+            "tableLimit": 5
+          },
+          {
+            "id": "528336a4-339d-c87a-b7a4-8f059a78d90f",
+            "__type": "ChartWidgetViewState",
+            "groupBy": [],
+            "viewAs": "StackedColumn",
+            "limit": "None",
+            "tableLimit": 5
+          }
+        ]
+      }
+    },
+    {
+      "name": "GCP Cost Daily by Project",
+      "view": {
+        "__type": "DashboardViewState",
+        "widgets": [
+          {
+            "id": "8ed123d2-24ce-a334-a472-8e1d4410300b",
+            "__type": "FilterWidgetViewState",
+            "context": {
+              "currency": "USD",
+              "organizationCurrency": false,
+              "timeRange": {
+                "range": "Quarter",
+                "zoneCreated": "Asia/Calcutta",
+                "zone": "GMT"
+              },
+              "query": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "TenantQueryOperator",
+                  "tenant_ids": ["67c6bb81424280e760f90a3a"
+                  ]
+                },
+                "b": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "op": "And"
+              },
+              "billingSource": "raw_cost",
+              "granularity": "day",
+              "overrideQuery": true,
+              "overrideBillingSource": true,
+              "overrideGranularity": true,
+              "overrideTenants": false,
+              "overrideCloudProviders": false,
+              "overrideCloudAccounts": false,
+              "overrideCurrency": true,
+              "overrideTimeRange": true
+            }
+          },
+          {
+            "id": "44fa1bb7-106d-8878-6351-f00816d8da18",
+            "__type": "ChartWidgetViewState",
+            "groupBy": [
+              "service_account_id"
+            ],
+            "viewAs": "StackedColumn",
+            "limit": "None",
+            "tableLimit": 5
+          },
+          {
+            "id": "528336a4-339d-c87a-b7a4-8f059a78d90f",
+            "__type": "ChartWidgetViewState",
+            "groupBy": [
+              "service_account_id"
+            ],
+            "viewAs": "StackedColumn",
+            "limit": "None",
+            "tableLimit": 5
+          }
+        ]
+      }
+    },
+    {
+      "name": "GCP Cost Daily By Service",
+      "view": {
+        "__type": "DashboardViewState",
+        "widgets": [
+          {
+            "id": "8ed123d2-24ce-a334-a472-8e1d4410300b",
+            "__type": "FilterWidgetViewState",
+            "context": {
+              "currency": "USD",
+              "organizationCurrency": false,
+              "timeRange": {
+                "range": "Quarter",
+                "zoneCreated": "Asia/Calcutta",
+                "zone": "GMT"
+              },
+              "query": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "TenantQueryOperator",
+                  "tenant_ids": ["67c6bb81424280e760f90a3a"
+                  ]
+                },
+                "b": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "op": "And"
+              },
+              "billingSource": "raw_cost",
+              "granularity": "day",
+              "overrideQuery": true,
+              "overrideBillingSource": true,
+              "overrideGranularity": true,
+              "overrideTenants": false,
+              "overrideCloudProviders": false,
+              "overrideCloudAccounts": false,
+              "overrideCurrency": true,
+              "overrideTimeRange": true
+            }
+          },
+          {
+            "id": "44fa1bb7-106d-8878-6351-f00816d8da18",
+            "__type": "ChartWidgetViewState",
+            "groupBy": [
+              "product_category"
+            ],
+            "viewAs": "StackedColumn",
+            "limit": "None",
+            "tableLimit": 5
+          },
+          {
+            "id": "528336a4-339d-c87a-b7a4-8f059a78d90f",
+            "__type": "ChartWidgetViewState",
+            "groupBy": [
+              "product_category"
+            ],
+            "viewAs": "StackedColumn",
+            "limit": "None",
+            "tableLimit": 5
+          }
+        ]
+      }
+    },
+    {
+      "name": "GCP Cost Monthly by Service",
+      "view": {
+        "__type": "DashboardViewState",
+        "widgets": [
+          {
+            "id": "8ed123d2-24ce-a334-a472-8e1d4410300b",
+            "__type": "FilterWidgetViewState",
+            "context": {
+              "currency": "USD",
+              "organizationCurrency": false,
+              "timeRange": {
+                "range": "Quarter",
+                "zoneCreated": "Asia/Calcutta",
+                "zone": "GMT"
+              },
+              "query": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "TenantQueryOperator",
+                  "tenant_ids": ["67c6bb81424280e760f90a3a"
+                  ]
+                },
+                "b": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "op": "And"
+              },
+              "billingSource": "raw_cost",
+              "granularity": "month",
+              "overrideQuery": true,
+              "overrideBillingSource": true,
+              "overrideGranularity": true,
+              "overrideTenants": false,
+              "overrideCloudProviders": false,
+              "overrideCloudAccounts": false,
+              "overrideCurrency": true,
+              "overrideTimeRange": true
+            }
+          },
+          {
+            "id": "44fa1bb7-106d-8878-6351-f00816d8da18",
+            "__type": "ChartWidgetViewState",
+            "groupBy": [
+              "product_category"
+            ],
+            "viewAs": "StackedColumn",
+            "limit": "None",
+            "tableLimit": 5
+          },
+          {
+            "id": "528336a4-339d-c87a-b7a4-8f059a78d90f",
+            "__type": "ChartWidgetViewState",
+            "groupBy": [
+              "product_category"
+            ],
+            "viewAs": "StackedColumn",
+            "limit": "None",
+            "tableLimit": 5
+          }
+        ]
+      }
+    },
+    {
+      "name": "GCP Cost Monthly by Project",
+      "view": {
+        "__type": "DashboardViewState",
+        "widgets": [
+          {
+            "id": "8ed123d2-24ce-a334-a472-8e1d4410300b",
+            "__type": "FilterWidgetViewState",
+            "context": {
+              "currency": "USD",
+              "organizationCurrency": false,
+              "timeRange": {
+                "range": "Quarter",
+                "zoneCreated": "Asia/Calcutta",
+                "zone": "GMT"
+              },
+              "query": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "TenantQueryOperator",
+                  "tenant_ids": ["67c6bb81424280e760f90a3a"
+                  ]
+                },
+                "b": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "op": "And"
+              },
+              "billingSource": "raw_cost",
+              "granularity": "month",
+              "overrideQuery": true,
+              "overrideBillingSource": true,
+              "overrideGranularity": true,
+              "overrideTenants": false,
+              "overrideCloudProviders": false,
+              "overrideCloudAccounts": false,
+              "overrideCurrency": true,
+              "overrideTimeRange": true
+            }
+          },
+          {
+            "id": "44fa1bb7-106d-8878-6351-f00816d8da18",
+            "__type": "ChartWidgetViewState",
+            "groupBy": [
+              "service_account_id"
+            ],
+            "viewAs": "StackedColumn",
+            "limit": "None",
+            "tableLimit": 5
+          },
+          {
+            "id": "528336a4-339d-c87a-b7a4-8f059a78d90f",
+            "__type": "ChartWidgetViewState",
+            "groupBy": [
+              "service_account_id"
+            ],
+            "viewAs": "StackedColumn",
+            "limit": "None",
+            "tableLimit": 5
+          }
+        ]
+      }
+    },
+    {
+      "name": "GCP Cost Daily by Region",
+      "view": {
+        "__type": "DashboardViewState",
+        "widgets": [
+          {
+            "id": "8ed123d2-24ce-a334-a472-8e1d4410300b",
+            "__type": "FilterWidgetViewState",
+            "context": {
+              "currency": "USD",
+              "organizationCurrency": false,
+              "timeRange": {
+                "range": "Quarter",
+                "zoneCreated": "Asia/Calcutta",
+                "zone": "GMT"
+              },
+              "query": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "TenantQueryOperator",
+                  "tenant_ids": ["67c6bb81424280e760f90a3a"
+                  ]
+                },
+                "b": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "op": "And"
+              },
+              "billingSource": "raw_cost",
+              "granularity": "day",
+              "overrideQuery": true,
+              "overrideBillingSource": true,
+              "overrideGranularity": true,
+              "overrideTenants": false,
+              "overrideCloudProviders": false,
+              "overrideCloudAccounts": false,
+              "overrideCurrency": true,
+              "overrideTimeRange": true
+            }
+          },
+          {
+            "id": "44fa1bb7-106d-8878-6351-f00816d8da18",
+            "__type": "ChartWidgetViewState",
+            "groupBy": [
+              "location"
+            ],
+            "viewAs": "StackedColumn",
+            "limit": "None",
+            "tableLimit": 5
+          },
+          {
+            "id": "528336a4-339d-c87a-b7a4-8f059a78d90f",
+            "__type": "ChartWidgetViewState",
+            "groupBy": [
+              "location"
+            ],
+            "viewAs": "StackedColumn",
+            "limit": "None",
+            "tableLimit": 5
+          }
+        ]
+      }
+    },
+    {
+      "name": "GCP Cost Monthly by Region",
+      "view": {
+        "__type": "DashboardViewState",
+        "widgets": [
+          {
+            "id": "8ed123d2-24ce-a334-a472-8e1d4410300b",
+            "__type": "FilterWidgetViewState",
+            "context": {
+              "currency": "USD",
+              "organizationCurrency": false,
+              "timeRange": {
+                "range": "Quarter",
+                "zoneCreated": "Asia/Calcutta",
+                "zone": "GMT"
+              },
+              "query": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "TenantQueryOperator",
+                  "tenant_ids": ["67c6bb81424280e760f90a3a"
+                  ]
+                },
+                "b": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "op": "And"
+              },
+              "billingSource": "raw_cost",
+              "granularity": "month",
+              "overrideQuery": true,
+              "overrideBillingSource": true,
+              "overrideGranularity": true,
+              "overrideTenants": false,
+              "overrideCloudProviders": false,
+              "overrideCloudAccounts": false,
+              "overrideCurrency": true,
+              "overrideTimeRange": true
+            }
+          },
+          {
+            "id": "44fa1bb7-106d-8878-6351-f00816d8da18",
+            "__type": "ChartWidgetViewState",
+            "groupBy": [
+              "location"
+            ],
+            "viewAs": "StackedColumn",
+            "limit": "None",
+            "tableLimit": 5
+          },
+          {
+            "id": "528336a4-339d-c87a-b7a4-8f059a78d90f",
+            "__type": "ChartWidgetViewState",
+            "groupBy": [
+              "location"
+            ],
+            "viewAs": "StackedColumn",
+            "limit": "None",
+            "tableLimit": 5
+          }
+        ]
+      }
+    }
+  ]
+}

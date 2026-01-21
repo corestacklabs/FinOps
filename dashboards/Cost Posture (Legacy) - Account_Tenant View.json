@@ -1,0 +1,385 @@
+{
+  "title": "Cost Posture (Legacy) - Account/Tenant View",
+  "showTitle": false,
+  "widgetPrimaryColor": "#FFFFFF",
+  "widgetSecondaryColor": "#0076E1",
+  "flavor": "FinOps",
+  "bannerSegments": [
+    {
+      "widthRatio": 1,
+      "branding": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#0076E1",
+        "text": "Cost Posture (Legacy) - Account/Tenant View updated",
+        "horizontalPlacement": "Center",
+        "verticalPlacement": "Middle"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "config": {
+        "__type": "FilterWidgetConfiguration",
+        "id": "f0423c48-56c3-fe84-7a93-253209c98795",
+        "size": 0,
+        "name": "Parameters",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "context": {
+          "currency": "USD",
+          "organizationCurrency": false,
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta",
+            "zone": "UTC"
+          },
+          "query": {
+            "__type": "QueryOperatorBinaryLogic",
+            "a": {
+              "__type": "TenantQueryOperator",
+              "tenant_ids": [
+                "wildcardTenantId"
+              ]
+            },
+            "b": {
+              "__type": "ServiceAccountStatusQueryOperator",
+              "statuses": [
+                "active"
+              ]
+            },
+            "op": "And"
+          },
+          "billingSource": "raw_cost",
+          "granularity": "month",
+          "overrideQuery": true,
+          "overrideBillingSource": true,
+          "overrideGranularity": true,
+          "overrideTenants": false,
+          "overrideCloudProviders": false,
+          "overrideCloudAccounts": false,
+          "overrideCurrency": true,
+          "overrideTimeRange": true
+        },
+        "contextId": "80f1b0ea-9f44-56ee-4e44-3053f40fe66a"
+      },
+      "outline": {
+        "left": 0,
+        "top": 0,
+        "width": 12,
+        "height": 3
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "141b4bed-3677-cbea-51d0-4cd9d2aec4e2",
+        "size": 0,
+        "name": "Cost Summary",
+        "description": "Provides summary of costs for cloud accounts across various dimensions",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "Collapsible",
+        "numCols": 40,
+        "numRows": 1,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "49555d6c-69ad-465b-c056-0f0382715da1",
+              "size": 0,
+              "name": "Total Cloud Spend",
+              "description": "Provides total cloud spend based on global parameters selected",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "80f1b0ea-9f44-56ee-4e44-3053f40fe66a",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 8,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "17f7135f-0e39-445e-8a09-03ef1a594f8f",
+              "size": 0,
+              "name": "Total AWS Spend",
+              "description": "Provides total cloud spend on AWS based on global parameters selected",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "80f1b0ea-9f44-56ee-4e44-3053f40fe66a",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterAws"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAwsEksCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": true
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 8,
+              "top": 0,
+              "width": 8,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "780e55e9-9188-0329-00e2-69150957cad5",
+              "size": 0,
+              "name": "Total Azure Spend",
+              "description": "Provides total cloud spend on Azure based on global parameters selected",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "80f1b0ea-9f44-56ee-4e44-3053f40fe66a",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureSubscription"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspMaster"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspPartner"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureEaAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterAzure"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureAksCluster"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
+                    }
+                  ]
+                },
+                "overrideQuery": true
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 16,
+              "top": 0,
+              "width": 8,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "bd9f9f44-69f1-0fe7-4881-fa4db6af4f75",
+              "size": 0,
+              "name": "Total GCP Spend",
+              "description": "Provides total cloud spend on GCP based on global parameters selected",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "80f1b0ea-9f44-56ee-4e44-3053f40fe66a",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": true
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 24,
+              "top": 0,
+              "width": 8,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "fcd3ec76-1622-094c-cc81-213f7056a201",
+              "size": 0,
+              "name": "Total OCI Spend",
+              "description": "Provides total cloud spend on OCI based on global parameters selected",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "80f1b0ea-9f44-56ee-4e44-3053f40fe66a",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsForOciTenancy"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterOci"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForOciOkeCluster"
+                    }
+                  ]
+                },
+                "overrideQuery": true
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 32,
+              "top": 0,
+              "width": 8,
+              "height": 1
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 3,
+        "width": 12,
+        "height": 3
+      }
+    },
+    {
+      "config": {
+        "__type": "CostTrendWidgetConfiguration",
+        "id": "c615901f-b3db-99a7-3257-38d93ad60a94",
+        "size": 0,
+        "name": "Cost Trend",
+        "description": "Provides the cloud spend by Cloud/Account/Tenant view and drilldown across various dimensions",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "80f1b0ea-9f44-56ee-4e44-3053f40fe66a",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta"
+          },
+          "overrideQuery": false
+        },
+        "chartType": "Datatable",
+        "chartLimit": "None",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        },
+        "group_by_details": {
+          "selector": "service_name"
+        },
+        "group_by_tag_status": false,
+        "group_by_tag_keys": false
+      },
+      "outline": {
+        "left": 0,
+        "top": 6,
+        "width": 12,
+        "height": 13
+      }
+    }
+  ],
+  "filterScope": []
+}

@@ -1,0 +1,406 @@
+{
+  "title": "Cost Optimization Dashboard",
+  "description": "Cost Optimizer dashboard will highlight all usage optimizations with filters and different visualizations for added insight.",
+  "showTitle": false,
+  "widgetPrimaryColor": "#FFFFFF",
+  "widgetSecondaryColor": "#0076E1",
+  "bannerSegments": [
+    {
+      "widthRatio": 1,
+      "branding": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#0076E1",
+        "text": "Cost Optimization Dashboard",
+        "horizontalPlacement": "Center",
+        "verticalPlacement": "Middle"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "config": {
+        "__type": "FilterWidgetConfiguration",
+        "id": "0d58e980-5386-4c5f-8d6b-d5dffab102a5",
+        "size": 0,
+        "name": "Filter",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "Hide",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta",
+            "zone": "GMT"
+          },
+          "query": {
+            "__type": "TenantQueryOperator",
+            "tenant_ids": [
+              "wildcardTenantId"
+            ]
+          },
+          "overrideQuery": true,
+          "overrideBillingSource": false,
+          "overrideTenants": true,
+          "overrideCloudProviders": true,
+          "overrideCloudAccounts": true,
+          "overrideCurrency": true,
+          "overrideTimeRange": false
+        },
+        "contextId": "e666b1da-40ef-9bef-fb25-410eee5ec45c"
+      },
+      "outline": {
+        "left": 0,
+        "top": 0,
+        "width": 12,
+        "height": 3
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "383cba3a-76a3-0ffc-bda3-b354542169a3",
+        "size": 0,
+        "name": "Grouping",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "AutoHide",
+        "numCols": 8,
+        "numRows": 1,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "fd79557f-8e4e-d2a2-9719-8de5e3adf4d1",
+              "size": 0,
+              "name": "Potential Savings (Monthly)",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "e666b1da-40ef-9bef-fb25-410eee5ec45c",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "CostOptimizationPotentialSavings"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "f743a177-5514-29dc-8757-394a64fcf138",
+              "size": 0,
+              "name": "Total Impacted Resources",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "e666b1da-40ef-9bef-fb25-410eee5ec45c",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "CostOptimizationImpactedResources"
+            },
+            "outline": {
+              "left": 2,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "527fcdbe-a237-a765-c97d-4ea600072e2f",
+              "size": 0,
+              "name": "Cloud Accounts",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "e666b1da-40ef-9bef-fb25-410eee5ec45c",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "CostOptimizationCloudAccounts"
+            },
+            "outline": {
+              "left": 4,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "d7beab1c-bd96-f0d9-2f88-b092dcbcdf29",
+              "size": 0,
+              "name": "Regions",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "e666b1da-40ef-9bef-fb25-410eee5ec45c",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "CostOptimizationRegions"
+            },
+            "outline": {
+              "left": 6,
+              "top": 0,
+              "width": 2,
+              "height": 1
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 3,
+        "width": 12,
+        "height": 2
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "e1079f1a-7b69-9055-a6d7-e7e3fc26f1c0",
+        "size": 0,
+        "name": "Top Cost Optimizations",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "Collapsible",
+        "numCols": 4,
+        "numRows": 4,
+        "widgets": [
+          {
+            "config": {
+              "__type": "TopCostOptimizationWidgetConfiguration",
+              "id": "623b4207-ab57-c67d-ca55-2bace1f2af71",
+              "size": 0,
+              "name": "Top Product Category for Cost Optimization",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "e666b1da-40ef-9bef-fb25-410eee5ec45c",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "optimizationSelection": "ProductCategory"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 2,
+              "height": 4
+            }
+          },
+          {
+            "config": {
+              "__type": "TopCostOptimizationWidgetConfiguration",
+              "id": "297db526-e9f6-8bc5-b448-4fad309330c2",
+              "size": 0,
+              "name": "Top Region for Cost Optimization",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "e666b1da-40ef-9bef-fb25-410eee5ec45c",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "optimizationSelection": "Region"
+            },
+            "outline": {
+              "left": 2,
+              "top": 0,
+              "width": 2,
+              "height": 4
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 5,
+        "width": 12,
+        "height": 6
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "a2127dd1-fd9c-c7dd-030d-383e51b20a00",
+        "size": 0,
+        "name": "Potential Savings",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "Collapsible",
+        "numCols": 18,
+        "numRows": 18,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostOptimizationByOptimizationTypeWidgetConfiguration",
+              "id": "500bb032-3b9d-5909-be20-7702c9a38e8c",
+              "size": 0,
+              "name": "Cost Optimization by Usage",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "e666b1da-40ef-9bef-fb25-410eee5ec45c",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "chartType": "Column",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": false
+              },
+              "optimizationType": "Usage"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 18,
+              "height": 5
+            }
+          },
+          {
+            "config": {
+              "__type": "CostOptimizationByOptimizationTypeWidgetConfiguration",
+              "id": "d55f02e6-c86d-82cd-6c0a-9e2cc146bfe3",
+              "size": 0,
+              "name": "Potential Savings by Region",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "Collapsible",
+              "contextSelector": "e666b1da-40ef-9bef-fb25-410eee5ec45c",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "navigationDescriptors": [
+                {}
+              ],
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "optimizationType": "Region"
+            },
+            "outline": {
+              "left": 0,
+              "top": 5,
+              "width": 18,
+              "height": 7
+            }
+          },
+          {
+            "config": {
+              "__type": "CostOptimizationByOptimizationTypeWidgetConfiguration",
+              "id": "f79ccba6-e614-1436-63d0-9bd593efd8b5",
+              "size": 0,
+              "name": "Potential Savings by Resource Type",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "e666b1da-40ef-9bef-fb25-410eee5ec45c",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": false
+              },
+              "optimizationType": "ResourceType"
+            },
+            "outline": {
+              "left": 0,
+              "top": 12,
+              "width": 18,
+              "height": 6
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 11,
+        "width": 12,
+        "height": 25
+      }
+    }
+  ],
+  "filterScope": []
+}
