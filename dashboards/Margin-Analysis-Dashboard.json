@@ -1,0 +1,598 @@
+{
+  "title": "Margin Analysis Dashboard",
+  "showTitle": false,
+  "widgetPrimaryColor": "#FFFFFF",
+  "widgetSecondaryColor": "#0076E1",
+  "flavor": "FinOps",
+  "bannerSegments": [
+    {
+      "widthRatio": 1,
+      "branding": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#0076E1",
+        "text": "Margin Analysis Dashboard - May 8 - Parthu - Do not delete",
+        "horizontalPlacement": "Center",
+        "verticalPlacement": "Middle"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "config": {
+        "__type": "FilterWidgetConfiguration",
+        "id": "0aab793e-b06d-7258-9f00-e643331365f1",
+        "size": 0,
+        "name": "Filters",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "context": {
+          "currency": "USD",
+          "organizationCurrency": false,
+          "timeRange": {
+            "range": "Quarter",
+            "zoneCreated": "America/Los_Angeles",
+            "zone": "GMT"
+          },
+          "billingSource": "margin_value",
+          "granularity": "month",
+          "overrideQuery": true,
+          "overrideBillingSource": true,
+          "overrideGranularity": true,
+          "overrideTenants": false,
+          "overrideCloudProviders": false,
+          "overrideCloudAccounts": false,
+          "overrideCurrency": true,
+          "overrideTimeRange": true
+        },
+        "contextId": "5049b764-a808-70ab-e048-1b6d7827d5e4"
+      },
+      "outline": {
+        "left": 0,
+        "top": 0,
+        "width": 12,
+        "height": 4
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "a3339273-0bce-c12a-10f7-2b36f2a32761",
+        "size": 0,
+        "name": "Margin Summary",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "AlwaysShow",
+        "numCols": 8,
+        "numRows": 2,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "78debde5-68ac-760e-edc7-a71a24abdf79",
+              "size": 0,
+              "name": "Total Billed Cost",
+              "description": "Buy Cost From Cloud Providers",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5049b764-a808-70ab-e048-1b6d7827d5e4",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/Los_Angeles"
+                },
+                "billingSource": "raw_cost",
+                "overrideQuery": false,
+                "overrideBillingSource": true
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 2,
+              "height": 2
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "843ec4ff-09fc-6399-d670-57886e55cdb5",
+              "size": 0,
+              "name": "Total Contracted Cost (Sell Cost)",
+              "description": "Sell cost to customers",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5049b764-a808-70ab-e048-1b6d7827d5e4",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/Los_Angeles"
+                },
+                "billingSource": "customer_true_cost",
+                "overrideQuery": false,
+                "overrideBillingSource": true
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 2,
+              "top": 0,
+              "width": 2,
+              "height": 2
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "f095158f-5200-6da4-f1dc-4da9ff53da0f",
+              "size": 0,
+              "name": "Total Margin Value",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5049b764-a808-70ab-e048-1b6d7827d5e4",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/Los_Angeles"
+                },
+                "billingSource": "margin_value",
+                "overrideQuery": false,
+                "overrideBillingSource": true
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 4,
+              "top": 0,
+              "width": 2,
+              "height": 2
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "b7eb6597-157c-d18d-6fee-5afbada707cd",
+              "size": 0,
+              "name": "Profit Margin",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5049b764-a808-70ab-e048-1b6d7827d5e4",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/Los_Angeles"
+                },
+                "billingSource": "profit_value",
+                "overrideQuery": false,
+                "overrideBillingSource": true
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 6,
+              "top": 0,
+              "width": 2,
+              "height": 2
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 4,
+        "width": 12,
+        "height": 4
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "75dd8899-3a3b-7585-cc12-82d623c0ec8c",
+        "size": 0,
+        "name": "Margin Trend & Variation",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "Collapsible",
+        "numCols": 8,
+        "numRows": 7,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostTrendWidgetConfiguration",
+              "id": "13353cdc-b2c7-b690-6360-5e91e3510dd2",
+              "size": 0,
+              "name": "Trend",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5049b764-a808-70ab-e048-1b6d7827d5e4",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/Los_Angeles"
+                },
+                "billingSource": "margin_value",
+                "overrideQuery": false,
+                "overrideBillingSource": false
+              },
+              "chartType": "StackedColumn",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 8,
+              "height": 3
+            }
+          },
+          {
+            "config": {
+              "__type": "CostVariationWidgetConfiguration",
+              "id": "bcda8632-d158-6c4a-443b-83f67030c7d6",
+              "size": 0,
+              "name": "Margin Variation",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5049b764-a808-70ab-e048-1b6d7827d5e4",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/Los_Angeles"
+                },
+                "billingSource": "margin_value",
+                "overrideQuery": false,
+                "overrideBillingSource": true
+              },
+              "chartType": "StackedColumn",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 3,
+              "width": 8,
+              "height": 4
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 8,
+        "width": 12,
+        "height": 18
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "f544dc30-c529-94e9-dfea-b51b100ee33d",
+        "size": 0,
+        "name": "Understand your Top Performers",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "Collapsible",
+        "numCols": 8,
+        "numRows": 8,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "1d25e765-9fb8-05a0-e5fc-b17ea4516b69",
+              "size": 0,
+              "name": "Customer With Highest Margin",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5049b764-a808-70ab-e048-1b6d7827d5e4",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/Los_Angeles"
+                },
+                "billingSource": "margin_value",
+                "overrideQuery": false,
+                "overrideBillingSource": true
+              },
+              "summaryType": "TopGroupBy",
+              "groupByDetails": {
+                "selector": "tenant_id"
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 2,
+              "height": 2
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSpendByDimensionWidgetConfiguration",
+              "id": "64de8c9b-8f17-1351-e055-e2cb5ed03bf5",
+              "size": 0,
+              "name": "Margin By Customer",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5049b764-a808-70ab-e048-1b6d7827d5e4",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/Los_Angeles"
+                },
+                "billingSource": "margin_value",
+                "overrideQuery": false,
+                "overrideBillingSource": true
+              },
+              "chartType": "StackedColumn",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "dimensionDetails": {
+                "selector": "tenant_id"
+              }
+            },
+            "outline": {
+              "left": 2,
+              "top": 0,
+              "width": 6,
+              "height": 2
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "b22028f7-6282-69aa-beb5-e2dfabe38bdd",
+              "size": 0,
+              "name": "Cloud Provider with Highest Margin",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5049b764-a808-70ab-e048-1b6d7827d5e4",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/Los_Angeles"
+                },
+                "billingSource": "margin_value",
+                "overrideQuery": false,
+                "overrideBillingSource": true
+              },
+              "summaryType": "TopGroupBy",
+              "groupByDetails": {
+                "selector": "service_name"
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 2,
+              "width": 2,
+              "height": 3
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSpendByDimensionWidgetConfiguration",
+              "id": "32b80f4e-4178-091c-cd35-e55cad167c3f",
+              "size": 0,
+              "name": "Margin By Cloud Provider",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5049b764-a808-70ab-e048-1b6d7827d5e4",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/Los_Angeles"
+                },
+                "billingSource": "margin_value",
+                "overrideQuery": false,
+                "overrideBillingSource": true
+              },
+              "chartType": "StackedColumn",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "dimensionDetails": {
+                "selector": "service_name"
+              }
+            },
+            "outline": {
+              "left": 2,
+              "top": 2,
+              "width": 6,
+              "height": 3
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "3d6e4ca3-df71-6cf6-c2d8-0157e768b9ae",
+              "size": 0,
+              "name": "Region with Highest Margin",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5049b764-a808-70ab-e048-1b6d7827d5e4",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/Los_Angeles"
+                },
+                "billingSource": "margin_value",
+                "overrideQuery": false,
+                "overrideBillingSource": true
+              },
+              "summaryType": "TopGroupBy",
+              "groupByDetails": {
+                "selector": "location"
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 5,
+              "width": 2,
+              "height": 3
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSpendByDimensionWidgetConfiguration",
+              "id": "fceb8e54-43a7-6bb3-0deb-cdd5d294b078",
+              "size": 0,
+              "name": "Margin By Cloud Regions",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5049b764-a808-70ab-e048-1b6d7827d5e4",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/Los_Angeles"
+                },
+                "billingSource": "margin_value",
+                "overrideQuery": false,
+                "overrideBillingSource": true
+              },
+              "chartType": "StackedColumn",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "dimensionDetails": {
+                "selector": "location"
+              }
+            },
+            "outline": {
+              "left": 2,
+              "top": 5,
+              "width": 6,
+              "height": 3
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "512fc7dc-6dd8-0aa7-119e-8968525b5c6b",
+              "size": 0,
+              "name": "Cloud Service With Highest Margin",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5049b764-a808-70ab-e048-1b6d7827d5e4",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/Los_Angeles"
+                },
+                "billingSource": "margin_value",
+                "overrideQuery": false,
+                "overrideBillingSource": true
+              },
+              "summaryType": "TopGroupBy",
+              "groupByDetails": {
+                "selector": "product_category"
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 12,
+              "width": 2,
+              "height": 4
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSpendByDimensionWidgetConfiguration",
+              "id": "8614178b-6b7f-a198-1529-dd1e0d6a1620",
+              "size": 0,
+              "name": "Margin By Cloud Service",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "5049b764-a808-70ab-e048-1b6d7827d5e4",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/Los_Angeles"
+                },
+                "billingSource": "margin_value",
+                "overrideQuery": false,
+                "overrideBillingSource": true
+              },
+              "chartType": "StackedColumn",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "dimensionDetails": {
+                "selector": "product_category"
+              }
+            },
+            "outline": {
+              "left": 2,
+              "top": 12,
+              "width": 6,
+              "height": 4
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 26,
+        "width": 12,
+        "height": 33
+      }
+    }
+  ],
+  "filterScope": [],
+  "savedViews": []
+}

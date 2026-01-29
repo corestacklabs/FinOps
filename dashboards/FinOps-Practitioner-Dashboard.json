@@ -1,0 +1,632 @@
+{
+  "title": "FinOps Practitioner Dashboard",
+  "showTitle": false,
+  "widgetPrimaryColor": "#FFFFFF",
+  "widgetSecondaryColor": "#0076E1",
+  "flavor": "FinOps",
+  "bannerSegments": [
+    {
+      "widthRatio": 1,
+      "branding": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#0076E1",
+        "text": "FinOps Practitioner Dashboard - Sample",
+        "horizontalPlacement": "Center",
+        "verticalPlacement": "Middle"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "config": {
+        "__type": "FilterWidgetConfiguration",
+        "id": "7b3818d8-67dd-efc6-71df-466b1c795637",
+        "size": 0,
+        "name": "Filter",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "America/Los_Angeles",
+            "zone": "UTC"
+          },
+          "overrideQuery": true,
+          "overrideBillingSource": false,
+          "overrideGranularity": true,
+          "overrideTenants": false,
+          "overrideCloudProviders": false,
+          "overrideCloudAccounts": false,
+          "overrideCurrency": false,
+          "overrideTimeRange": true
+        },
+        "contextId": "30318273-3170-e37f-4505-75ecf177cc4f"
+      },
+      "outline": {
+        "left": 0,
+        "top": 0,
+        "width": 12,
+        "height": 3
+      }
+    },
+    {
+      "config": {
+        "__type": "CostSpendByCloudWidgetConfiguration",
+        "id": "d087651f-180a-0cf8-2ed5-12164cf923a7",
+        "size": 0,
+        "name": "Cloud Provider Cost Breakdown",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "30318273-3170-e37f-4505-75ecf177cc4f",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "America/New_York"
+          },
+          "overrideQuery": false
+        },
+        "chartType": "Bar",
+        "chartLimit": "None",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Right",
+          "verticalAlignment": "Middle",
+          "fontSize": "Large",
+          "enabled": true
+        }
+      },
+      "outline": {
+        "left": 0,
+        "top": 3,
+        "width": 12,
+        "height": 4
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "ba1f1e17-f3a9-c068-e6b8-df18478d8e11",
+        "size": 0,
+        "name": "Cost and Usage Summary",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "AlwaysShow",
+        "numCols": 2,
+        "numRows": 2,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "75cdc166-09a9-368c-6f0f-1a216f5d9166",
+              "size": 0,
+              "name": "Total Costs",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "Hide",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/New_York"
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 1,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "1389bfed-0c5d-0fe5-c96f-418750ce64b9",
+              "size": 0,
+              "name": "Average Daily Cost",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "Hide",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/New_York",
+                  "zone": "GMT"
+                },
+                "overrideQuery": false,
+                "overrideTimeRange": false
+              },
+              "summaryType": "AverageCostPerPeriod"
+            },
+            "outline": {
+              "left": 1,
+              "top": 0,
+              "width": 1,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "5fc9bbf4-4001-1d7f-ee8b-33490d79b769",
+              "size": 0,
+              "name": "Top Service Cost",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "Hide",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/New_York"
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "TopGroupBy",
+              "groupByDetails": {
+                "selector": "product_category"
+              }
+            },
+            "outline": {
+              "left": 0,
+              "top": 1,
+              "width": 1,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "30a50639-916f-94ce-ec6a-540d2eb81a66",
+              "size": 0,
+              "name": "Top-Spending Account",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "Hide",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/New_York"
+                },
+                "overrideQuery": false
+              },
+              "summaryType": "TopGroupBy",
+              "groupByDetails": {
+                "selector": "service_account_id"
+              }
+            },
+            "outline": {
+              "left": 1,
+              "top": 1,
+              "width": 1,
+              "height": 1
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 7,
+        "width": 6,
+        "height": 8
+      }
+    },
+    {
+      "config": {
+        "__type": "CostSpendByTagLevelWidgetConfiguration",
+        "id": "fa3f37e1-9ff1-fe3f-ebbc-994c0bd52213",
+        "size": 0,
+        "name": "Tagged vs Untagged Costs",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "30318273-3170-e37f-4505-75ecf177cc4f",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "America/New_York"
+          },
+          "overrideQuery": false
+        },
+        "chartType": "Donut",
+        "chartLimit": "None",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Right",
+          "verticalAlignment": "Middle",
+          "fontSize": "Medium",
+          "enabled": true
+        },
+        "tagLevelType": "Overall"
+      },
+      "outline": {
+        "left": 6,
+        "top": 7,
+        "width": 6,
+        "height": 8
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "8d818854-afc4-5342-ac33-1386973292c1",
+        "size": 0,
+        "name": "Cost Analysis",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "AlwaysShow",
+        "numCols": 2,
+        "numRows": 2,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostSpendByCloudResourceWidgetConfiguration",
+              "id": "bacbe1d5-11ea-c353-aeeb-c80ce6c97167",
+              "size": 0,
+              "name": "Spend By Product Category",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "30318273-3170-e37f-4505-75ecf177cc4f",
+              "context": {
+                "timeRange": {
+                  "range": "Previous3Months",
+                  "zoneCreated": "America/New_York",
+                  "zone": "GMT"
+                },
+                "overrideQuery": false,
+                "overrideTimeRange": false
+              },
+              "chartType": "Bar",
+              "chartLimit": "Top5PlusOther",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "categoryType": "ProductCategory"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 1,
+              "height": 2
+            }
+          },
+          {
+            "config": {
+              "__type": "CostTrendWidgetConfiguration",
+              "id": "85b752fe-3a29-9652-e170-91c59770fbf1",
+              "size": 0,
+              "name": "Cost Trend",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "30318273-3170-e37f-4505-75ecf177cc4f",
+              "context": {
+                "timeRange": {
+                  "range": "Quarter",
+                  "zoneCreated": "America/New_York",
+                  "zone": "GMT"
+                },
+                "overrideQuery": false,
+                "overrideTimeRange": true
+              },
+              "chartType": "StackedColumn",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              }
+            },
+            "outline": {
+              "left": 1,
+              "top": 0,
+              "width": 1,
+              "height": 2
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 15,
+        "width": 12,
+        "height": 12
+      }
+    },
+    {
+      "config": {
+        "__type": "CostTrendWidgetConfiguration",
+        "id": "6e998427-dc0c-effe-f829-e259d350ba2a",
+        "size": 0,
+        "name": "Cost Drill-Down",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "30318273-3170-e37f-4505-75ecf177cc4f",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "America/New_York",
+            "zone": "GMT"
+          },
+          "overrideQuery": false,
+          "overrideBillingSource": false,
+          "overrideCurrency": false,
+          "overrideTimeRange": false
+        },
+        "chartType": "StackedColumn",
+        "chartLimit": "None",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Small",
+          "enabled": true
+        },
+        "group_by_details": {
+          "selector": "tenant_id"
+        },
+        "group_by_tag_status": false,
+        "group_by_tag_keys": false
+      },
+      "outline": {
+        "left": 0,
+        "top": 27,
+        "width": 12,
+        "height": 10
+      }
+    },
+    {
+      "config": {
+        "__type": "GroupingWidgetConfiguration",
+        "id": "04c49c20-bf2f-fce3-46bf-4e2e686a0849",
+        "size": 0,
+        "name": "Optimization Console",
+        "refreshRateInSeconds": 0,
+        "fontMultiplier": 0,
+        "toolbarBehavior": "AlwaysShow",
+        "numCols": 8,
+        "numRows": 8,
+        "widgets": [
+          {
+            "config": {
+              "__type": "TopCostOptimizationWidgetConfiguration",
+              "id": "1adb26b9-9388-057a-92f4-c219eba7bead",
+              "size": 0,
+              "name": "Top Categories for Cost Optimization",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/New_York"
+                },
+                "overrideQuery": false
+              },
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "optimizationSelection": "ProductCategory"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 8,
+              "height": 2
+            }
+          },
+          {
+            "config": {
+              "__type": "CostOptimizationByOptimizationTypeWidgetConfiguration",
+              "id": "3ebf87e8-ef71-9a8f-a696-251194c3f85d",
+              "size": 0,
+              "name": "Cost Optimization by Usage",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "30318273-3170-e37f-4505-75ecf177cc4f",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/New_York"
+                },
+                "overrideQuery": false
+              },
+              "chartType": "Column",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "optimizationType": "Usage"
+            },
+            "outline": {
+              "left": 0,
+              "top": 2,
+              "width": 8,
+              "height": 3
+            }
+          },
+          {
+            "config": {
+              "__type": "CostOptimizationByOptimizationTypeWidgetConfiguration",
+              "id": "bb2e89af-09d0-c977-9adf-2d617b21e9b0",
+              "size": 0,
+              "name": "Cost Optimization by Resource Type",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "30318273-3170-e37f-4505-75ecf177cc4f",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "America/New_York"
+                },
+                "overrideQuery": false
+              },
+              "navigationDescriptors": [
+                {}
+              ],
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "optimizationType": "Region"
+            },
+            "outline": {
+              "left": 0,
+              "top": 5,
+              "width": 8,
+              "height": 3
+            }
+          }
+        ]
+      },
+      "outline": {
+        "left": 0,
+        "top": 37,
+        "width": 12,
+        "height": 22
+      }
+    },
+    {
+      "config": {
+        "__type": "BudgetDriftWidgetConfiguration",
+        "id": "d2ea9508-d215-a49c-b663-d3c86342cf26",
+        "size": 0,
+        "name": "Budget Drift",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "30318273-3170-e37f-4505-75ecf177cc4f",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "America/New_York"
+          },
+          "overrideQuery": false
+        },
+        "chartType": "GroupedColumn",
+        "chartLimit": "None",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        },
+        "configurationType": "actual"
+      },
+      "outline": {
+        "left": 0,
+        "top": 59,
+        "width": 12,
+        "height": 8
+      }
+    },
+    {
+      "config": {
+        "__type": "CostAnomalyImpactByBillingWidgetConfiguration",
+        "id": "10be8bab-b4ca-717a-3664-b174314bdba9",
+        "size": 0,
+        "name": "Cost Anomaly Impact",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "30318273-3170-e37f-4505-75ecf177cc4f",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "America/New_York"
+          },
+          "overrideQuery": false
+        },
+        "navigationDescriptors": [
+          {}
+        ],
+        "chartType": "Line",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        },
+        "categoryType": "CloudProvider"
+      },
+      "outline": {
+        "left": 0,
+        "top": 67,
+        "width": 12,
+        "height": 7
+      }
+    },
+    {
+      "config": {
+        "__type": "CostTrendForecastWidgetConfiguration",
+        "id": "35fbd42e-10e3-8225-5478-d1c1f991556a",
+        "size": 0,
+        "name": "Cost Trend Forecast",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "30318273-3170-e37f-4505-75ecf177cc4f",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "America/New_York"
+          },
+          "overrideQuery": false,
+          "overrideBillingSource": false,
+          "overrideCurrency": false
+        },
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        },
+        "group_by_details": {
+          "selector": "tenant_id"
+        },
+        "group_by_tag_status": false,
+        "group_by_tag_keys": false
+      },
+      "outline": {
+        "left": 0,
+        "top": 74,
+        "width": 12,
+        "height": 9
+      }
+    }
+  ],
+  "filterScope": []
+}

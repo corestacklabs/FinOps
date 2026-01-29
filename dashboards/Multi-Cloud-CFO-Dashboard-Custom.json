@@ -1,5 +1,5 @@
 {
-  "title": "Multi Cloud CFO Dashboard",
+  "title": "Multi Cloud CFO Dashboard (Custom)",
   "showTitle": false,
   "widgetPrimaryColor": "#FFFFFF",
   "widgetSecondaryColor": "#0076E1",
@@ -10,7 +10,7 @@
       "branding": {
         "primaryColor": "#FFFFFF",
         "secondaryColor": "#0076E1",
-        "text": "Multi Cloud CFO Dashboard",
+        "text": "Multi Cloud CFO Dashboard (Custom)",
         "horizontalPlacement": "Center",
         "verticalPlacement": "Middle"
       }
@@ -31,92 +31,129 @@
           "currency": "USD",
           "organizationCurrency": false,
           "timeRange": {
-            "range": "Month",
+            "range": "FullYear",
             "zoneCreated": "Asia/Calcutta",
-            "zone": "UTC"
+            "zone": "GMT"
           },
           "query": {
             "__type": "QueryOperatorBinaryLogic",
             "a": {
-              "__type": "ServiceAccountStatusQueryOperator",
-              "statuses": [
-                "active"
+              "__type": "TenantQueryOperator",
+              "tenant_ids": [
+                "67c6a34c424280e760d6f4e4",
+                "67c6bb52424280e760f8fad6",
+                "67c6b9da424280e760f86bbe",
+                "67c6bb81424280e760f90a3a",
+                "67c6bb62424280e760f8ff97",
+                "67c6bab6424280e760f8c8ce",
+                "67c6bb2f424280e760f8efd9",
+                "67c6bafd424280e760f8dd35",
+                "67c6b9ef424280e760f87542",
+                "67c6b9b8424280e760f85b20",
+                "67c6baa1424280e760f8c1b6",
+                "67c6ba2e424280e760f89251",
+                "67c6bb90424280e760f90ebc",
+                "67c6b9ca424280e760f863df",
+                "67c6b9fe424280e760f87bc5",
+                "67c6bbb3424280e760f9179d",
+                "67c6ba7a424280e760f8b603",
+                "67c6bb6f424280e760f90447",
+                "67c6bb41424280e760f8f541",
+                "67c6b99f424280e760f84f96",
+                "67c6b9ab424280e760f854b6"
               ]
             },
             "b": {
-              "__type": "QueryOperatorBinaryLogic",
-              "a": {
-                "__type": "TenantQueryOperator",
-                "tenant_ids": [
-                  "wildcardTenantId"
-                ]
-              },
-              "b": {
-                "__type": "ServiceAccountNativeDetailsQueryOperator",
-                "native_details": [
-                  {
-                    "type": "ServiceAccountNativeDetailsBaseForAws"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForCostCenterAws"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAwsEksCluster"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureSubscription"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureCspMaster"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureCspPartner"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureEaAccount"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForCostCenterAzure"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureAksCluster"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
-                  }
-                ]
-              },
-              "op": "And"
+              "__type": "ServiceAccountNativeDetailsQueryOperator",
+              "native_details": [
+                {
+                  "type": "ServiceAccountNativeDetailsBaseForAws"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForCostCenterAws"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAwsEksCluster"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureSubscription"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureCspMaster"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureCspPartner"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureEaAccount"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForCostCenterAzure"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureAksCluster"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsBaseForGcp"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForOciTenancy"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForCostCenterOci"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForOciOkeCluster"
+                }
+              ]
             },
             "op": "And"
           },
@@ -137,7 +174,7 @@
         "left": 0,
         "top": 0,
         "width": 12,
-        "height": 3
+        "height": 4
       }
     },
     {
@@ -191,7 +228,7 @@
               "refreshRateInSeconds": 0,
               "manualFontScaling": true,
               "fontMultiplier": 1,
-              "toolbarBehavior": "AlwaysShow",
+              "toolbarBehavior": "AutoHide",
               "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
               "context": {
                 "timeRange": {
@@ -278,9 +315,9 @@
       },
       "outline": {
         "left": 0,
-        "top": 3,
+        "top": 4,
         "width": 12,
-        "height": 3
+        "height": 4
       }
     },
     {
@@ -484,7 +521,7 @@
       },
       "outline": {
         "left": 0,
-        "top": 6,
+        "top": 8,
         "width": 12,
         "height": 44
       }
@@ -541,7 +578,7 @@
       },
       "outline": {
         "left": 0,
-        "top": 50,
+        "top": 52,
         "width": 12,
         "height": 10
       }
@@ -597,7 +634,7 @@
       },
       "outline": {
         "left": 0,
-        "top": 60,
+        "top": 62,
         "width": 12,
         "height": 8
       }
@@ -655,45 +692,142 @@
       },
       "outline": {
         "left": 0,
-        "top": 68,
+        "top": 70,
         "width": 12,
         "height": 9
       }
     },
     {
       "config": {
-        "__type": "CostOptimizationByOptimizationTypeWidgetConfiguration",
-        "id": "b707df25-b309-c04f-db7c-d2877450e2ed",
+        "__type": "GroupingWidgetConfiguration",
+        "id": "30186f68-382d-f490-bd30-e3bfa13ad2e6",
         "size": 0,
-        "name": "Cost Optimization Opportunities by Usage",
+        "name": "Cost Optimization",
+        "description": "Cost Optimization Widgets display point-in-time recommendations, with potential savings always calculated based on billed costs.",
         "refreshRateInSeconds": 0,
-        "manualFontScaling": true,
-        "fontMultiplier": 1,
-        "toolbarBehavior": "AlwaysShow",
-        "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
-        "context": {
-          "timeRange": {
-            "range": "Today",
-            "zoneCreated": "America/New_York",
-            "zone": "GMT"
+        "fontMultiplier": 0,
+        "toolbarBehavior": "Collapsible",
+        "numCols": 8,
+        "numRows": 3,
+        "widgets": [
+          {
+            "config": {
+              "__type": "CostOptimizationByOptimizationTypeWidgetConfiguration",
+              "id": "3cd9c049-d279-ac0c-3135-a7bba80e800d",
+              "size": 0,
+              "name": "Cost Optimization by Usage",
+              "description": "Summary of \"Optimize Usage\" Recommendations",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "chartType": "TreeMap",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "optimizationType": "Usage"
+            },
+            "outline": {
+              "left": 0,
+              "top": 0,
+              "width": 8,
+              "height": 1
+            }
           },
-          "overrideQuery": false
-        },
-        "chartType": "TreeMap",
-        "chartLimit": "None",
-        "legendDisplayConfiguration": {
-          "horizontalAlignment": "Center",
-          "verticalAlignment": "Bottom",
-          "fontSize": "Medium",
-          "enabled": true
-        },
-        "optimizationType": "Usage"
+          {
+            "config": {
+              "__type": "CostOptimizationByOptimizationTypeWidgetConfiguration",
+              "id": "6dd04762-a8a8-908f-9cdd-ff31ef92c1dd",
+              "size": 0,
+              "name": "Cost Optimization by Region",
+              "description": "Summary of \"Optimize Usage\" Recommendations by Region",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "navigationDescriptors": [
+                {}
+              ],
+              "chartType": "TreeMap",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "optimizationType": "Region"
+            },
+            "outline": {
+              "left": 0,
+              "top": 1,
+              "width": 8,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostOptimizationByOptimizationTypeWidgetConfiguration",
+              "id": "089091f3-a891-0838-ede2-d5e6325533c3",
+              "size": 0,
+              "name": "Cost Optimization by Resource Type",
+              "description": "Summary of \"Optimize Usage\" Recommendations by Resource Type",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "2da74657-dfc9-767b-3012-267adbc8a8ac",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "overrideQuery": false
+              },
+              "chartType": "TreeMap",
+              "chartLimit": "None",
+              "legendDisplayConfiguration": {
+                "horizontalAlignment": "Center",
+                "verticalAlignment": "Bottom",
+                "fontSize": "Medium",
+                "enabled": true
+              },
+              "optimizationType": "ResourceType"
+            },
+            "outline": {
+              "left": 0,
+              "top": 2,
+              "width": 8,
+              "height": 1
+            }
+          }
+        ]
       },
       "outline": {
         "left": 0,
-        "top": 77,
+        "top": 79,
         "width": 12,
-        "height": 8
+        "height": 27
       }
     }
   ],

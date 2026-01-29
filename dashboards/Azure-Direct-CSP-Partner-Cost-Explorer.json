@@ -1,5 +1,5 @@
 {
-  "title": "Azure Cost Explorer",
+  "title": "Azure Direct CSP Partner Cost Explorer",
   "showTitle": false,
   "widgetPrimaryColor": "#FFFFFF",
   "widgetSecondaryColor": "#0076E1",
@@ -11,7 +11,7 @@
       "branding": {
         "primaryColor": "#FFFFFF",
         "secondaryColor": "#0076E1",
-        "text": "Azure Cost Explorer",
+        "text": "Azure Direct CSP Partner Cost Explorer",
         "horizontalPlacement": "Center",
         "verticalPlacement": "Middle"
       }
@@ -21,9 +21,9 @@
     {
       "config": {
         "__type": "FilterWidgetConfiguration",
-        "id": "d36f5e14-d67f-21d2-fc81-e22df112350e",
+        "id": "42a8883d-857f-0ee6-bd37-8ac29ddd572d",
         "size": 0,
-        "name": "Parameters",
+        "name": "Parameters ",
         "refreshRateInSeconds": 0,
         "manualFontScaling": true,
         "fontMultiplier": 1,
@@ -32,80 +32,71 @@
           "currency": "USD",
           "organizationCurrency": false,
           "timeRange": {
-            "range": "Month",
+            "range": "Quarter",
             "zoneCreated": "Asia/Calcutta",
-            "zone": "UTC"
+            "zone": "GMT"
           },
           "query": {
             "__type": "QueryOperatorBinaryLogic",
             "a": {
-              "__type": "ServiceAccountStatusQueryOperator",
-              "statuses": [
-                "active"
+              "__type": "ServiceAccountNativeDetailsQueryOperator",
+              "native_details": [
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureSubscription"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureCspMaster"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureCspPartner"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureEaAccount"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForCostCenterAzure"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureAksCluster"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
+                },
+                {
+                  "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
+                }
               ]
             },
             "b": {
-              "__type": "QueryOperatorBinaryLogic",
-              "a": {
-                "__type": "TenantQueryOperator",
-                "tenant_ids": [
-                  "wildcardTenantId"
-                ]
-              },
-              "b": {
-                "__type": "ServiceAccountNativeDetailsQueryOperator",
-                "native_details": [
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureSubscription"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureCspMaster"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureCspPartner"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureEaAccount"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForCostCenterAzure"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureAksCluster"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
-                  },
-                  {
-                    "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
-                  }
-                ]
-              },
-              "op": "And"
+              "__type": "ServiceAccountStatusQueryOperator",
+              "statuses": [
+                "active",
+                "not_onboarded"
+              ]
             },
             "op": "And"
           },
@@ -117,43 +108,42 @@
           "overrideTenants": false,
           "overrideCloudProviders": false,
           "overrideCloudAccounts": false,
-          "overrideCurrency": true,
+          "overrideCurrency": false,
           "overrideTimeRange": true
         },
-        "contextId": "de03b3be-3783-3287-afa2-0f05250cd873"
+        "contextId": "d19b9e06-f1f4-b0fb-493c-2c3ff3329c61"
       },
       "outline": {
         "left": 0,
         "top": 0,
         "width": 12,
-        "height": 3
+        "height": 4
       }
     },
     {
       "config": {
         "__type": "GroupingWidgetConfiguration",
-        "id": "ab7d6eb7-94f7-bb99-fafe-5f5b21d34496",
+        "id": "31a42176-2cb7-61be-1e1b-b08403eaf049",
         "size": 0,
-        "name": "Azure Cost Summary",
-        "description": "Provides summary of costs for Azure cloud accounts across various dimensions.",
+        "name": "Partner Cost Summary",
         "refreshRateInSeconds": 0,
         "fontMultiplier": 0,
         "toolbarBehavior": "Collapsible",
-        "numCols": 8,
+        "numCols": 4,
         "numRows": 2,
         "widgets": [
           {
             "config": {
               "__type": "CostSummaryWidgetConfigurationModel",
-              "id": "0396c9bb-3d73-f17f-20bb-2bda1a549f18",
+              "id": "fa53ebbf-4e0a-08be-45e8-1f539ba938dc",
               "size": 0,
-              "name": "Total Cloud Spend",
-              "description": "Provides the total cloud spend on Azure based on global parameters selected.",
+              "name": "Total Partner Cost",
+              "description": "This is the cost paid by partner to Azure. Referred to as Actual Cost",
               "refreshRateInSeconds": 0,
               "manualFontScaling": true,
               "fontMultiplier": 1,
               "toolbarBehavior": "AlwaysShow",
-              "contextSelector": "de03b3be-3783-3287-afa2-0f05250cd873",
+              "contextSelector": "d19b9e06-f1f4-b0fb-493c-2c3ff3329c61",
               "context": {
                 "timeRange": {
                   "range": "Month",
@@ -212,29 +202,31 @@
                     }
                   ]
                 },
-                "overrideQuery": false
+                "billingSource": "raw_cost",
+                "overrideQuery": false,
+                "overrideBillingSource": true
               },
               "summaryType": "Total"
             },
             "outline": {
               "left": 0,
               "top": 0,
-              "width": 2,
+              "width": 1,
               "height": 1
             }
           },
           {
             "config": {
               "__type": "CostSummaryWidgetConfigurationModel",
-              "id": "50132fa9-157a-714d-db99-40c3791feecc",
+              "id": "5de37a60-544c-6529-7c61-32b1f5b17ea6",
               "size": 0,
-              "name": "Average Cost Per Day",
-              "description": "Provides the average cloud spend per day on Azure based on global parameters selected. ",
+              "name": "Total Customer Cost",
+              "description": "This is the cost paid by Customer to Partner. This is available from True Cost based on the billing plans setup by the Partner for the customer. This will default to actual cost if not set.",
               "refreshRateInSeconds": 0,
               "manualFontScaling": true,
               "fontMultiplier": 1,
               "toolbarBehavior": "AlwaysShow",
-              "contextSelector": "de03b3be-3783-3287-afa2-0f05250cd873",
+              "contextSelector": "d19b9e06-f1f4-b0fb-493c-2c3ff3329c61",
               "context": {
                 "timeRange": {
                   "range": "Month",
@@ -293,29 +285,114 @@
                     }
                   ]
                 },
-                "overrideQuery": false
+                "billingSource": "true_cost",
+                "overrideQuery": false,
+                "overrideBillingSource": true
               },
-              "summaryType": "AverageCostPerPeriod"
+              "summaryType": "Total"
+            },
+            "outline": {
+              "left": 1,
+              "top": 0,
+              "width": 1,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "32f3d7d3-21b1-44af-bc7b-51157a02f46c",
+              "size": 0,
+              "name": "Total Retail Cost",
+              "description": "This is the cost , if purchased at Retail Cost.",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "d19b9e06-f1f4-b0fb-493c-2c3ff3329c61",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureSubscription"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspMaster"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspPartner"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureEaAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterAzure"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureAksCluster"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
+                    }
+                  ]
+                },
+                "billingSource": "raw_list_cost",
+                "overrideQuery": false,
+                "overrideBillingSource": true
+              },
+              "summaryType": "Total"
             },
             "outline": {
               "left": 2,
               "top": 0,
-              "width": 2,
+              "width": 1,
               "height": 1
             }
           },
           {
             "config": {
               "__type": "CostSummaryWidgetConfigurationModel",
-              "id": "4a07f2fd-8c72-a025-7fca-177f811c1695",
+              "id": "3a58644d-c08b-9b5d-9fa9-f276b2c29ba5",
               "size": 0,
-              "name": "Max Cost Incurred Period",
-              "description": "Provides the total cloud spend on Azure based on global parameters selected. Period will be based on granularity.",
+              "name": "Average Customer Subscription Cost",
+              "description": "Cost of subscriptions averaged over time period.",
               "refreshRateInSeconds": 0,
               "manualFontScaling": true,
               "fontMultiplier": 1,
               "toolbarBehavior": "AlwaysShow",
-              "contextSelector": "de03b3be-3783-3287-afa2-0f05250cd873",
+              "contextSelector": "d19b9e06-f1f4-b0fb-493c-2c3ff3329c61",
               "context": {
                 "timeRange": {
                   "range": "Month",
@@ -374,29 +451,31 @@
                     }
                   ]
                 },
-                "overrideQuery": false
+                "billingSource": "raw_list_cost",
+                "overrideQuery": false,
+                "overrideBillingSource": true
               },
-              "summaryType": "MaxPerPeriod"
+              "summaryType": "AverageCostPerPeriod"
             },
             "outline": {
-              "left": 4,
+              "left": 3,
               "top": 0,
-              "width": 2,
+              "width": 1,
               "height": 1
             }
           },
           {
             "config": {
               "__type": "CostSummaryWidgetConfigurationModel",
-              "id": "2e33089d-4272-8ee1-c964-12803fd650ee",
+              "id": "c28d1817-d378-dcb2-c5b6-1efc05658d8f",
               "size": 0,
-              "name": "Min Cost Incurred Period",
-              "description": "Provides the total cloud spend on Azure based on global parameters selected. Period will be based on granularity.",
+              "name": "Top Customer",
+              "description": "Top Customer based on cost ",
               "refreshRateInSeconds": 0,
-              "manualFontScaling": true,
-              "fontMultiplier": 1,
+              "manualFontScaling": false,
+              "fontMultiplier": 0,
               "toolbarBehavior": "AlwaysShow",
-              "contextSelector": "de03b3be-3783-3287-afa2-0f05250cd873",
+              "contextSelector": "d19b9e06-f1f4-b0fb-493c-2c3ff3329c61",
               "context": {
                 "timeRange": {
                   "range": "Month",
@@ -455,113 +534,31 @@
                     }
                   ]
                 },
-                "overrideQuery": false
+                "billingSource": "raw_cost",
+                "overrideQuery": false,
+                "overrideBillingSource": true
               },
-              "summaryType": "MinPerPeriod"
-            },
-            "outline": {
-              "left": 6,
-              "top": 0,
-              "width": 2,
-              "height": 1
-            }
-          },
-          {
-            "config": {
-              "__type": "CostSummaryWidgetConfigurationModel",
-              "id": "35a48a0a-231c-4fd1-ea5a-11bbde00b608",
-              "size": 0,
-              "name": "Top Tenant by Spend",
-              "description": "Provides the Top Tenant and related spend filtered by the parameters selected.",
-              "refreshRateInSeconds": 0,
-              "manualFontScaling": true,
-              "fontMultiplier": 1,
-              "toolbarBehavior": "AlwaysShow",
-              "contextSelector": "de03b3be-3783-3287-afa2-0f05250cd873",
-              "context": {
-                "timeRange": {
-                  "range": "Month",
-                  "zoneCreated": "Asia/Calcutta"
-                },
-                "query": {
-                  "__type": "ServiceAccountNativeDetailsQueryOperator",
-                  "native_details": [
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureSubscription"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureCspMaster"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureCspPartner"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureEaAccount"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForCostCenterAzure"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureAksCluster"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
-                    }
-                  ]
-                },
-                "overrideQuery": false
-              },
-              "summaryType": "TopGroupBy",
-              "groupByDetails": {
-                "selector": "tenant_id"
-              }
+              "summaryType": "TopGroupBy"
             },
             "outline": {
               "left": 0,
               "top": 1,
-              "width": 2,
+              "width": 1,
               "height": 1
             }
           },
           {
             "config": {
               "__type": "CostSummaryWidgetConfigurationModel",
-              "id": "b51545ca-d5b2-76a6-d2bb-6dfdcb893ca8",
+              "id": "aa451dd8-2d99-11be-7fae-052ba062710e",
               "size": 0,
-              "name": "Top Region by Spend",
-              "description": "Provides the Top Region and related spend filtered by the parameters selected.",
+              "name": "Top Customer Subscription",
+              "description": "Top Customer subscription across all customers, based on cost ",
               "refreshRateInSeconds": 0,
               "manualFontScaling": true,
               "fontMultiplier": 1,
               "toolbarBehavior": "AlwaysShow",
-              "contextSelector": "de03b3be-3783-3287-afa2-0f05250cd873",
+              "contextSelector": "d19b9e06-f1f4-b0fb-493c-2c3ff3329c61",
               "context": {
                 "timeRange": {
                   "range": "Month",
@@ -620,7 +617,92 @@
                     }
                   ]
                 },
-                "overrideQuery": false
+                "billingSource": "raw_cost",
+                "overrideQuery": false,
+                "overrideBillingSource": true
+              },
+              "summaryType": "TopGroupBy"
+            },
+            "outline": {
+              "left": 1,
+              "top": 1,
+              "width": 1,
+              "height": 1
+            }
+          },
+          {
+            "config": {
+              "__type": "CostSummaryWidgetConfigurationModel",
+              "id": "42c1384e-3740-7a47-27d7-ef67e51dbc25",
+              "size": 0,
+              "name": "Top Location",
+              "description": "Top Location across all customers",
+              "refreshRateInSeconds": 0,
+              "manualFontScaling": true,
+              "fontMultiplier": 1,
+              "toolbarBehavior": "AlwaysShow",
+              "contextSelector": "d19b9e06-f1f4-b0fb-493c-2c3ff3329c61",
+              "context": {
+                "timeRange": {
+                  "range": "Month",
+                  "zoneCreated": "Asia/Calcutta"
+                },
+                "query": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureSubscription"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspMaster"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspPartner"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureEaAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterAzure"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureAksCluster"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
+                    }
+                  ]
+                },
+                "billingSource": "raw_list_cost",
+                "overrideQuery": false,
+                "overrideBillingSource": true
               },
               "summaryType": "TopGroupBy",
               "groupByDetails": {
@@ -630,22 +712,22 @@
             "outline": {
               "left": 2,
               "top": 1,
-              "width": 2,
+              "width": 1,
               "height": 1
             }
           },
           {
             "config": {
               "__type": "CostSummaryWidgetConfigurationModel",
-              "id": "c8fe46b9-bc48-5972-43e1-52d32a76dc11",
+              "id": "9bc8382e-81a9-2365-a84c-dd02ef2a787e",
               "size": 0,
-              "name": "Top Service by Spend",
-              "description": "Provides the Top Service and related spend filtered by the parameters selected.",
+              "name": "Top Consumed Service",
+              "description": "Top Consumed Service across all customers",
               "refreshRateInSeconds": 0,
               "manualFontScaling": true,
               "fontMultiplier": 1,
               "toolbarBehavior": "AlwaysShow",
-              "contextSelector": "de03b3be-3783-3287-afa2-0f05250cd873",
+              "contextSelector": "d19b9e06-f1f4-b0fb-493c-2c3ff3329c61",
               "context": {
                 "timeRange": {
                   "range": "Month",
@@ -704,7 +786,9 @@
                     }
                   ]
                 },
-                "overrideQuery": false
+                "billingSource": "raw_list_cost",
+                "overrideQuery": false,
+                "overrideBillingSource": true
               },
               "summaryType": "TopGroupBy",
               "groupByDetails": {
@@ -712,93 +796,9 @@
               }
             },
             "outline": {
-              "left": 4,
+              "left": 3,
               "top": 1,
-              "width": 2,
-              "height": 1
-            }
-          },
-          {
-            "config": {
-              "__type": "CostSummaryWidgetConfigurationModel",
-              "id": "4cd0d666-4b24-e67f-46f7-6cbe5cb3bf64",
-              "size": 0,
-              "name": "Top Cloud Account by Spend",
-              "description": "Provides the Top Cloud Account and related spend filtered by the parameters selected.",
-              "refreshRateInSeconds": 0,
-              "manualFontScaling": true,
-              "fontMultiplier": 1,
-              "toolbarBehavior": "AlwaysShow",
-              "contextSelector": "de03b3be-3783-3287-afa2-0f05250cd873",
-              "context": {
-                "timeRange": {
-                  "range": "Month",
-                  "zoneCreated": "Asia/Calcutta"
-                },
-                "query": {
-                  "__type": "ServiceAccountNativeDetailsQueryOperator",
-                  "native_details": [
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureSubscription"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureCspMaster"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureCspPartner"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureEaAccount"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForCostCenterAzure"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureAksCluster"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
-                    },
-                    {
-                      "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
-                    }
-                  ]
-                },
-                "overrideQuery": false
-              },
-              "summaryType": "TopGroupBy",
-              "groupByDetails": {
-                "selector": "service_account_id"
-              }
-            },
-            "outline": {
-              "left": 6,
-              "top": 1,
-              "width": 2,
+              "width": 1,
               "height": 1
             }
           }
@@ -806,23 +806,22 @@
       },
       "outline": {
         "left": 0,
-        "top": 3,
+        "top": 4,
         "width": 12,
         "height": 5
       }
     },
     {
       "config": {
-        "__type": "CostTrendWidgetConfiguration",
-        "id": "e105644d-e827-db3b-4a78-eabe09dc488b",
+        "__type": "CostSpendByDimensionWidgetConfiguration",
+        "id": "95f05341-60ed-223d-b0aa-b65de1cb065d",
         "size": 0,
-        "name": "Azure Cost Trend",
-        "description": "This provides Azure cost trend by granularity selected in the global parameters. Allows to group by various dimensions to get insights and allows drill down for analysis. Allows forecasting cost trend across various dimensions for upto 12 months or 14 days based on granularity. Select \"To Now\" presets in time rage for Forecasting to be enabled. ",
+        "name": "Cost Spend by Azure CSP Customer",
         "refreshRateInSeconds": 0,
         "manualFontScaling": true,
         "fontMultiplier": 1,
         "toolbarBehavior": "AlwaysShow",
-        "contextSelector": "de03b3be-3783-3287-afa2-0f05250cd873",
+        "contextSelector": "d19b9e06-f1f4-b0fb-493c-2c3ff3329c61",
         "context": {
           "timeRange": {
             "range": "Month",
@@ -890,84 +889,126 @@
           "verticalAlignment": "Bottom",
           "fontSize": "Medium",
           "enabled": true
+        },
+        "dimensionDetails": {
+          "selector": "service_account_id"
+        },
+        "dimension_by_account_type": {
+          "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
         }
       },
       "outline": {
         "left": 0,
-        "top": 8,
+        "top": 9,
         "width": 12,
-        "height": 8
+        "height": 9
+      }
+    },
+    {
+      "config": {
+        "__type": "CostTrendWidgetConfiguration",
+        "id": "22b23c7c-ddf5-8b4b-71f0-ab14b656b8f8",
+        "size": 0,
+        "name": "Partner Cost Trend By Customer",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "d19b9e06-f1f4-b0fb-493c-2c3ff3329c61",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta"
+          },
+          "query": {
+            "__type": "ServiceAccountNativeDetailsQueryOperator",
+            "native_details": [
+              {
+                "type": "ServiceAccountNativeDetailsForAzureSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspPartner"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForCostCenterAzure"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureAksCluster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
+              }
+            ]
+          },
+          "overrideQuery": false
+        },
+        "chartType": "StackedColumn",
+        "chartLimit": "None",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        },
+        "group_by_account_type": {
+          "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+        }
+      },
+      "outline": {
+        "left": 0,
+        "top": 18,
+        "width": 12,
+        "height": 10
       }
     },
     {
       "config": {
         "__type": "CostVariationWidgetConfiguration",
-        "id": "109e3adb-2a51-7c57-907f-2dfc9a3feac6",
+        "id": "df6a28c1-b679-123f-9a22-861d5ba2d0cd",
         "size": 0,
-        "name": "Azure Cost Variation Trend",
-        "description": "Provides variation of cost based on previous period. Period is based on the granularity selected. ex: If granularity is monthly, each record shows the cost difference/variation from the previous month. This provides an easy way to understand increase or decrease in cloud spend and analyze changes very rapidly.",
+        "name": "Partner Cost Variation",
         "refreshRateInSeconds": 0,
         "manualFontScaling": true,
         "fontMultiplier": 1,
         "toolbarBehavior": "AlwaysShow",
-        "contextSelector": "de03b3be-3783-3287-afa2-0f05250cd873",
+        "contextSelector": "d19b9e06-f1f4-b0fb-493c-2c3ff3329c61",
         "context": {
           "timeRange": {
             "range": "Month",
             "zoneCreated": "Asia/Calcutta"
-          },
-          "query": {
-            "__type": "ServiceAccountNativeDetailsQueryOperator",
-            "native_details": [
-              {
-                "type": "ServiceAccountNativeDetailsForAzureSubscription"
-              },
-              {
-                "type": "ServiceAccountNativeDetailsForAzureCspMaster"
-              },
-              {
-                "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
-              },
-              {
-                "type": "ServiceAccountNativeDetailsForAzureCspPartner"
-              },
-              {
-                "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
-              },
-              {
-                "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
-              },
-              {
-                "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
-              },
-              {
-                "type": "ServiceAccountNativeDetailsForAzureEaAccount"
-              },
-              {
-                "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
-              },
-              {
-                "type": "ServiceAccountNativeDetailsForCostCenterAzure"
-              },
-              {
-                "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
-              },
-              {
-                "type": "ServiceAccountNativeDetailsForAzureAksCluster"
-              },
-              {
-                "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
-              },
-              {
-                "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
-              },
-              {
-                "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
-              },
-              {
-                "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
-              }
-            ]
           },
           "overrideQuery": false
         },
@@ -978,11 +1019,14 @@
           "verticalAlignment": "Bottom",
           "fontSize": "Medium",
           "enabled": true
+        },
+        "group_by_account_type": {
+          "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
         }
       },
       "outline": {
         "left": 0,
-        "top": 16,
+        "top": 28,
         "width": 12,
         "height": 8
       }
@@ -1046,5 +1090,128 @@
       }
     }
   ],
-  "savedViews": []
+  "savedViews": [
+    {
+      "name": "Top 5 Customers",
+      "view": {
+        "__type": "DashboardViewState",
+        "widgets": [
+          {
+            "id": "42a8883d-857f-0ee6-bd37-8ac29ddd572d",
+            "__type": "FilterWidgetViewState",
+            "context": {
+              "currency": "USD",
+              "organizationCurrency": false,
+              "timeRange": {
+                "range": "Quarter",
+                "zoneCreated": "Asia/Calcutta",
+                "zone": "GMT"
+              },
+              "query": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ServiceAccountNativeDetailsQueryOperator",
+                  "native_details": [
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureSubscription"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspMaster"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspPartner"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureEaAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForCostCenterAzure"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureAksCluster"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
+                    },
+                    {
+                      "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
+                    }
+                  ]
+                },
+                "b": {
+                  "__type": "ServiceAccountStatusQueryOperator",
+                  "statuses": [
+                    "active",
+                    "not_onboarded"
+                  ]
+                },
+                "op": "And"
+              },
+              "billingSource": "raw_cost",
+              "granularity": "month",
+              "overrideQuery": true,
+              "overrideBillingSource": true,
+              "overrideGranularity": true,
+              "overrideTenants": false,
+              "overrideCloudProviders": false,
+              "overrideCloudAccounts": false,
+              "overrideCurrency": true,
+              "overrideTimeRange": true
+            }
+          },
+          {
+            "id": "95f05341-60ed-223d-b0aa-b65de1cb065d",
+            "__type": "ChartWidgetViewState",
+            "viewAs": "StackedColumn",
+            "limit": "Top5",
+            "tableLimit": 5
+          },
+          {
+            "id": "22b23c7c-ddf5-8b4b-71f0-ab14b656b8f8",
+            "__type": "ChartWidgetViewState",
+            "groupByAccountType": {
+              "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+            },
+            "viewAs": "StackedColumn",
+            "limit": "Top5",
+            "tableLimit": 5
+          },
+          {
+            "id": "df6a28c1-b679-123f-9a22-861d5ba2d0cd",
+            "__type": "ChartWidgetViewState",
+            "groupByAccountType": {
+              "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+            },
+            "viewAs": "StackedColumn",
+            "limit": "Top5",
+            "tableLimit": 5
+          }
+        ]
+      }
+    }
+  ]
 }
