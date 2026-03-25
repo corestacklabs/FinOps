@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "tool_name": "copilot",
+    "generated_at": "2026-03-16T06:42:40Z",
+    "source_columns": [
+      "date",
+      "product",
+      "sku",
+      "quantity",
+      "unit_type",
+      "applied_cost_per_quantity",
+      "gross_amount",
+      "discount_amount",
+      "net_amount",
+      "username",
+      "organization",
+      "repository",
+      "workflow_path",
+      "cost_center_name"
+    ],
+    "focus_version": "1.0",
+    "generator": "saas_focus_converter/mapper_generator/generate_mapper.py"
+  },
+  "defaults": {
+    "ChargeCategory": "Usage",
+    "ChargeFrequency": "Monthly",
+    "BillingCurrency": "USD",
+    "ProviderName": "GitHub"
+  },
+  "mappings": {
+    "BillingPeriodEnd": {
+      "source": "date",
+      "transform": "to_billing_period_end"
+    },
+    "BillingPeriodStart": {
+      "source": "date",
+      "transform": "to_iso8601_start"
+    },
+    "BilledCost": {
+      "source": "net_amount",
+      "transform": "identity",
+      "fallback_sources": [
+        "applied_cost_per_quantity",
+        "gross_amount"
+      ],
+      "default_value": "0"
+    },
+    "EffectiveCost": {
+      "source": "net_amount",
+      "transform": "identity",
+      "fallback_sources": [
+        "applied_cost_per_quantity",
+        "gross_amount"
+      ],
+      "default_value": "0"
+    },
+    "ListCost": {
+      "source": "gross_amount",
+      "transform": "identity",
+      "fallback_sources": [
+        "applied_cost_per_quantity",
+        "discount_amount"
+      ],
+      "default_value": "0"
+    },
+    "ChargePeriodEnd": {
+      "source": "date",
+      "transform": "to_iso8601_end"
+    },
+    "ChargePeriodStart": {
+      "source": "date",
+      "transform": "to_iso8601_start"
+    },
+    "ServiceName": {
+      "source": "product",
+      "transform": "humanize"
+    },
+    "ConsumedQuantity": {
+      "source": "quantity",
+      "transform": "identity"
+    },
+    "ConsumedUnit": {
+      "source": "unit_type",
+      "transform": "identity",
+      "default_value": "user-months"
+    },
+    "ResourceId": {
+      "source": "username",
+      "transform": "identity"
+    },
+    "ResourceName": {
+      "source": "organization",
+      "transform": "identity"
+    },
+    "SkuId": {
+      "source": "sku",
+      "transform": "identity"
+    },
+    "Tags": {
+      "transform": "build_tags",
+      "tag_sources": [
+        "username",
+        "organization",
+        "repository",
+        "workflow_path",
+        "cost_center_name"
+      ]
+    },
+    "UsageType": {
+      "source": "unit_type",
+      "transform": "humanize"
+    },
+    "ProductFamily": {
+      "transform": "static",
+      "static_value": "Developer Tools"
+    }
+  }
+}

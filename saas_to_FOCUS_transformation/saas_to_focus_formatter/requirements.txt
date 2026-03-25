@@ -1,0 +1,61 @@
+# saas_to_focus_formatter — Python dependencies
+#
+# Python >= 3.10 is required.
+# Verify: python3 --version
+#
+# ──────────────────────────────────────────────────────────────────────────────
+# CORE PIPELINE — Python Standard Library (no installation needed)
+# ──────────────────────────────────────────────────────────────────────────────
+#
+# All modules below are part of the Python standard library and are imported
+# across the project. They are listed here for reference only; pip install
+# is NOT required for any of them.
+#
+#   argparse      CLI argument parsing                    main.py
+#   configparser  Read / write config.ini                 main.py
+#   csv           Read and write CSV files                main.py, transformer.py,
+#                                                         generate_mapper.py
+#   datetime      Date / time parsing and formatting      generate_mapper.py,
+#                                                         field_transformations.py,
+#                                                         run_logger.py
+#   glob          File-pattern matching (batch mode)      main.py
+#   json          Read mapper JSON / write Tags column    main.py, transformer.py,
+#                                                         generate_mapper.py,
+#                                                         field_transformations.py,
+#                                                         run_logger.py
+#   logging       Progress and audit logging              main.py, transformer.py,
+#                                                         generate_mapper.py,
+#                                                         field_transformations.py,
+#                                                         run_logger.py
+#   os            File-system paths, atomic replace       main.py, transformer.py,
+#                                                         generate_mapper.py,
+#                                                         run_logger.py
+#   re            Regex for date / text transforms        generate_mapper.py,
+#                                                         field_transformations.py
+#   sys           Exit codes, stderr writes               main.py
+#   time          Run-duration measurement                main.py, run_logger.py
+#   typing        Type hints (Optional, List, Dict, …)    all modules
+#
+# ──────────────────────────────────────────────────────────────────────────────
+# OPTIONAL — AWS S3 upload  (third-party package)
+# ──────────────────────────────────────────────────────────────────────────────
+#
+# boto3 is required ONLY when you configure an [s3] bucket in config.ini
+# or pass --s3_bucket on the command line.
+# The core pipeline runs without it.
+#
+# Install:
+#   pip install boto3
+#
+# boto3>=1.26
+#
+# ──────────────────────────────────────────────────────────────────────────────
+# DEVELOPMENT / TESTING — Standard Library (no installation needed)
+# ──────────────────────────────────────────────────────────────────────────────
+#
+#   unittest      Built-in test framework used by tests/
+#   tempfile      Temporary files used in test fixtures
+#   io            StringIO used in test fixtures
+#
+# Run all tests:
+#   python3 -m unittest discover -s tests -v

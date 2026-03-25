@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "tool_name": "m365",
+    "generated_at": "2026-03-17T00:00:00Z",
+    "source_columns": [
+      "INVOICE ID",
+      "INVOICE DATE (UTC)",
+      "BILLING PERIOD (UTC)",
+      "BILLING PROFILE",
+      "TOTAL AMOUNT CURRENCY",
+      "TOTAL AMOUNT",
+      "STATUS"
+    ],
+    "focus_version": "1.0",
+    "generator": "saas_focus_converter/mapper_generator/generate_mapper.py"
+  },
+
+  "defaults": {
+    "ChargeCategory": "Usage",
+    "ChargeFrequency": "Monthly",
+    "BillingCurrency": "INR",
+    "ProviderName": "Microsoft",
+    "RegionName": "Global"
+  },
+
+  "mappings": {
+    "BillingPeriodStart": {
+      "source": "INVOICE DATE (UTC)",
+      "transform": "to_iso8601_start"
+    },
+    "BillingPeriodEnd": {
+      "source": "INVOICE DATE (UTC)",
+      "transform": "to_billing_period_end"
+    },
+    "ChargePeriodStart": {
+      "source": "INVOICE DATE (UTC)",
+      "transform": "to_iso8601_start"
+    },
+    "ChargePeriodEnd": {
+      "source": "INVOICE DATE (UTC)",
+      "transform": "to_iso8601_end"
+    },
+    "ServiceName": {
+      "transform": "static",
+      "static_value": "Microsoft 365"
+    },
+    "SkuId": {
+      "source": "INVOICE ID",
+      "transform": "identity"
+    },
+    "UsageType": {
+      "transform": "static",
+      "static_value": "Subscription"
+    },
+    "ProductFamily": {
+      "transform": "static",
+      "static_value": "Productivity & Collaboration"
+    },
+    "ConsumedQuantity": {
+      "transform": "static",
+      "static_value": "1"
+    },
+    "ConsumedUnit": {
+      "transform": "static",
+      "static_value": "Invoices"
+    },
+    "BillingCurrency": {
+      "source": "TOTAL AMOUNT CURRENCY",
+      "transform": "to_uppercase",
+      "default_value": "INR"
+    },
+    "BilledCost": {
+      "source": "TOTAL AMOUNT",
+      "transform": "to_decimal",
+      "default_value": "0"
+    },
+    "EffectiveCost": {
+      "source": "TOTAL AMOUNT",
+      "transform": "to_decimal",
+      "default_value": "0"
+    },
+    "ListCost": {
+      "source": "TOTAL AMOUNT",
+      "transform": "to_decimal",
+      "default_value": "0"
+    },
+    "ResourceId": {
+      "source": "INVOICE ID",
+      "transform": "identity"
+    },
+    "ResourceName": {
+      "source": "BILLING PROFILE",
+      "transform": "identity"
+    },
+    "BillingAccountName": {
+      "source": "BILLING PROFILE",
+      "transform": "identity"
+    },
+    "Tags": {
+      "transform": "build_tags",
+      "tag_sources": [
+        ["invoice_id", "INVOICE ID"],
+        ["billing_period", "BILLING PERIOD (UTC)"],
+        ["billing_profile", "BILLING PROFILE"],
+        ["status", "STATUS"]
+      ]
+    }
+  }
+}

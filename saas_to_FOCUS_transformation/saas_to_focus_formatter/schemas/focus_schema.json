@@ -1,0 +1,158 @@
+{
+  "$schema": "https://finops.org/focus/1.0",
+  "description": "FinOps Foundation FOCUS 1.0 column reference for SaaS CUR output",
+  "columns": [
+    {
+      "name": "ProviderName",
+      "required": true,
+      "type": "string",
+      "description": "SaaS provider name (e.g. GitHub, Anthropic, Datadog)"
+    },
+    {
+      "name": "BillingAccountId",
+      "required": true,
+      "type": "string",
+      "description": "Provider-assigned billing account identifier"
+    },
+    {
+      "name": "BillingAccountName",
+      "required": true,
+      "type": "string",
+      "description": "Human-readable billing account name"
+    },
+    {
+      "name": "BillingCurrency",
+      "required": true,
+      "type": "string",
+      "description": "ISO 4217 currency code (e.g. USD, EUR, GBP)"
+    },
+    {
+      "name": "BillingPeriodEnd",
+      "required": true,
+      "type": "datetime",
+      "description": "Exclusive end of billing month — first instant of NEXT month (YYYY-MM-01T00:00:00Z)",
+      "format": "ISO-8601 UTC"
+    },
+    {
+      "name": "BillingPeriodStart",
+      "required": true,
+      "type": "datetime",
+      "description": "Inclusive start of billing month (YYYY-MM-01T00:00:00Z)",
+      "format": "ISO-8601 UTC"
+    },
+    {
+      "name": "BilledCost",
+      "required": true,
+      "type": "decimal",
+      "description": "Invoiced cost after all discounts applied"
+    },
+    {
+      "name": "EffectiveCost",
+      "required": true,
+      "type": "decimal",
+      "description": "Amortized cost allocated over the usage period"
+    },
+    {
+      "name": "ListCost",
+      "required": true,
+      "type": "decimal",
+      "description": "Cost at provider list price before any discounts"
+    },
+    {
+      "name": "ChargeCategory",
+      "required": true,
+      "type": "string",
+      "description": "Highest-level charge classification (Usage | Credit | Adjustment | Tax)"
+    },
+    {
+      "name": "ChargeFrequency",
+      "required": true,
+      "type": "string",
+      "description": "How often the charge recurs (Monthly | Daily | Hourly | One-Time)"
+    },
+    {
+      "name": "ChargePeriodEnd",
+      "required": true,
+      "type": "datetime",
+      "description": "Inclusive end of the usage day (YYYY-MM-DDT23:59:59Z)",
+      "format": "ISO-8601 UTC"
+    },
+    {
+      "name": "ChargePeriodStart",
+      "required": true,
+      "type": "datetime",
+      "description": "Inclusive start of the usage day (YYYY-MM-DDT00:00:00Z)",
+      "format": "ISO-8601 UTC"
+    },
+    {
+      "name": "ServiceName",
+      "required": true,
+      "type": "string",
+      "description": "Human-readable display name of the consumed service"
+    },
+    {
+      "name": "ConsumedQuantity",
+      "required": false,
+      "type": "decimal",
+      "description": "Volume of the resource or service consumed"
+    },
+    {
+      "name": "ConsumedUnit",
+      "required": false,
+      "type": "string",
+      "description": "Unit of measure for ConsumedQuantity (Seats, Tokens, Hours, GB, Requests…)"
+    },
+    {
+      "name": "RegionName",
+      "required": false,
+      "type": "string",
+      "description": "Geographic region where the resource is consumed"
+    },
+    {
+      "name": "ResourceId",
+      "required": false,
+      "type": "string",
+      "description": "Provider-assigned unique identifier for the consumed resource"
+    },
+    {
+      "name": "ResourceName",
+      "required": false,
+      "type": "string",
+      "description": "Human-readable name of the consumed resource"
+    },
+    {
+      "name": "SkuId",
+      "required": false,
+      "type": "string",
+      "description": "Provider SKU or plan identifier"
+    },
+    {
+      "name": "Tags",
+      "required": false,
+      "type": "map<string,string>",
+      "description": "JSON key-value metadata for cost allocation (e.g. {\"team\":\"eng\",\"env\":\"prod\"})"
+    },
+    {
+      "name": "UsageType",
+      "required": false,
+      "type": "string",
+      "description": "Category or type of usage (e.g. Compute, Storage, API Calls)"
+    },
+    {
+      "name": "ProductFamily",
+      "required": false,
+      "type": "string",
+      "description": "Broad product family grouping (e.g. Developer Tools, AI / ML, Observability)"
+    }
+  ],
+  "required_columns": [
+    "ProviderName", "BillingAccountId", "BillingAccountName", "BillingCurrency",
+    "BillingPeriodEnd", "BillingPeriodStart", "BilledCost", "EffectiveCost",
+    "ListCost", "ChargeCategory", "ChargeFrequency", "ChargePeriodEnd",
+    "ChargePeriodStart", "ServiceName"
+  ],
+  "optional_columns": [
+    "ConsumedQuantity", "ConsumedUnit", "RegionName", "ResourceId", "ResourceName",
+    "SkuId", "Tags", "UsageType", "ProductFamily"
+  ]
+}

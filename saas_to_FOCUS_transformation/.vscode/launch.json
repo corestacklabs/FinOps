@@ -1,0 +1,116 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        // ── Config-file mode (no path args needed — all from config.ini) ────────
+        {
+            "name": "run: from config.ini",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/saas_to_focus_formatter/main.py",
+            "cwd": "${workspaceFolder}/saas_to_focus_formatter",
+            "args": ["run"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "generate: from config.ini",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/saas_to_focus_formatter/main.py",
+            "cwd": "${workspaceFolder}/saas_to_focus_formatter",
+            "args": ["generate"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        // ── Explicit-args mode (overrides config.ini values) ────────────────────
+        {
+            "name": "run: batch folder (explicit)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/saas_to_focus_formatter/main.py",
+            "cwd": "${workspaceFolder}/saas_to_focus_formatter",
+            "args": [
+                "run",
+                "--usage_dir",            "../usage_reports/",
+                "--output_dir",           "../focus_cur_outputs/",
+                "--cur_template",         "../saas_template.csv",
+                "--provider_name",        "GitHub",
+                "--billing_account_id",   "org-CoreStack-Engg",
+                "--billing_account_name", "CoreStack Engineering",
+                "--billing_currency",     "USD"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "run: single file (explicit)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/saas_to_focus_formatter/main.py",
+            "cwd": "${workspaceFolder}/saas_to_focus_formatter",
+            "args": [
+                "run",
+                "--usage_report",         "../usage_report.csv",
+                "--cur_template",         "../saas_template.csv",
+                "--output",               "../focus_cur_output.csv",
+                "--provider_name",        "GitHub",
+                "--billing_account_id",   "org-CoreStack-Engg",
+                "--billing_account_name", "CoreStack Engineering",
+                "--billing_currency",     "USD",
+                "--region_name",          "east-us"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "transform: single file (explicit)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/saas_to_focus_formatter/main.py",
+            "cwd": "${workspaceFolder}/saas_to_focus_formatter",
+            "args": [
+                "transform",
+                "--usage_report",         "../usage_report.csv",
+                "--mapper",               "mappers/copilot_mapper.json",
+                "--cur_template",         "../saas_template.csv",
+                "--output",               "../focus_cur_output.csv",
+                "--provider_name",        "GitHub",
+                "--billing_account_id",   "org-CoreStack-Engg",
+                "--billing_account_name", "CoreStack Engineering",
+                "--billing_currency",     "USD",
+                "--region_name",          "east-us"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "generate: mapper (explicit)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/saas_to_focus_formatter/main.py",
+            "cwd": "${workspaceFolder}/saas_to_focus_formatter",
+            "args": [
+                "generate",
+                "--usage_report",    "../usage_report.csv",
+                "--output_mapper",   "mappers/copilot_mapper.json",
+                "--tool_name",       "copilot",
+                "--provider_name",   "GitHub",
+                "--product_family",  "Developer Tools",
+                "--billing_currency","USD"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        // ── Tests ────────────────────────────────────────────────────────────────
+        {
+            "name": "tests: all",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "unittest",
+            "args": ["discover", "-s", "tests", "-v"],
+            "cwd": "${workspaceFolder}/saas_to_focus_formatter",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

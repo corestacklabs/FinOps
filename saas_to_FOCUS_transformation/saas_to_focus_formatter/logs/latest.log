@@ -1,0 +1,49 @@
+2026-03-21 00:25:08  INFO   ========================================================================
+2026-03-21 00:25:08  INFO   RUN START   run_id=20260320_185508       command=run
+2026-03-21 00:25:08  INFO   Config      : /Users/deepak/Documents/saas_to_FOCUS_transformation/saas_to_focus_formatter/config.ini
+2026-03-21 00:25:08  INFO   Input files : 6
+2026-03-21 00:25:08  INFO     [1/6] ../usage_reports/copilot_april_2026.csv
+2026-03-21 00:25:08  INFO     [2/6] ../usage_reports/copilot_february_2026.csv
+2026-03-21 00:25:08  INFO     [3/6] ../usage_reports/copilot_january_2026.csv
+2026-03-21 00:25:08  INFO     [4/6] ../usage_reports/copilot_june_2026.csv
+2026-03-21 00:25:08  INFO     [5/6] ../usage_reports/copilot_march_2026.csv
+2026-03-21 00:25:08  INFO     [6/6] ../usage_reports/copilot_may_2026.csv
+2026-03-21 00:25:08  INFO   Parameters  :
+2026-03-21 00:25:08  INFO     provider_name             : Microsoft
+2026-03-21 00:25:08  INFO     billing_account_id        : d883b358-f7bd-543d-6e9d-c3fbb1c70e73:2e9cb5a7-7f86-4cd3-b52d-9255d17ba36e_2019-05-31
+2026-03-21 00:25:08  INFO     billing_account_name      : CoreStack India Private Limited - Internal-IT
+2026-03-21 00:25:08  INFO     billing_currency          : USD
+2026-03-21 00:25:08  INFO     region_name               : global
+2026-03-21 00:25:08  INFO     cur_template              : ../saas_template.csv
+2026-03-21 00:25:08  INFO     max_retries               : 1
+2026-03-21 00:25:08  INFO     resume                    : False
+2026-03-21 00:25:08  INFO   ------------------------------------------------------------------------
+2026-03-21 00:25:08  INFO   [1/6] START   ../usage_reports/copilot_april_2026.csv
+2026-03-21 00:25:08  INFO   [1/6]   output : ../focus_cur_outputs/copilot_april_2026_focus_cur.csv
+2026-03-21 00:25:08  INFO   [1/6]   mapper : mappers/copilot_mapper.json
+2026-03-21 00:25:08  INFO   [1/6] DONE    rows=21      elapsed=0.01s  ../usage_reports/copilot_april_2026.csv
+2026-03-21 00:25:08  INFO   [2/6] START   ../usage_reports/copilot_february_2026.csv
+2026-03-21 00:25:08  INFO   [2/6]   output : ../focus_cur_outputs/copilot_february_2026_focus_cur.csv
+2026-03-21 00:25:08  INFO   [2/6]   mapper : mappers/copilot_mapper.json
+2026-03-21 00:25:08  INFO   [2/6] DONE    rows=20      elapsed=0.00s  ../usage_reports/copilot_february_2026.csv
+2026-03-21 00:25:08  INFO   [3/6] START   ../usage_reports/copilot_january_2026.csv
+2026-03-21 00:25:08  INFO   [3/6]   output : ../focus_cur_outputs/copilot_january_2026_focus_cur.csv
+2026-03-21 00:25:08  INFO   [3/6]   mapper : mappers/copilot_mapper.json
+2026-03-21 00:25:08  INFO   [3/6] DONE    rows=19      elapsed=0.00s  ../usage_reports/copilot_january_2026.csv
+2026-03-21 00:25:08  INFO   [4/6] START   ../usage_reports/copilot_june_2026.csv
+2026-03-21 00:25:08  INFO   [4/6]   output : ../focus_cur_outputs/copilot_june_2026_focus_cur.csv
+2026-03-21 00:25:08  INFO   [4/6]   mapper : mappers/copilot_mapper.json
+2026-03-21 00:25:08  INFO   [4/6] DONE    rows=21      elapsed=0.01s  ../usage_reports/copilot_june_2026.csv
+2026-03-21 00:25:08  INFO   [5/6] START   ../usage_reports/copilot_march_2026.csv
+2026-03-21 00:25:08  INFO   [5/6]   output : ../focus_cur_outputs/copilot_march_2026_focus_cur.csv
+2026-03-21 00:25:08  INFO   [5/6]   mapper : mappers/copilot_mapper.json
+2026-03-21 00:25:08  INFO   [5/6] DONE    rows=20      elapsed=0.00s  ../usage_reports/copilot_march_2026.csv
+2026-03-21 00:25:08  INFO   [6/6] START   ../usage_reports/copilot_may_2026.csv
+2026-03-21 00:25:08  INFO   [6/6]   output : ../focus_cur_outputs/copilot_may_2026_focus_cur.csv
+2026-03-21 00:25:08  INFO   [6/6]   mapper : mappers/copilot_mapper.json
+2026-03-21 00:25:08  INFO   [6/6] DONE    rows=21      elapsed=0.00s  ../usage_reports/copilot_may_2026.csv
+2026-03-21 00:25:08  INFO   ------------------------------------------------------------------------
+2026-03-21 00:25:08  INFO   RUN COMPLETE             done=6  failed=0  skipped=0  rows=122  elapsed=0.04s
+2026-03-21 00:25:08  INFO   Log   : logs/latest.log
+2026-03-21 00:25:08  INFO   State : logs/run_state.json
+2026-03-21 00:25:08  INFO   ========================================================================
