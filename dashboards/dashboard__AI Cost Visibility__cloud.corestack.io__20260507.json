@@ -1,0 +1,5248 @@
+{
+  "title": "AI Cost Visibility",
+  "showTitle": false,
+  "widgetPrimaryColor": "#FFFFFF",
+  "widgetSecondaryColor": "#0076E1",
+  "flavor": "FinOps",
+  "saas": [
+    "AWS",
+    "Azure",
+    "GCP",
+    "OCI",
+    "Anthropic",
+    "OpenAI",
+    "Databricks",
+    "Snowflake",
+    "CircleCI",
+    "Datadog",
+    "Dropbox",
+    "Dynatrace",
+    "Elastic",
+    "Grafana",
+    "IBM_Tencent",
+    "Microsoft_Teams",
+    "New_Relic",
+    "Okta",
+    "SaasCustomTool",
+    "Salesforce_Sales_Cloud",
+    "Splunk"
+  ],
+  "bannerSegments": [
+    {
+      "widthRatio": 1,
+      "branding": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#0076E1",
+        "text": "AI Cost Visibility",
+        "horizontalPlacement": "Center",
+        "verticalPlacement": "Middle"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "config": {
+        "__type": "FilterWidgetConfiguration",
+        "id": "98e1d609-b6dc-f65e-27ae-343e62d4e120",
+        "size": 0,
+        "name": "Filter",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "context": {
+          "currency": "USD",
+          "organizationCurrency": false,
+          "timeRange": {
+            "range": "Last6MonthsToNow",
+            "zoneCreated": "Asia/Calcutta",
+            "zone": "UTC"
+          },
+          "billingSource": "raw_cost",
+          "granularity": "month",
+          "overrideQuery": true,
+          "overrideBillingSource": true,
+          "overrideGranularity": true,
+          "overrideTenants": false,
+          "overrideCloudProviders": false,
+          "overrideCloudAccounts": false,
+          "overrideCurrency": true,
+          "overrideTimeRange": true
+        },
+        "contextId": "b2abb982-65a6-882d-fde3-e6e52e6719e5"
+      },
+      "outline": {
+        "left": 0,
+        "top": 0,
+        "width": 12,
+        "height": 4
+      }
+    },
+    {
+      "config": {
+        "__type": "CostSummaryWidgetConfigurationModel",
+        "id": "994ae28e-4916-d9e6-5d8f-91d8cf35eed9",
+        "size": 0,
+        "name": "Total AI Spend",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "b2abb982-65a6-882d-fde3-e6e52e6719e5",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta"
+          },
+          "overrideQuery": false,
+          "overrideBillingSource": false,
+          "overrideCurrency": false
+        },
+        "summaryType": "Total"
+      },
+      "outline": {
+        "left": 0,
+        "top": 4,
+        "width": 3,
+        "height": 3
+      }
+    },
+    {
+      "config": {
+        "__type": "CostSummaryWidgetConfigurationModel",
+        "id": "a112d4bb-3861-0816-b3da-c41133a1bfc4",
+        "size": 0,
+        "name": "AI Spend - AWS",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "b2abb982-65a6-882d-fde3-e6e52e6719e5",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta"
+          },
+          "query": {
+            "__type": "ServiceAccountNativeDetailsQueryOperator",
+            "native_details": [
+              {
+                "type": "ServiceAccountNativeDetailsBaseForAws"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAwsManagementAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAwsOrganizationUnit"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAwsMemberAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForCostCenterAws"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAwsEksCluster"
+              }
+            ]
+          },
+          "overrideQuery": true,
+          "overrideBillingSource": false,
+          "overrideCurrency": false
+        },
+        "summaryType": "Total"
+      },
+      "outline": {
+        "left": 3,
+        "top": 4,
+        "width": 3,
+        "height": 3
+      }
+    },
+    {
+      "config": {
+        "__type": "CostSummaryWidgetConfigurationModel",
+        "id": "6920400a-6cfe-9376-9f53-63fb5e04696e",
+        "size": 0,
+        "name": "AI Spend - Azure",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "b2abb982-65a6-882d-fde3-e6e52e6719e5",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta"
+          },
+          "query": {
+            "__type": "ServiceAccountNativeDetailsQueryOperator",
+            "native_details": [
+              {
+                "type": "ServiceAccountNativeDetailsForAzureSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspPartner"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaApplicationMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForCostCenterAzure"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureAksCluster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspPartner"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaApplicationMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForCostCenterAzure"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureAksCluster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspPartner"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaApplicationMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForCostCenterAzure"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureAksCluster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspPartner"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaApplicationMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForCostCenterAzure"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureAksCluster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspPartner"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureCspCustomer"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForAzureEaMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaApplicationMaster"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaDepartment"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureEaSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaBillingAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaBillingProfile"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaInvoiceSection"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureMcaSubscription"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForCostCenterAzure"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForAzureAksCluster"
+              }
+            ]
+          },
+          "overrideQuery": true,
+          "overrideBillingSource": false,
+          "overrideCurrency": false
+        },
+        "summaryType": "Total"
+      },
+      "outline": {
+        "left": 6,
+        "top": 4,
+        "width": 3,
+        "height": 3
+      }
+    },
+    {
+      "config": {
+        "__type": "CostSummaryWidgetConfigurationModel",
+        "id": "87f0cd76-7894-b0e1-7581-ef9ed09658b2",
+        "size": 0,
+        "name": "AI Spend - GCP",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "b2abb982-65a6-882d-fde3-e6e52e6719e5",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta"
+          },
+          "query": {
+            "__type": "ServiceAccountNativeDetailsQueryOperator",
+            "native_details": [
+              {
+                "type": "ServiceAccountNativeDetailsBaseForGcp"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForGcpOrganization"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForGcpFolder"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForGcpProject"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForGcpBillingAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForGcpParentBillingAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForGcpBillingSubAccount"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForCostCenterGcp"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsBaseForCostCenterDimension"
+              },
+              {
+                "type": "ServiceAccountNativeDetailsForGcpGkeCluster"
+              }
+            ]
+          },
+          "overrideQuery": true,
+          "overrideBillingSource": false,
+          "overrideCurrency": false
+        },
+        "summaryType": "Total"
+      },
+      "outline": {
+        "left": 9,
+        "top": 4,
+        "width": 3,
+        "height": 3
+      }
+    },
+    {
+      "config": {
+        "__type": "CostTrendWidgetConfiguration",
+        "id": "d5208b64-8c7f-98e7-55be-6a3d08b15cf8",
+        "size": 0,
+        "name": "Cost Trend (AI Model Name)",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "b2abb982-65a6-882d-fde3-e6e52e6719e5",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta"
+          },
+          "overrideQuery": false,
+          "overrideBillingSource": false,
+          "overrideCurrency": false
+        },
+        "chartType": "StackedColumn",
+        "chartLimit": "Top10PlusOther",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        },
+        "group_by_details": {
+          "selector": "dimension",
+          "key": "69f994333d7b33d00c14bc3e/<name>",
+          "groups": [
+            {
+              "value": "Claude Sonnet 4.6",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude Sonnet 4.6 (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Claude Sonnet 4",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude Sonnet 4 (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Claude Sonnet 4.5",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude Sonnet 4.5 (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Claude 3.7 Sonnet",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude 3.7 Sonnet (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Claude Opus 4.6",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude Opus 4.6 (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Claude Opus 4.5",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude Opus 4.5 (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Amazon Bedrock",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "AmazonBedrock"
+                ]
+              }
+            },
+            {
+              "value": "Claude 3.5 Sonnet",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude 3.5 Sonnet (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Claude Haiku 4.5",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude Haiku 4.5 (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Claude Opus 4.7",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude Opus 4.7 (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Claude 3.5 Sonnet v2",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude 3.5 Sonnet v2 (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Claude Opus 4",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude Opus 4 (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Claude 3.5 Haiku",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude 3.5 Haiku (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Claude Opus 4.1",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude Opus 4.1 (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Claude 3 Haiku",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude 3 Haiku (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Claude 3 Sonnet",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude 3 Sonnet (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Gemini 2.0 Flash",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Gemini 2.0 Flash",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Gemini 2.5 Flash",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "Gemini 2.5 Flash",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "QueryOperatorUnaryNot",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Lite",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "Gemini 2.5 Flash Lite",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Gemini 2.5 Flash Lite",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Gemini 2.5 Pro",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Gemini 2.5 Pro",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Gemini 3 Flash",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "Gemini 3 Flash",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "QueryOperatorUnaryNot",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Lite",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "Gemini 3.0 Pro",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Gemini 3.0 Pro",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Gemini 3.1 Flash Lite",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Gemini 3.1 Flash Lite",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Imagen 4",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Imagen 4",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Amazon Bedrock Agent",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "AmazonBedrockAgentCore"
+                ]
+              }
+            },
+            {
+              "value": "Cohere Embed 4",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Cohere Embed 4 Model (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Unallocated",
+              "filter": {
+                "__type": "QueryOperatorNaryLogic",
+                "terms": [
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude Sonnet 4.6 (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude Sonnet 4 (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude Sonnet 4.5 (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude 3.7 Sonnet (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude Opus 4.6 (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude Opus 4.5 (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "AmazonBedrock"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude 3.5 Sonnet (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude Haiku 4.5 (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude Opus 4.7 (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude 3.5 Sonnet v2 (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude Opus 4 (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude 3.5 Haiku (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude Opus 4.1 (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude 3 Haiku (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude 3 Sonnet (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Gemini 2.0 Flash",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Gemini 2.5 Flash",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "QueryOperatorUnaryNot",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Lite",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Gemini 2.5 Flash Lite",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Gemini 2.5 Pro",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Gemini 3 Flash",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "QueryOperatorUnaryNot",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Lite",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Gemini 3.0 Pro",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Gemini 3.1 Flash Lite",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Imagen 4",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "AmazonBedrockAgentCore"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Cohere Embed 4 Model (Amazon Bedrock Edition)"
+                    ]
+                  }
+                ],
+                "op": "NotAny"
+              }
+            }
+          ]
+        },
+        "group_by_tag_status": false,
+        "group_by_tag_keys": false
+      },
+      "outline": {
+        "left": 0,
+        "top": 7,
+        "width": 12,
+        "height": 9
+      }
+    },
+    {
+      "config": {
+        "__type": "CostTrendWidgetConfiguration",
+        "id": "ea9a3877-3a8b-5b6b-1d28-d2e276a0896e",
+        "size": 0,
+        "name": "Cost Trend (AI Model Type)",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "b2abb982-65a6-882d-fde3-e6e52e6719e5",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta"
+          },
+          "overrideQuery": false,
+          "overrideBillingSource": false,
+          "overrideCurrency": false
+        },
+        "chartType": "StackedColumn",
+        "chartLimit": "Top10PlusOther",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        },
+        "group_by_details": {
+          "selector": "dimension",
+          "key": "69f993e23d7b33d00c14ab68/<name>",
+          "groups": [
+            {
+              "value": "Chat Completion",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ProductCategoryQueryOperator",
+                  "product_categories": [
+                    "Claude 3 Haiku (Amazon Bedrock Edition)",
+                    "Claude 3.5 Haiku (Amazon Bedrock Edition)",
+                    "Claude Haiku 4.5 (Amazon Bedrock Edition)",
+                    "Claude 3 Sonnet (Amazon Bedrock Edition)",
+                    "Claude 3.5 Sonnet (Amazon Bedrock Edition)",
+                    "Claude 3.5 Sonnet v2 (Amazon Bedrock Edition)",
+                    "Claude 3.7 Sonnet (Amazon Bedrock Edition)",
+                    "Claude Sonnet 4 (Amazon Bedrock Edition)",
+                    "Claude Sonnet 4.5 (Amazon Bedrock Edition)",
+                    "Claude Sonnet 4.6 (Amazon Bedrock Edition)"
+                  ]
+                },
+                "b": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Gemini",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "QueryOperatorUnaryNot",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Thinking",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      }
+                    },
+                    "op": "And"
+                  },
+                  "b": {
+                    "__type": "QueryOperatorUnaryNot",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Image",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    }
+                  },
+                  "op": "And"
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Reasoning and Multimodal",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ProductCategoryQueryOperator",
+                  "product_categories": [
+                    "Claude Opus 4 (Amazon Bedrock Edition)",
+                    "Claude Opus 4.1 (Amazon Bedrock Edition)",
+                    "Claude Opus 4.5 (Amazon Bedrock Edition)",
+                    "Claude Opus 4.6 (Amazon Bedrock Edition)",
+                    "Claude Opus 4.7 (Amazon Bedrock Edition)"
+                  ]
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "Thinking",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Embedding Model",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "AmazonBedrock"
+                    ]
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "TitanEmbeddingV2",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "And"
+                },
+                "b": {
+                  "__type": "ProductCategoryQueryOperator",
+                  "product_categories": [
+                    "Cohere Embed 4 Model (Amazon Bedrock Edition)"
+                  ]
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Custom Model Storage",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "AmazonBedrock"
+                    ]
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Customization-Storage",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "And"
+                },
+                "b": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ProductCategoryQueryOperator",
+                      "product_categories": [
+                        "AmazonBedrock"
+                      ]
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Llama-Custom",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "And"
+                  },
+                  "b": {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ProductCategoryQueryOperator",
+                      "product_categories": [
+                        "AmazonBedrock"
+                      ]
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "NovaMultiModal",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "And"
+                  },
+                  "op": "Or"
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Guardrail",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ProductCategoryQueryOperator",
+                  "product_categories": [
+                    "AmazonBedrock"
+                  ]
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "Guardrail",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "Open Source Chat",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ProductCategoryQueryOperator",
+                  "product_categories": [
+                    "AmazonBedrock"
+                  ]
+                },
+                "b": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Llama",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "QueryOperatorUnaryNot",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Storage",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    }
+                  },
+                  "op": "And"
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "Provisioned Capacity",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ProductCategoryQueryOperator",
+                  "product_categories": [
+                    "AmazonBedrock"
+                  ]
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "Provisioned",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "Multimodal",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "AmazonBedrock"
+                    ]
+                  },
+                  "b": {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "TitanImage",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "StableDiffusion",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  },
+                  "op": "And"
+                },
+                "b": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Image",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Imagen",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "Or"
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Code Model",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ProductCategoryQueryOperator",
+                  "product_categories": [
+                    "AmazonBedrock"
+                  ]
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "CodeWhisperer",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "Text to Speech",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ProductCategoryQueryOperator",
+                  "product_categories": [
+                    "AmazonBedrock"
+                  ]
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "Polly",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "Reranking",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ProductCategoryQueryOperator",
+                  "product_categories": [
+                    "AmazonBedrock"
+                  ]
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "CohereRerank",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "Agent Framework",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "AmazonBedrockAgentCore"
+                ]
+              }
+            },
+            {
+              "value": "Unallocated",
+              "filter": {
+                "__type": "QueryOperatorNaryLogic",
+                "terms": [
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ProductCategoryQueryOperator",
+                      "product_categories": [
+                        "Claude 3 Haiku (Amazon Bedrock Edition)",
+                        "Claude 3.5 Haiku (Amazon Bedrock Edition)",
+                        "Claude Haiku 4.5 (Amazon Bedrock Edition)",
+                        "Claude 3 Sonnet (Amazon Bedrock Edition)",
+                        "Claude 3.5 Sonnet (Amazon Bedrock Edition)",
+                        "Claude 3.5 Sonnet v2 (Amazon Bedrock Edition)",
+                        "Claude 3.7 Sonnet (Amazon Bedrock Edition)",
+                        "Claude Sonnet 4 (Amazon Bedrock Edition)",
+                        "Claude Sonnet 4.5 (Amazon Bedrock Edition)",
+                        "Claude Sonnet 4.6 (Amazon Bedrock Edition)"
+                      ]
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "QueryOperatorBinaryLogic",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "Gemini",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "b": {
+                          "__type": "QueryOperatorUnaryNot",
+                          "a": {
+                            "__type": "ResourceCategoryRegexQueryOperator",
+                            "resource_category": {
+                              "pattern": "Thinking",
+                              "ignore_case": true,
+                              "op": "Contains"
+                            }
+                          }
+                        },
+                        "op": "And"
+                      },
+                      "b": {
+                        "__type": "QueryOperatorUnaryNot",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "Image",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        }
+                      },
+                      "op": "And"
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ProductCategoryQueryOperator",
+                      "product_categories": [
+                        "Claude Opus 4 (Amazon Bedrock Edition)",
+                        "Claude Opus 4.1 (Amazon Bedrock Edition)",
+                        "Claude Opus 4.5 (Amazon Bedrock Edition)",
+                        "Claude Opus 4.6 (Amazon Bedrock Edition)",
+                        "Claude Opus 4.7 (Amazon Bedrock Edition)"
+                      ]
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Thinking",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ProductCategoryQueryOperator",
+                        "product_categories": [
+                          "AmazonBedrock"
+                        ]
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "TitanEmbeddingV2",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "And"
+                    },
+                    "b": {
+                      "__type": "ProductCategoryQueryOperator",
+                      "product_categories": [
+                        "Cohere Embed 4 Model (Amazon Bedrock Edition)"
+                      ]
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ProductCategoryQueryOperator",
+                        "product_categories": [
+                          "AmazonBedrock"
+                        ]
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Customization-Storage",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "And"
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "QueryOperatorBinaryLogic",
+                        "a": {
+                          "__type": "ProductCategoryQueryOperator",
+                          "product_categories": [
+                            "AmazonBedrock"
+                          ]
+                        },
+                        "b": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "Llama-Custom",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "op": "And"
+                      },
+                      "b": {
+                        "__type": "QueryOperatorBinaryLogic",
+                        "a": {
+                          "__type": "ProductCategoryQueryOperator",
+                          "product_categories": [
+                            "AmazonBedrock"
+                          ]
+                        },
+                        "b": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "NovaMultiModal",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "op": "And"
+                      },
+                      "op": "Or"
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ProductCategoryQueryOperator",
+                      "product_categories": [
+                        "AmazonBedrock"
+                      ]
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Guardrail",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ProductCategoryQueryOperator",
+                      "product_categories": [
+                        "AmazonBedrock"
+                      ]
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Llama",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "QueryOperatorUnaryNot",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "Storage",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        }
+                      },
+                      "op": "And"
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ProductCategoryQueryOperator",
+                      "product_categories": [
+                        "AmazonBedrock"
+                      ]
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Provisioned",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ProductCategoryQueryOperator",
+                        "product_categories": [
+                          "AmazonBedrock"
+                        ]
+                      },
+                      "b": {
+                        "__type": "QueryOperatorBinaryLogic",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "TitanImage",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "b": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "StableDiffusion",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "op": "Or"
+                      },
+                      "op": "And"
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Image",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Imagen",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "Or"
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ProductCategoryQueryOperator",
+                      "product_categories": [
+                        "AmazonBedrock"
+                      ]
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "CodeWhisperer",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ProductCategoryQueryOperator",
+                      "product_categories": [
+                        "AmazonBedrock"
+                      ]
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Polly",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ProductCategoryQueryOperator",
+                      "product_categories": [
+                        "AmazonBedrock"
+                      ]
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "CohereRerank",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "AmazonBedrockAgentCore"
+                    ]
+                  }
+                ],
+                "op": "NotAny"
+              }
+            }
+          ]
+        },
+        "group_by_tag_status": false,
+        "group_by_tag_keys": false
+      },
+      "outline": {
+        "left": 0,
+        "top": 16,
+        "width": 12,
+        "height": 9
+      }
+    },
+    {
+      "config": {
+        "__type": "CostTrendWidgetConfiguration",
+        "id": "2aa59e03-b7fa-5d6b-a0c2-ec10d29e89f3",
+        "size": 0,
+        "name": "Cost Trend (AI Metric Name)",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "b2abb982-65a6-882d-fde3-e6e52e6719e5",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta"
+          },
+          "overrideQuery": false,
+          "overrideBillingSource": false,
+          "overrideCurrency": false
+        },
+        "chartType": "StackedColumn",
+        "chartLimit": "Top10PlusOther",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        },
+        "group_by_details": {
+          "selector": "dimension",
+          "key": "69f9946d3d7b33d00c14bdfc/<name>",
+          "groups": [
+            {
+              "value": "Batch Input Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "_InputTokenCount_Batch",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Input Token",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "_InputTokenCount-Units",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Llama3-8B-input-tokens",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "Or"
+                },
+                "b": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Text Input",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "QueryOperatorUnaryNot",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Caching",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    }
+                  },
+                  "op": "And"
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Batch Output Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "_OutputTokenCount_Batch",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Output Token",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "_OutputTokenCount-Units",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Llama3-8B-output-tokens",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "Or"
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "Text Output",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Cache Write Token",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "CacheWriteInputTokenCount-Units",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "Text Input Caching Storage",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Cache Read Token",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "CacheReadInputTokenCount-Units",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Text Input Caching",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "QueryOperatorUnaryNot",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Storage",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    }
+                  },
+                  "op": "And"
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Cache Write 1h Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "CacheWrite1hInputTokenCount",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Embedding Input Token",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "TitanEmbeddingV2",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "NovaMultiModal",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Standard Cache Read Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "cache_read_tokens_standard",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Standard Cache Write Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "cache_write_tokens_standard",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Standard Input Token",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "input_tokens_standard",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "input_tokens_global_standard",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Standard Output Token",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "output_tokens_standard",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "output_tokens_global_standard",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Long Context Cache Write Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "CacheWriteInputTokenCount_LCtx-Units",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Long Context Input Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "_InputTokenCount_LCtx-Units",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Long Context Output Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "_OutputTokenCount_LCtx-Units",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Long Context Cache Read Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "CacheReadInputTokenCount_LCtx-Units",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Cross-Region Cache Write Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "CacheWriteInputTokenCount_Global-Units",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Cross-Region Cache Read Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "CacheReadInputTokenCount_Global-Units",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Cross-Region Input Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "_InputTokenCount_Global-Units",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Cross-Region Output Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "_OutputTokenCount_Global-Units",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Long Context Cross-Region Cache Write Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "CacheWriteInputTokenCount_LCtx_Global",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Long Context Cross-Region Input Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "_InputTokenCount_LCtx_Global",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Long Context Cross-Region Output Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "_OutputTokenCount_LCtx_Global",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Long Context Cross-Region Cache Read Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "CacheReadInputTokenCount_LCtx_Global",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Customization Storage",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "Customization-Storage",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "CustomModelImport-Storage",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Guardrail Content Policy Units",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Guardrail-ContentPolicyUnitsConsumed",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Image Input Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Image Input",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Image Output Token",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Image Output",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Image Generation",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Generation (output)",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Agent Browser Tool",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ProductCategoryQueryOperator",
+                  "product_categories": [
+                    "AmazonBedrockAgentCore"
+                  ]
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "BrowserTool",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "Agent Tool Indexing",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ProductCategoryQueryOperator",
+                  "product_categories": [
+                    "AmazonBedrockAgentCore"
+                  ]
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "Tool-Indexing",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "Agent Data Transfer",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "AmazonBedrockAgentCore"
+                    ]
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "DataTransfer",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "And"
+                },
+                "b": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "AmazonBedrockAgentCore"
+                    ]
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Out-Bytes",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "And"
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Unallocated",
+              "filter": {
+                "__type": "QueryOperatorNaryLogic",
+                "terms": [
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "_InputTokenCount_Batch",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "_InputTokenCount-Units",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Llama3-8B-input-tokens",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "Or"
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Text Input",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "QueryOperatorUnaryNot",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "Caching",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        }
+                      },
+                      "op": "And"
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "_OutputTokenCount_Batch",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "_OutputTokenCount-Units",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Llama3-8B-output-tokens",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "Or"
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Text Output",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "CacheWriteInputTokenCount-Units",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Text Input Caching Storage",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "CacheReadInputTokenCount-Units",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Text Input Caching",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "QueryOperatorUnaryNot",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "Storage",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        }
+                      },
+                      "op": "And"
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "CacheWrite1hInputTokenCount",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "TitanEmbeddingV2",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "NovaMultiModal",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "cache_read_tokens_standard",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "cache_write_tokens_standard",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "input_tokens_standard",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "input_tokens_global_standard",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "output_tokens_standard",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "output_tokens_global_standard",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "CacheWriteInputTokenCount_LCtx-Units",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "_InputTokenCount_LCtx-Units",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "_OutputTokenCount_LCtx-Units",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "CacheReadInputTokenCount_LCtx-Units",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "CacheWriteInputTokenCount_Global-Units",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "CacheReadInputTokenCount_Global-Units",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "_InputTokenCount_Global-Units",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "_OutputTokenCount_Global-Units",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "CacheWriteInputTokenCount_LCtx_Global",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "_InputTokenCount_LCtx_Global",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "_OutputTokenCount_LCtx_Global",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "CacheReadInputTokenCount_LCtx_Global",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Customization-Storage",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "CustomModelImport-Storage",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Guardrail-ContentPolicyUnitsConsumed",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Image Input",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Image Output",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Generation (output)",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ProductCategoryQueryOperator",
+                      "product_categories": [
+                        "AmazonBedrockAgentCore"
+                      ]
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "BrowserTool",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ProductCategoryQueryOperator",
+                      "product_categories": [
+                        "AmazonBedrockAgentCore"
+                      ]
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Tool-Indexing",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ProductCategoryQueryOperator",
+                        "product_categories": [
+                          "AmazonBedrockAgentCore"
+                        ]
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "DataTransfer",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "And"
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ProductCategoryQueryOperator",
+                        "product_categories": [
+                          "AmazonBedrockAgentCore"
+                        ]
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Out-Bytes",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "And"
+                    },
+                    "op": "Or"
+                  }
+                ],
+                "op": "NotAny"
+              }
+            }
+          ]
+        },
+        "group_by_tag_status": false,
+        "group_by_tag_keys": false
+      },
+      "outline": {
+        "left": 0,
+        "top": 25,
+        "width": 12,
+        "height": 9
+      }
+    },
+    {
+      "config": {
+        "__type": "CostTrendWidgetConfiguration",
+        "id": "0ce6bcfa-e5d3-6d30-3736-13f40f06715e",
+        "size": 0,
+        "name": "AI Spend by Cloud",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "b2abb982-65a6-882d-fde3-e6e52e6719e5",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta"
+          },
+          "overrideQuery": false,
+          "overrideBillingSource": false,
+          "overrideCurrency": false
+        },
+        "chartType": "StackedColumn",
+        "chartLimit": "Top10PlusOther",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        },
+        "group_by_details": {
+          "selector": "service_name"
+        },
+        "group_by_tag_status": false,
+        "group_by_tag_keys": false
+      },
+      "outline": {
+        "left": 0,
+        "top": 34,
+        "width": 12,
+        "height": 9
+      }
+    },
+    {
+      "config": {
+        "__type": "CostTrendWidgetConfiguration",
+        "id": "11d0da58-5ee0-0853-65e0-46c3946c549e",
+        "size": 0,
+        "name": "AI Spend by Region",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "b2abb982-65a6-882d-fde3-e6e52e6719e5",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "Asia/Calcutta"
+          },
+          "overrideQuery": false,
+          "overrideBillingSource": false,
+          "overrideCurrency": false
+        },
+        "chartType": "StackedColumn",
+        "chartLimit": "Top10PlusOther",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        },
+        "group_by_details": {
+          "selector": "location"
+        },
+        "group_by_tag_status": false,
+        "group_by_tag_keys": false
+      },
+      "outline": {
+        "left": 0,
+        "top": 43,
+        "width": 12,
+        "height": 9
+      }
+    },
+    {
+      "config": {
+        "__type": "CostTrendForecastWidgetConfiguration",
+        "id": "d54dc1a2-7b4b-99dc-23a8-d3f7addc48b8",
+        "size": 0,
+        "name": "AI Cost Trend Forecast",
+        "refreshRateInSeconds": 0,
+        "manualFontScaling": true,
+        "fontMultiplier": 1,
+        "toolbarBehavior": "AlwaysShow",
+        "contextSelector": "b2abb982-65a6-882d-fde3-e6e52e6719e5",
+        "context": {
+          "timeRange": {
+            "range": "Month",
+            "zoneCreated": "America/Los_Angeles",
+            "zone": "UTC"
+          },
+          "overrideQuery": false,
+          "overrideBillingSource": false,
+          "overrideCurrency": false,
+          "overrideTimeRange": true
+        },
+        "chartType": "StackedColumn",
+        "legendDisplayConfiguration": {
+          "horizontalAlignment": "Center",
+          "verticalAlignment": "Bottom",
+          "fontSize": "Medium",
+          "enabled": true
+        },
+        "group_by_details": {
+          "selector": "dimension",
+          "key": "69f994333d7b33d00c14bc3e/<name>",
+          "groups": [
+            {
+              "value": "Claude Sonnet",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude 3 Sonnet (Amazon Bedrock Edition)",
+                  "Claude 3.5 Sonnet (Amazon Bedrock Edition)",
+                  "Claude 3.5 Sonnet v2 (Amazon Bedrock Edition)",
+                  "Claude 3.7 Sonnet (Amazon Bedrock Edition)",
+                  "Claude Sonnet 4 (Amazon Bedrock Edition)",
+                  "Claude Sonnet 4.5 (Amazon Bedrock Edition)",
+                  "Claude Sonnet 4.6 (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Claude Haiku",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude 3 Haiku (Amazon Bedrock Edition)",
+                  "Claude 3.5 Haiku (Amazon Bedrock Edition)",
+                  "Claude Haiku 4.5 (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Claude Opus",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Claude Opus 4 (Amazon Bedrock Edition)",
+                  "Claude Opus 4.1 (Amazon Bedrock Edition)",
+                  "Claude Opus 4.5 (Amazon Bedrock Edition)",
+                  "Claude Opus 4.6 (Amazon Bedrock Edition)",
+                  "Claude Opus 4.7 (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Cohere Embed 4",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Cohere Embed 4 Model (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Amazon Bedrock",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "AmazonBedrock"
+                ]
+              }
+            },
+            {
+              "value": "Amazon Bedrock Agent",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "AmazonBedrockAgentCore"
+                ]
+              }
+            },
+            {
+              "value": "Gemini 2.0 Flash",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Gemini 2.0 Flash",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Gemini 2.5 Flash",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "Gemini 2.5 Flash",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "QueryOperatorUnaryNot",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Lite",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "Gemini 2.5 Flash Lite",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Gemini 2.5 Flash Lite",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Gemini 2.5 Pro",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Gemini 2.5 Pro",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Gemini 3 Flash",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "Gemini 3 Flash",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "QueryOperatorUnaryNot",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Lite",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "Gemini 3.0 Pro",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Gemini 3.0 Pro",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Gemini 3.1 Flash Lite",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Gemini 3.1 Flash Lite",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Imagen 4",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Imagen 4",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "GPT-4.1",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "gpt 4.1",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "gpt-4.1",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "4.1 pp",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  },
+                  "op": "Or"
+                },
+                "b": {
+                  "__type": "QueryOperatorUnaryNot",
+                  "a": {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "mini",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "nano",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "GPT-4.1 mini",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "gpt 4.1 mini",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "gpt-4.1-mini",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "GPT-4.1 nano",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "gpt 4.1 nano",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "gpt-4.1-nano",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "GPT-4o",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "gpt-4o-0806",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "gpt 4o 0806",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "gpt 4o 0513",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "Or"
+                    },
+                    "op": "Or"
+                  },
+                  "b": {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "gpt 4o 1120",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "gpt-4o-",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "gpt 4o-",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "Or"
+                    },
+                    "op": "Or"
+                  },
+                  "op": "Or"
+                },
+                "b": {
+                  "__type": "QueryOperatorUnaryNot",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "mini",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "GPT-4o mini",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "gpt-4o-mini",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "gpt 4o mini",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "GPT-5",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "gpt 5",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "QueryOperatorUnaryNot",
+                  "a": {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "QueryOperatorBinaryLogic",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "mini",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "b": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "nano",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "op": "Or"
+                      },
+                      "b": {
+                        "__type": "QueryOperatorBinaryLogic",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "codex",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "b": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "chat",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "op": "Or"
+                      },
+                      "op": "Or"
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "QueryOperatorBinaryLogic",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "5.1",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "b": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "5.2",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "op": "Or"
+                      },
+                      "b": {
+                        "__type": "QueryOperatorBinaryLogic",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "5.3",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "b": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "5.4",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "op": "Or"
+                      },
+                      "op": "Or"
+                    },
+                    "op": "Or"
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "GPT-5 mini",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "gpt 5 mini",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "GPT-5 nano",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "gpt 5 nano",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "GPT-5 chat",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "GPT 5 Chat",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "5.2 chat",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "5.3 chat",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "Or"
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "GPT-5.1",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "5.1",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "QueryOperatorUnaryNot",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "codex",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "GPT-5.2",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "5.2",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "QueryOperatorUnaryNot",
+                  "a": {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "codex",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "chat",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "GPT-5.3 Codex",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "5.3 codex",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "GPT-5.4",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "5.4 ",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "GPT-5 Codex",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "codex",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "gpt-5-codex",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Code-Interpreter",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  },
+                  "op": "Or"
+                },
+                "b": {
+                  "__type": "QueryOperatorUnaryNot",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "5.3 codex",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  }
+                },
+                "op": "And"
+              }
+            },
+            {
+              "value": "OpenAI o-series",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "o1 ",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "o3 ",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "Or"
+                },
+                "b": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "o3-mini",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "o4-mini",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "Or"
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "DeepSeek R1",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "DeepSeek",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "R1 Inp",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "R1 Outp",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "Or"
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Kimi",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "K2 Thinking",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "K2.5 Thinking",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Ada Embedding",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "embedding-ada",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "Az-Text-Ada",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "text-embedding-3-large",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "text-embedding-3-large",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "text-embedding-3-small",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "text-embedding-3-small",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "GPT-3.5 Turbo",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "gpt-35-turbo",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Provisioned Throughput",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Provisioned Throughput Units",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Provisioned Managed",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Provisioned Managed",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "GPT Image 1",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "gpt img",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "gpt-image",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Image Analysis",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "Or"
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Text to Speech",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Standard Text Records",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "S1 Neural",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "Or"
+                },
+                "b": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "S1 Speech",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "tts-1",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "Or"
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Cohere Rerank",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "Rerank v4",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "ProductCategoryQueryOperator",
+                  "product_categories": [
+                    "Cohere Rerank v3.5 (Amazon Bedrock Edition)"
+                  ]
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Azure Document Intelligence",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "S0 Add-on",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "b": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "S0 Pre-built",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "S0 Read",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "Or"
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Azure Search",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Semantic Ranker",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Standard S1 Unit",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "Or"
+                },
+                "b": {
+                  "__type": "QueryOperatorBinaryLogic",
+                  "a": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Standard S2 Unit",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "b": {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Document Cracking",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  "op": "Or"
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Real-time Audio",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "gpt rt aud",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Assistants",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Assistants-File Search",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Model Router",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Model Router",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Real-time Text",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "gpt rt txt",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Cohere Embed 3",
+              "filter": {
+                "__type": "ProductCategoryQueryOperator",
+                "product_categories": [
+                  "Cohere Embed 3 Model - English (Amazon Bedrock Edition)"
+                ]
+              }
+            },
+            {
+              "value": "Vertex AI Search",
+              "filter": {
+                "__type": "ResourceCategoryRegexQueryOperator",
+                "resource_category": {
+                  "pattern": "Vertex AI Search",
+                  "ignore_case": true,
+                  "op": "Contains"
+                }
+              }
+            },
+            {
+              "value": "Microsoft Discovery",
+              "filter": {
+                "__type": "QueryOperatorBinaryLogic",
+                "a": {
+                  "__type": "ProductCategoryQueryOperator",
+                  "product_categories": [
+                    "Microsoft.Discovery"
+                  ]
+                },
+                "b": {
+                  "__type": "ResourceCategoryRegexQueryOperator",
+                  "resource_category": {
+                    "pattern": "User Messages",
+                    "ignore_case": true,
+                    "op": "Contains"
+                  }
+                },
+                "op": "Or"
+              }
+            },
+            {
+              "value": "Unallocated",
+              "filter": {
+                "__type": "QueryOperatorNaryLogic",
+                "terms": [
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude 3 Sonnet (Amazon Bedrock Edition)",
+                      "Claude 3.5 Sonnet (Amazon Bedrock Edition)",
+                      "Claude 3.5 Sonnet v2 (Amazon Bedrock Edition)",
+                      "Claude 3.7 Sonnet (Amazon Bedrock Edition)",
+                      "Claude Sonnet 4 (Amazon Bedrock Edition)",
+                      "Claude Sonnet 4.5 (Amazon Bedrock Edition)",
+                      "Claude Sonnet 4.6 (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude 3 Haiku (Amazon Bedrock Edition)",
+                      "Claude 3.5 Haiku (Amazon Bedrock Edition)",
+                      "Claude Haiku 4.5 (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Claude Opus 4 (Amazon Bedrock Edition)",
+                      "Claude Opus 4.1 (Amazon Bedrock Edition)",
+                      "Claude Opus 4.5 (Amazon Bedrock Edition)",
+                      "Claude Opus 4.6 (Amazon Bedrock Edition)",
+                      "Claude Opus 4.7 (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Cohere Embed 4 Model (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "AmazonBedrock"
+                    ]
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "AmazonBedrockAgentCore"
+                    ]
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Gemini 2.0 Flash",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Gemini 2.5 Flash",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "QueryOperatorUnaryNot",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Lite",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Gemini 2.5 Flash Lite",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Gemini 2.5 Pro",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Gemini 3 Flash",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "QueryOperatorUnaryNot",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Lite",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Gemini 3.0 Pro",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Gemini 3.1 Flash Lite",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Imagen 4",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "gpt 4.1",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "QueryOperatorBinaryLogic",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "gpt-4.1",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "b": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "4.1 pp",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "op": "Or"
+                      },
+                      "op": "Or"
+                    },
+                    "b": {
+                      "__type": "QueryOperatorUnaryNot",
+                      "a": {
+                        "__type": "QueryOperatorBinaryLogic",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "mini",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "b": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "nano",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "op": "Or"
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "gpt 4.1 mini",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "gpt-4.1-mini",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "gpt 4.1 nano",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "gpt-4.1-nano",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "QueryOperatorBinaryLogic",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "gpt-4o-0806",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "b": {
+                          "__type": "QueryOperatorBinaryLogic",
+                          "a": {
+                            "__type": "ResourceCategoryRegexQueryOperator",
+                            "resource_category": {
+                              "pattern": "gpt 4o 0806",
+                              "ignore_case": true,
+                              "op": "Contains"
+                            }
+                          },
+                          "b": {
+                            "__type": "ResourceCategoryRegexQueryOperator",
+                            "resource_category": {
+                              "pattern": "gpt 4o 0513",
+                              "ignore_case": true,
+                              "op": "Contains"
+                            }
+                          },
+                          "op": "Or"
+                        },
+                        "op": "Or"
+                      },
+                      "b": {
+                        "__type": "QueryOperatorBinaryLogic",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "gpt 4o 1120",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "b": {
+                          "__type": "QueryOperatorBinaryLogic",
+                          "a": {
+                            "__type": "ResourceCategoryRegexQueryOperator",
+                            "resource_category": {
+                              "pattern": "gpt-4o-",
+                              "ignore_case": true,
+                              "op": "Contains"
+                            }
+                          },
+                          "b": {
+                            "__type": "ResourceCategoryRegexQueryOperator",
+                            "resource_category": {
+                              "pattern": "gpt 4o-",
+                              "ignore_case": true,
+                              "op": "Contains"
+                            }
+                          },
+                          "op": "Or"
+                        },
+                        "op": "Or"
+                      },
+                      "op": "Or"
+                    },
+                    "b": {
+                      "__type": "QueryOperatorUnaryNot",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "mini",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "gpt-4o-mini",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "gpt 4o mini",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "gpt 5",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "QueryOperatorUnaryNot",
+                      "a": {
+                        "__type": "QueryOperatorBinaryLogic",
+                        "a": {
+                          "__type": "QueryOperatorBinaryLogic",
+                          "a": {
+                            "__type": "QueryOperatorBinaryLogic",
+                            "a": {
+                              "__type": "ResourceCategoryRegexQueryOperator",
+                              "resource_category": {
+                                "pattern": "mini",
+                                "ignore_case": true,
+                                "op": "Contains"
+                              }
+                            },
+                            "b": {
+                              "__type": "ResourceCategoryRegexQueryOperator",
+                              "resource_category": {
+                                "pattern": "nano",
+                                "ignore_case": true,
+                                "op": "Contains"
+                              }
+                            },
+                            "op": "Or"
+                          },
+                          "b": {
+                            "__type": "QueryOperatorBinaryLogic",
+                            "a": {
+                              "__type": "ResourceCategoryRegexQueryOperator",
+                              "resource_category": {
+                                "pattern": "codex",
+                                "ignore_case": true,
+                                "op": "Contains"
+                              }
+                            },
+                            "b": {
+                              "__type": "ResourceCategoryRegexQueryOperator",
+                              "resource_category": {
+                                "pattern": "chat",
+                                "ignore_case": true,
+                                "op": "Contains"
+                              }
+                            },
+                            "op": "Or"
+                          },
+                          "op": "Or"
+                        },
+                        "b": {
+                          "__type": "QueryOperatorBinaryLogic",
+                          "a": {
+                            "__type": "QueryOperatorBinaryLogic",
+                            "a": {
+                              "__type": "ResourceCategoryRegexQueryOperator",
+                              "resource_category": {
+                                "pattern": "5.1",
+                                "ignore_case": true,
+                                "op": "Contains"
+                              }
+                            },
+                            "b": {
+                              "__type": "ResourceCategoryRegexQueryOperator",
+                              "resource_category": {
+                                "pattern": "5.2",
+                                "ignore_case": true,
+                                "op": "Contains"
+                              }
+                            },
+                            "op": "Or"
+                          },
+                          "b": {
+                            "__type": "QueryOperatorBinaryLogic",
+                            "a": {
+                              "__type": "ResourceCategoryRegexQueryOperator",
+                              "resource_category": {
+                                "pattern": "5.3",
+                                "ignore_case": true,
+                                "op": "Contains"
+                              }
+                            },
+                            "b": {
+                              "__type": "ResourceCategoryRegexQueryOperator",
+                              "resource_category": {
+                                "pattern": "5.4",
+                                "ignore_case": true,
+                                "op": "Contains"
+                              }
+                            },
+                            "op": "Or"
+                          },
+                          "op": "Or"
+                        },
+                        "op": "Or"
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "gpt 5 mini",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "gpt 5 nano",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "GPT 5 Chat",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "5.2 chat",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "5.3 chat",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "Or"
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "5.1",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "QueryOperatorUnaryNot",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "codex",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "5.2",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "QueryOperatorUnaryNot",
+                      "a": {
+                        "__type": "QueryOperatorBinaryLogic",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "codex",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "b": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "chat",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "op": "Or"
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "5.3 codex",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "5.4 ",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "codex",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "QueryOperatorBinaryLogic",
+                        "a": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "gpt-5-codex",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "b": {
+                          "__type": "ResourceCategoryRegexQueryOperator",
+                          "resource_category": {
+                            "pattern": "Code-Interpreter",
+                            "ignore_case": true,
+                            "op": "Contains"
+                          }
+                        },
+                        "op": "Or"
+                      },
+                      "op": "Or"
+                    },
+                    "b": {
+                      "__type": "QueryOperatorUnaryNot",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "5.3 codex",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      }
+                    },
+                    "op": "And"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "o1 ",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "o3 ",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "Or"
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "o3-mini",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "o4-mini",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "Or"
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "DeepSeek",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "R1 Inp",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "R1 Outp",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "Or"
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "K2 Thinking",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "K2.5 Thinking",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "embedding-ada",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Az-Text-Ada",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "text-embedding-3-large",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "text-embedding-3-small",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "gpt-35-turbo",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Provisioned Throughput Units",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Provisioned Managed",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "gpt img",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "gpt-image",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Image Analysis",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "Or"
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Standard Text Records",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "S1 Neural",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "Or"
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "S1 Speech",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "tts-1",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "Or"
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "Rerank v4",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "ProductCategoryQueryOperator",
+                      "product_categories": [
+                        "Cohere Rerank v3.5 (Amazon Bedrock Edition)"
+                      ]
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "S0 Add-on",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "S0 Pre-built",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "S0 Read",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "Or"
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Semantic Ranker",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Standard S1 Unit",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "Or"
+                    },
+                    "b": {
+                      "__type": "QueryOperatorBinaryLogic",
+                      "a": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Standard S2 Unit",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "b": {
+                        "__type": "ResourceCategoryRegexQueryOperator",
+                        "resource_category": {
+                          "pattern": "Document Cracking",
+                          "ignore_case": true,
+                          "op": "Contains"
+                        }
+                      },
+                      "op": "Or"
+                    },
+                    "op": "Or"
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "gpt rt aud",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Assistants-File Search",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Model Router",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "gpt rt txt",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "ProductCategoryQueryOperator",
+                    "product_categories": [
+                      "Cohere Embed 3 Model - English (Amazon Bedrock Edition)"
+                    ]
+                  },
+                  {
+                    "__type": "ResourceCategoryRegexQueryOperator",
+                    "resource_category": {
+                      "pattern": "Vertex AI Search",
+                      "ignore_case": true,
+                      "op": "Contains"
+                    }
+                  },
+                  {
+                    "__type": "QueryOperatorBinaryLogic",
+                    "a": {
+                      "__type": "ProductCategoryQueryOperator",
+                      "product_categories": [
+                        "Microsoft.Discovery"
+                      ]
+                    },
+                    "b": {
+                      "__type": "ResourceCategoryRegexQueryOperator",
+                      "resource_category": {
+                        "pattern": "User Messages",
+                        "ignore_case": true,
+                        "op": "Contains"
+                      }
+                    },
+                    "op": "Or"
+                  }
+                ],
+                "op": "NotAny"
+              }
+            }
+          ]
+        },
+        "group_by_tag_status": false,
+        "group_by_tag_keys": false
+      },
+      "outline": {
+        "left": 0,
+        "top": 52,
+        "width": 12,
+        "height": 8
+      }
+    }
+  ],
+  "filterScope": [
+    {
+      "visible": false,
+      "condition": {
+        "__type": "ProductCategoryQueryOperator",
+        "product_categories": [
+          "Claude 3 Haiku (Amazon Bedrock Edition)",
+          "AmazonBedrock",
+          "Claude Haiku 4.5 (Amazon Bedrock Edition)",
+          "Claude Sonnet 4.6 (Amazon Bedrock Edition)",
+          "Claude 3.7 Sonnet (Amazon Bedrock Edition)",
+          "Claude 3.5 Sonnet v2 (Amazon Bedrock Edition)",
+          "Claude Sonnet 4.5 (Amazon Bedrock Edition)",
+          "Claude Opus 4 (Amazon Bedrock Edition)",
+          "Claude Opus 4.5 (Amazon Bedrock Edition)",
+          "Claude Opus 4.6 (Amazon Bedrock Edition)",
+          "Claude Opus 4.1 (Amazon Bedrock Edition)",
+          "Claude 3.5 Sonnet (Amazon Bedrock Edition)",
+          "Claude Sonnet 4 (Amazon Bedrock Edition)",
+          "Cohere Embed 3 Model - English (Amazon Bedrock Edition)",
+          "Cohere Rerank v3.5 (Amazon Bedrock Edition)",
+          "Claude 3.5 Haiku (Amazon Bedrock Edition)",
+          "Claude Opus 4.7 (Amazon Bedrock Edition)",
+          "Microsoft.Cognitiveservices",
+          "Microsoft.Search",
+          "Vertex AI",
+          "Vertex AI Search",
+          "Microsoft.Discovery"
+        ]
+      }
+    }
+  ],
+  "savedViews": []
+}

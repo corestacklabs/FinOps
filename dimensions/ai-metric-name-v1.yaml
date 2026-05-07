@@ -1,0 +1,2309 @@
+precompute: false
+start_date: 2025-01-01 00:00:00+00:00
+end_date: 2026-12-31 23:59:59+00:00
+enable_cost_center: false
+attributes: []
+access_granted_identities:
+  user_groups: []
+  roles:
+  - tenant_id: 632b09d7f4696bdf76c3fd9a
+    role_ids: []
+grouping_rules:
+- name: Batch Input Token
+  description: Batch Input Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aad0
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: _InputTokenCount_Batch
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Input Token
+  description: Input Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aad1
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: QueryOperatorBinaryLogic
+              a:
+                __type: QueryOperatorBinaryLogic
+                a:
+                  __type: ResourceCategoryRegexQueryOperator
+                  resource_category:
+                    pattern: _InputTokenCount-Units
+                    ignore_case: true
+                    op: Contains
+                b:
+                  __type: QueryOperatorBinaryLogic
+                  a:
+                    __type: ResourceCategoryRegexQueryOperator
+                    resource_category:
+                      pattern: input-tokens
+                      ignore_case: true
+                      op: Contains
+                  b:
+                    __type: QueryOperatorUnaryNot
+                    a:
+                      __type: ResourceCategoryRegexQueryOperator
+                      resource_category:
+                        pattern: CacheRead
+                        ignore_case: true
+                        op: Contains
+                  op: And
+                op: Or
+              b:
+                __type: QueryOperatorBinaryLogic
+                a:
+                  __type: QueryOperatorBinaryLogic
+                  a:
+                    __type: ResourceCategoryRegexQueryOperator
+                    resource_category:
+                      pattern: Text Input
+                      ignore_case: true
+                      op: Contains
+                  b:
+                    __type: QueryOperatorUnaryNot
+                    a:
+                      __type: ResourceCategoryRegexQueryOperator
+                      resource_category:
+                        pattern: Caching
+                        ignore_case: true
+                        op: Contains
+                  op: And
+                b:
+                  __type: QueryOperatorBinaryLogic
+                  a:
+                    __type: QueryOperatorBinaryLogic
+                    a:
+                      __type: QueryOperatorBinaryLogic
+                      a:
+                        __type: QueryOperatorBinaryLogic
+                        a:
+                          __type: QueryOperatorBinaryLogic
+                          a:
+                            __type: QueryOperatorBinaryLogic
+                            a:
+                              __type: ResourceCategoryRegexQueryOperator
+                              resource_category:
+                                pattern: 'Inp '
+                                ignore_case: true
+                                op: Contains
+                            b:
+                              __type: ResourceCategoryRegexQueryOperator
+                              resource_category:
+                                pattern: 'Inpt '
+                                ignore_case: true
+                                op: Contains
+                            op: Or
+                          b:
+                            __type: ResourceCategoryRegexQueryOperator
+                            resource_category:
+                              pattern: 'Input '
+                              ignore_case: true
+                              op: Contains
+                          op: Or
+                        b:
+                          __type: ResourceCategoryRegexQueryOperator
+                          resource_category:
+                            pattern: -Inp-
+                            ignore_case: true
+                            op: Contains
+                        op: Or
+                      b:
+                        __type: ResourceCategoryRegexQueryOperator
+                        resource_category:
+                          pattern: -inp-
+                          ignore_case: true
+                          op: Contains
+                      op: Or
+                    b:
+                      __type: ResourceCategoryRegexQueryOperator
+                      resource_category:
+                        pattern: ' input '
+                        ignore_case: true
+                        op: Contains
+                    op: Or
+                  b:
+                    __type: QueryOperatorUnaryNot
+                    a:
+                      __type: QueryOperatorBinaryLogic
+                      a:
+                        __type: QueryOperatorBinaryLogic
+                        a:
+                          __type: QueryOperatorBinaryLogic
+                          a:
+                            __type: ResourceCategoryRegexQueryOperator
+                            resource_category:
+                              pattern: cached
+                              ignore_case: true
+                              op: Contains
+                          b:
+                            __type: ResourceCategoryRegexQueryOperator
+                            resource_category:
+                              pattern: cchd
+                              ignore_case: true
+                              op: Contains
+                          op: Or
+                        b:
+                          __type: ResourceCategoryRegexQueryOperator
+                          resource_category:
+                            pattern: ' cd '
+                            ignore_case: true
+                            op: Contains
+                        op: Or
+                      b:
+                        __type: ResourceCategoryRegexQueryOperator
+                        resource_category:
+                          pattern: ccchd
+                          ignore_case: true
+                          op: Contains
+                      op: Or
+                  op: And
+                op: Or
+              op: Or
+            b:
+              __type: QueryOperatorBinaryLogic
+              a:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: gpt-35-turbo-16K
+                  ignore_case: true
+                  op: Contains
+              b:
+                __type: QueryOperatorUnaryNot
+                a:
+                  __type: ResourceCategoryRegexQueryOperator
+                  resource_category:
+                    pattern: Output-regional
+                    ignore_case: true
+                    op: Contains
+              op: And
+            op: Or
+          b:
+            __type: QueryOperatorUnaryNot
+            a:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: TitanEmbeddingV2
+                ignore_case: true
+                op: Contains
+          op: And
+        b:
+          __type: QueryOperatorUnaryNot
+          a:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: Image Input - Predictions
+              ignore_case: true
+              op: Contains
+        op: And
+      b:
+        __type: QueryOperatorUnaryNot
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: gpt-image
+            ignore_case: true
+            op: Contains
+      op: And
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorUnaryNot
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: gpt-5-codex
+            ignore_case: true
+            op: Contains
+      b:
+        __type: QueryOperatorUnaryNot
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: Cach
+            ignore_case: true
+            op: Contains
+      op: And
+    op: And
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Batch Output Token
+  description: Batch Output Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aad2
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: _OutputTokenCount_Batch
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Output Token
+  description: Output Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aad3
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: _OutputTokenCount-Units
+              ignore_case: true
+              op: Contains
+          b:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: output-tokens
+              ignore_case: true
+              op: Contains
+          op: Or
+        b:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: Text Output
+              ignore_case: true
+              op: Contains
+          b:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: QueryOperatorBinaryLogic
+              a:
+                __type: QueryOperatorBinaryLogic
+                a:
+                  __type: QueryOperatorBinaryLogic
+                  a:
+                    __type: QueryOperatorBinaryLogic
+                    a:
+                      __type: ResourceCategoryRegexQueryOperator
+                      resource_category:
+                        pattern: 'Outp '
+                        ignore_case: true
+                        op: Contains
+                    b:
+                      __type: ResourceCategoryRegexQueryOperator
+                      resource_category:
+                        pattern: 'outpt '
+                        ignore_case: true
+                        op: Contains
+                    op: Or
+                  b:
+                    __type: ResourceCategoryRegexQueryOperator
+                    resource_category:
+                      pattern: 'Output '
+                      ignore_case: true
+                      op: Contains
+                  op: Or
+                b:
+                  __type: ResourceCategoryRegexQueryOperator
+                  resource_category:
+                    pattern: -Outp-
+                    ignore_case: true
+                    op: Contains
+                op: Or
+              b:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: -outp-
+                  ignore_case: true
+                  op: Contains
+              op: Or
+            b:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: ' opt '
+                ignore_case: true
+                op: Contains
+            op: Or
+          op: Or
+        op: Or
+      b:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: gpt-5-codex
+              ignore_case: true
+              op: Contains
+          b:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: codex-out
+              ignore_case: true
+              op: Contains
+          op: Or
+        b:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: QueryOperatorUnaryNot
+            a:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: inp-glbl
+                ignore_case: true
+                op: Contains
+          b:
+            __type: QueryOperatorUnaryNot
+            a:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: ccchd
+                ignore_case: true
+                op: Contains
+          op: And
+        op: And
+      op: Or
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: gpt-35-turbo-16K
+          ignore_case: true
+          op: Contains
+      b:
+        __type: QueryOperatorUnaryNot
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: Input-regional
+            ignore_case: true
+            op: Contains
+      op: And
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Cache Write Token
+  description: Cache Write Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aad4
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: _CacheWriteInputTokenCount-Units
+            ignore_case: true
+            op: Contains
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: cache_write_tokens_standard
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: cache_write_tokens_global_standard
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Text Input Caching Storage
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Cache Read Token
+  description: Cache Read Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aad5
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: _CacheReadInputTokenCount-Units
+          ignore_case: true
+          op: Contains
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: cache_read_tokens_standard
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: cache_read_tokens_global_standard
+          ignore_case: true
+          op: Contains
+      b:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: Text Input Caching
+              ignore_case: true
+              op: Contains
+          b:
+            __type: QueryOperatorUnaryNot
+            a:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: Storage
+                ignore_case: true
+                op: Contains
+          op: And
+        b:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: QueryOperatorBinaryLogic
+              a:
+                __type: QueryOperatorBinaryLogic
+                a:
+                  __type: QueryOperatorBinaryLogic
+                  a:
+                    __type: QueryOperatorBinaryLogic
+                    a:
+                      __type: ResourceCategoryRegexQueryOperator
+                      resource_category:
+                        pattern: 'Inp '
+                        ignore_case: true
+                        op: Contains
+                    b:
+                      __type: ResourceCategoryRegexQueryOperator
+                      resource_category:
+                        pattern: 'Inpt '
+                        ignore_case: true
+                        op: Contains
+                    op: Or
+                  b:
+                    __type: ResourceCategoryRegexQueryOperator
+                    resource_category:
+                      pattern: 'Input '
+                      ignore_case: true
+                      op: Contains
+                  op: Or
+                b:
+                  __type: ResourceCategoryRegexQueryOperator
+                  resource_category:
+                    pattern: -Inp-
+                    ignore_case: true
+                    op: Contains
+                op: Or
+              b:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: -inp-
+                  ignore_case: true
+                  op: Contains
+              op: Or
+            b:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: ' input '
+                ignore_case: true
+                op: Contains
+            op: Or
+          b:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: QueryOperatorBinaryLogic
+              a:
+                __type: QueryOperatorBinaryLogic
+                a:
+                  __type: ResourceCategoryRegexQueryOperator
+                  resource_category:
+                    pattern: cached
+                    ignore_case: true
+                    op: Contains
+                b:
+                  __type: ResourceCategoryRegexQueryOperator
+                  resource_category:
+                    pattern: cchd
+                    ignore_case: true
+                    op: Contains
+                op: Or
+              b:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: ' cd '
+                  ignore_case: true
+                  op: Contains
+              op: Or
+            b:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: ccchd
+                ignore_case: true
+                op: Contains
+            op: Or
+          op: And
+        op: Or
+      op: Or
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Cache Write 1h Token
+  description: Cache Write 1h Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aad6
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: CacheWrite1hInputTokenCount
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Embedding Input Token
+  description: Embedding Input Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aad7
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: TitanEmbeddingV2
+                ignore_case: true
+                op: Contains
+            b:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: NovaMultiModal
+                ignore_case: true
+                op: Contains
+            op: Or
+          b:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: embedding-ada
+              ignore_case: true
+              op: Contains
+          op: Or
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: text-embedding-3
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: Large Text Embedding
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Embeddings for Text
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Standard Cache Read Token
+  description: Standard Cache Read Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aad8
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: cache_read_tokens_standard
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Standard Cache Write Token
+  description: Standard Cache Write Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aad9
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: cache_write_tokens_standard
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Standard Input Token
+  description: Standard Input Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aada
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: input_tokens_standard
+        ignore_case: true
+        op: Contains
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: input_tokens_global_standard
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Standard Output Token
+  description: Standard Output Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aadb
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: output_tokens_standard
+        ignore_case: true
+        op: Contains
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: output_tokens_global_standard
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Long Context Cache Write Token
+  description: Long Context Cache Write Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aadc
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: CacheWriteInputTokenCount_LCtx-Units
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Long Context Input Token
+  description: Long Context Input Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aadd
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: _InputTokenCount_LCtx-Units
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Long Context Output Token
+  description: Long Context Output Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aade
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: _OutputTokenCount_LCtx-Units
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Long Context Cache Read Token
+  description: Long Context Cache Read Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aadf
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: CacheReadInputTokenCount_LCtx-Units
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Cross-Region Cache Write Token
+  description: Cross-Region Cache Write Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aae0
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: CacheWriteInputTokenCount_Global-Units
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Cross-Region Cache Read Token
+  description: Cross-Region Cache Read Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aae1
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: CacheReadInputTokenCount_Global-Units
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Cross-Region Input Token
+  description: Cross-Region Input Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aae2
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: _InputTokenCount_Global-Units
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Cross-Region Output Token
+  description: Cross-Region Output Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aae3
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: _OutputTokenCount_Global-Units
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Long Context Cross-Region Cache Write Token
+  description: Long Context Cross-Region Cache Write Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aae4
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: CacheWriteInputTokenCount_LCtx_Global
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Long Context Cross-Region Input Token
+  description: Long Context Cross-Region Input Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aae5
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: _InputTokenCount_LCtx_Global
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Long Context Cross-Region Output Token
+  description: Long Context Cross-Region Output Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aae6
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: _OutputTokenCount_LCtx_Global
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Long Context Cross-Region Cache Read Token
+  description: Long Context Cross-Region Cache Read Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aae7
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: CacheReadInputTokenCount_LCtx_Global
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Customization Storage
+  description: Customization Storage
+  grouping_rule_id: 69fac9b7eb85ac6de353aae8
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Customization-Storage
+        ignore_case: true
+        op: Contains
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: CustomModelImport-Storage
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Guardrail Content Policy Units
+  description: Guardrail Content Policy Units
+  grouping_rule_id: 69fac9b7eb85ac6de353aae9
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Guardrail-ContentPolicyUnitsConsumed
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Image Input Token
+  description: Image Input Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aaea
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Image Input
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Image Output Token
+  description: Image Output Token
+  grouping_rule_id: 69fac9b7eb85ac6de353aaeb
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Image Output
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Image Generation
+  description: Image Generation
+  grouping_rule_id: 69fac9b7eb85ac6de353aaec
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Generation (output)
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Agent Browser Tool
+  description: Agent Browser Tool
+  grouping_rule_id: 69fac9b7eb85ac6de353aaed
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ProductCategoryQueryOperator
+      product_categories:
+      - AmazonBedrockAgentCore
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: BrowserTool
+        ignore_case: true
+        op: Contains
+    op: And
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Agent Tool Indexing
+  description: Agent Tool Indexing
+  grouping_rule_id: 69fac9b7eb85ac6de353aaee
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ProductCategoryQueryOperator
+      product_categories:
+      - AmazonBedrockAgentCore
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Tool-Indexing
+        ignore_case: true
+        op: Contains
+    op: And
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Agent Data Transfer
+  description: Agent Data Transfer
+  grouping_rule_id: 69fac9b7eb85ac6de353aaef
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ProductCategoryQueryOperator
+        product_categories:
+        - AmazonBedrockAgentCore
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: DataTransfer
+          ignore_case: true
+          op: Contains
+      op: And
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ProductCategoryQueryOperator
+        product_categories:
+        - AmazonBedrockAgentCore
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: Out-Bytes
+          ignore_case: true
+          op: Contains
+      op: And
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Azure Search Queries
+  description: Azure Search Queries
+  grouping_rule_id: 69fac9b7eb85ac6de353aaf0
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: Semantic Ranker
+            ignore_case: true
+            op: Contains
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: Standard S1
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: Standard S2
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Document Cracking
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Azure Real-time Audio
+  description: Azure Real-time Audio
+  grouping_rule_id: 69fac9b7eb85ac6de353aaf1
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: gpt rt aud
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Azure Real-time Text
+  description: Azure Real-time Text
+  grouping_rule_id: 69fac9b7eb85ac6de353aaf2
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: gpt rt txt
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Azure Assistants Storage
+  description: Azure Assistants Storage
+  grouping_rule_id: 69fac9b7eb85ac6de353aaf3
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Assistants-File
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Azure TTS Characters
+  description: Azure TTS Characters
+  grouping_rule_id: 69fac9b7eb85ac6de353aaf4
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: S1 Neural
+            ignore_case: true
+            op: Contains
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: tts-1
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: Standard Text Records
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: S1 Speech
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Azure Reranking
+  description: Azure Reranking
+  grouping_rule_id: 69fac9b7eb85ac6de353aaf5
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Rerank v4
+        ignore_case: true
+        op: Contains
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: search_units
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Azure Image Generation
+  description: Azure Image Generation
+  grouping_rule_id: 69fac9b7eb85ac6de353aaf6
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: gpt img
+          ignore_case: true
+          op: Contains
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: gpt-image
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Image Analysis
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Azure Provisioned Units
+  description: Azure Provisioned Units
+  grouping_rule_id: 69fac9b7eb85ac6de353aaf7
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Provisioned Throughput Units
+        ignore_case: true
+        op: Contains
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Provisioned Managed
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Azure Code Sessions
+  description: Azure Code Sessions
+  grouping_rule_id: 69fac9b7eb85ac6de353aaf8
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Code-Interpreter
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Azure Model Router
+  description: Azure Model Router
+  grouping_rule_id: 69fac9b7eb85ac6de353aaf9
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Model Router
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Azure Document Intelligence
+  description: Azure Document Intelligence
+  grouping_rule_id: 69fac9b7eb85ac6de353aafa
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: S0 Add-on
+          ignore_case: true
+          op: Contains
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: S0 Pre-built
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: S0 Read
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Vertex AI Search Ranking
+  description: Vertex AI Search Ranking
+  grouping_rule_id: 69fac9b7eb85ac6de353aafb
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Vertex AI Search
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: AI Discovery Queries
+  description: AI Discovery Queries
+  grouping_rule_id: 69fac9b7eb85ac6de353aafc
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: User Messages
+        ignore_case: true
+        op: Contains
+    b:
+      __type: ProductCategoryQueryOperator
+      product_categories:
+      - Microsoft.Discovery
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Unallocated
+  description: System defined rule to capture unallocated cost.
+  grouping_rule_id: unallocated-cost-rule
+  rule_type: System
+  priority: 0

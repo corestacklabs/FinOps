@@ -1,0 +1,2194 @@
+precompute: false
+start_date: 2025-01-01 00:00:00+00:00
+end_date: 2026-12-31 23:59:59+00:00
+enable_cost_center: false
+attributes: []
+access_granted_identities:
+  user_groups: []
+  roles:
+  - tenant_id: 632b09d7f4696bdf76c3fd9a
+    role_ids: []
+grouping_rules:
+- name: Claude Sonnet
+  description: Claude Sonnet
+  grouping_rule_id: 69fae534eb85ac6de355d365
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ProductCategoryQueryOperator
+    product_categories:
+    - Claude 3 Sonnet (Amazon Bedrock Edition)
+    - Claude 3.5 Sonnet (Amazon Bedrock Edition)
+    - Claude 3.5 Sonnet v2 (Amazon Bedrock Edition)
+    - Claude 3.7 Sonnet (Amazon Bedrock Edition)
+    - Claude Sonnet 4 (Amazon Bedrock Edition)
+    - Claude Sonnet 4.5 (Amazon Bedrock Edition)
+    - Claude Sonnet 4.6 (Amazon Bedrock Edition)
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Claude Haiku
+  description: Claude Haiku
+  grouping_rule_id: 69fae534eb85ac6de355d366
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ProductCategoryQueryOperator
+    product_categories:
+    - Claude 3 Haiku (Amazon Bedrock Edition)
+    - Claude 3.5 Haiku (Amazon Bedrock Edition)
+    - Claude Haiku 4.5 (Amazon Bedrock Edition)
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Claude Opus
+  description: Claude Opus
+  grouping_rule_id: 69fae534eb85ac6de355d367
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ProductCategoryQueryOperator
+    product_categories:
+    - Claude Opus 4 (Amazon Bedrock Edition)
+    - Claude Opus 4.1 (Amazon Bedrock Edition)
+    - Claude Opus 4.5 (Amazon Bedrock Edition)
+    - Claude Opus 4.6 (Amazon Bedrock Edition)
+    - Claude Opus 4.7 (Amazon Bedrock Edition)
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Cohere Embed 4
+  description: Cohere Embed 4
+  grouping_rule_id: 69fae534eb85ac6de355d368
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ProductCategoryQueryOperator
+    product_categories:
+    - Cohere Embed 4 Model (Amazon Bedrock Edition)
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Amazon Bedrock
+  description: Amazon Bedrock
+  grouping_rule_id: 69fae534eb85ac6de355d36b
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ProductCategoryQueryOperator
+    product_categories:
+    - AmazonBedrock
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Amazon Bedrock Agent
+  description: Amazon Bedrock Agent
+  grouping_rule_id: 69fae534eb85ac6de355d36d
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ProductCategoryQueryOperator
+    product_categories:
+    - AmazonBedrockAgentCore
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Gemini 2.0 Flash
+  description: Gemini 2.0 Flash
+  grouping_rule_id: 69fae534eb85ac6de355d36f
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Gemini 2.0 Flash
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Gemini 2.5 Flash
+  description: Gemini 2.5 Flash
+  grouping_rule_id: 69fae534eb85ac6de355d372
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Gemini 2.5 Flash
+        ignore_case: true
+        op: Contains
+    b:
+      __type: QueryOperatorUnaryNot
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: Lite
+          ignore_case: true
+          op: Contains
+    op: And
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Gemini 2.5 Flash Lite
+  description: Gemini 2.5 Flash Lite
+  grouping_rule_id: 69fae534eb85ac6de355d373
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Gemini 2.5 Flash Lite
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Gemini 2.5 Pro
+  description: Gemini 2.5 Pro
+  grouping_rule_id: 69fae534eb85ac6de355d3e1
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Gemini 2.5 Pro
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Gemini 3 Flash
+  description: Gemini 3 Flash
+  grouping_rule_id: 69fae534eb85ac6de355d3e2
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Gemini 3 Flash
+        ignore_case: true
+        op: Contains
+    b:
+      __type: QueryOperatorUnaryNot
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: Lite
+          ignore_case: true
+          op: Contains
+    op: And
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Gemini 3.0 Pro
+  description: Gemini 3.0 Pro
+  grouping_rule_id: 69fae534eb85ac6de355d3e3
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Gemini 3.0 Pro
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Gemini 3.1 Flash Lite
+  description: Gemini 3.1 Flash Lite
+  grouping_rule_id: 69fae534eb85ac6de355d3e4
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Gemini 3.1 Flash Lite
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Imagen 4
+  description: Imagen 4
+  grouping_rule_id: 69fae534eb85ac6de355d3ea
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Imagen 4
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT-4.1
+  description: GPT-4.1
+  grouping_rule_id: 69fae534eb85ac6de355d3ec
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: gpt 4.1
+            ignore_case: true
+            op: Contains
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: gpt-4.1
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: 4.1 pp
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorUnaryNot
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: mini
+            ignore_case: true
+            op: Contains
+      b:
+        __type: QueryOperatorUnaryNot
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: nano
+            ignore_case: true
+            op: Contains
+      op: And
+    op: And
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT-4.1 mini
+  description: GPT-4.1 mini
+  grouping_rule_id: 69fae535eb85ac6de355d3ee
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: gpt 4.1 mini
+        ignore_case: true
+        op: Contains
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: gpt-4.1-mini
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT-4.1 nano
+  description: GPT-4.1 nano
+  grouping_rule_id: 69fae535eb85ac6de355d3f0
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: gpt 4.1 nano
+        ignore_case: true
+        op: Contains
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: gpt-4.1-nano
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT-4o
+  description: GPT-4o
+  grouping_rule_id: 69fae535eb85ac6de355d3f2
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: QueryOperatorBinaryLogic
+              a:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: gpt-4o-0806
+                  ignore_case: true
+                  op: Contains
+              b:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: gpt 4o 0806
+                  ignore_case: true
+                  op: Contains
+              op: Or
+            b:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: gpt 4o 0513
+                ignore_case: true
+                op: Contains
+            op: Or
+          b:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: gpt 4o 1120
+              ignore_case: true
+              op: Contains
+          op: Or
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: gpt-4o-
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: gpt 4o-
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: QueryOperatorUnaryNot
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: mini
+          ignore_case: true
+          op: Contains
+    op: And
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT-4o mini
+  description: GPT-4o mini
+  grouping_rule_id: 69fae535eb85ac6de355d3f3
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: gpt-4o-mini
+        ignore_case: true
+        op: Contains
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: gpt 4o mini
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT-5
+  description: GPT-5
+  grouping_rule_id: 69fae535eb85ac6de355d3fb
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: gpt 5
+        ignore_case: true
+        op: Contains
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorUnaryNot
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: mini
+            ignore_case: true
+            op: Contains
+      b:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorUnaryNot
+          a:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: nano
+              ignore_case: true
+              op: Contains
+        b:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: QueryOperatorUnaryNot
+            a:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: codex
+                ignore_case: true
+                op: Contains
+          b:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: QueryOperatorUnaryNot
+              a:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: chat
+                  ignore_case: true
+                  op: Contains
+            b:
+              __type: QueryOperatorBinaryLogic
+              a:
+                __type: QueryOperatorUnaryNot
+                a:
+                  __type: ResourceCategoryRegexQueryOperator
+                  resource_category:
+                    pattern: '5.1'
+                    ignore_case: true
+                    op: Contains
+              b:
+                __type: QueryOperatorBinaryLogic
+                a:
+                  __type: QueryOperatorUnaryNot
+                  a:
+                    __type: ResourceCategoryRegexQueryOperator
+                    resource_category:
+                      pattern: '5.2'
+                      ignore_case: true
+                      op: Contains
+                b:
+                  __type: QueryOperatorBinaryLogic
+                  a:
+                    __type: QueryOperatorUnaryNot
+                    a:
+                      __type: ResourceCategoryRegexQueryOperator
+                      resource_category:
+                        pattern: '5.3'
+                        ignore_case: true
+                        op: Contains
+                  b:
+                    __type: QueryOperatorUnaryNot
+                    a:
+                      __type: ResourceCategoryRegexQueryOperator
+                      resource_category:
+                        pattern: '5.4'
+                        ignore_case: true
+                        op: Contains
+                  op: And
+                op: And
+              op: And
+            op: And
+          op: And
+        op: And
+      op: And
+    op: And
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT-5 mini
+  description: GPT-5 mini
+  grouping_rule_id: 69fae535eb85ac6de355d3fd
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: gpt 5 mini
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT-5 nano
+  description: GPT-5 nano
+  grouping_rule_id: 69fae535eb85ac6de355d401
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: gpt 5 nano
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT-5 chat
+  description: GPT-5 chat
+  grouping_rule_id: 69fae535eb85ac6de355d404
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: GPT 5 Chat
+          ignore_case: true
+          op: Contains
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: 5.2 chat
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: 5.3 chat
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT-5.1
+  description: GPT-5.1
+  grouping_rule_id: 69fae535eb85ac6de355d45c
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: '5.1'
+          ignore_case: true
+          op: Contains
+      b:
+        __type: QueryOperatorUnaryNot
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: codex
+            ignore_case: true
+            op: Contains
+      op: And
+    b:
+      __type: QueryOperatorUnaryNot
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: gpt rt
+          ignore_case: true
+          op: Contains
+    op: And
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT-5.2
+  description: GPT-5.2
+  grouping_rule_id: 69fae535eb85ac6de355d45e
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: '5.2'
+        ignore_case: true
+        op: Contains
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorUnaryNot
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: codex
+            ignore_case: true
+            op: Contains
+      b:
+        __type: QueryOperatorUnaryNot
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: chat
+            ignore_case: true
+            op: Contains
+      op: And
+    op: And
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT-5.3 Codex
+  description: GPT-5.3 Codex
+  grouping_rule_id: 69fae535eb85ac6de355d460
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: 5.3 codex
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT-5.4
+  description: GPT-5.4
+  grouping_rule_id: 69fae535eb85ac6de355d462
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: '5.4 '
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT-5 Codex
+  description: GPT-5 Codex
+  grouping_rule_id: 69fae536eb85ac6de355d463
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: codex
+            ignore_case: true
+            op: Contains
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: gpt-5-codex
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: Code-Interpreter
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: QueryOperatorUnaryNot
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: 5.3 codex
+          ignore_case: true
+          op: Contains
+    op: And
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: OpenAI o-series
+  description: OpenAI o-series
+  grouping_rule_id: 69fae536eb85ac6de355d464
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: 'o1 '
+            ignore_case: true
+            op: Contains
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: 'o3 '
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: o3-mini
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: o4-mini
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: DeepSeek R1
+  description: DeepSeek R1
+  grouping_rule_id: 69fae536eb85ac6de355d465
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: DeepSeek
+        ignore_case: true
+        op: Contains
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: R1 Inp
+          ignore_case: true
+          op: Contains
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: R1 Outp
+          ignore_case: true
+          op: Contains
+      op: Or
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Kimi
+  description: Kimi
+  grouping_rule_id: 69fae536eb85ac6de355d466
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: K2 Thinking
+        ignore_case: true
+        op: Contains
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: K2.5 Thinking
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Ada Embedding
+  description: Ada Embedding
+  grouping_rule_id: 69fae536eb85ac6de355d467
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: embedding-ada
+        ignore_case: true
+        op: Contains
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Az-Text-Ada
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: text-embedding-3-large
+  description: text-embedding-3-large
+  grouping_rule_id: 69fae536eb85ac6de355d468
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: text-embedding-3-large
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: text-embedding-3-small
+  description: text-embedding-3-small
+  grouping_rule_id: 69fae536eb85ac6de355d46b
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: text-embedding-3-small
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT-3.5 Turbo
+  description: GPT-3.5 Turbo
+  grouping_rule_id: 69fae536eb85ac6de355d470
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: gpt-35-turbo
+        ignore_case: true
+        op: Contains
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: gpt-35-turbo-16K
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Other Cognitive Services
+  description: Other Cognitive Services
+  grouping_rule_id: 69fae536eb85ac6de355d472
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Provisioned
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: GPT Image 1
+  description: GPT Image 1
+  grouping_rule_id: 69fae536eb85ac6de355d476
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: gpt img
+          ignore_case: true
+          op: Contains
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: gpt-image
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Image Analysis
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Text to Speech
+  description: Text to Speech
+  grouping_rule_id: 69fae536eb85ac6de355d478
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: Standard Text Records
+            ignore_case: true
+            op: Contains
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: S1 Neural
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: S1 Speech
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: tts-1
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Cohere Rerank
+  description: Cohere Rerank
+  grouping_rule_id: 69fae536eb85ac6de355d47b
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Rerank v4
+        ignore_case: true
+        op: Contains
+    b:
+      __type: ProductCategoryQueryOperator
+      product_categories:
+      - Cohere Rerank v3.5 (Amazon Bedrock Edition)
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Azure Document Intelligence
+  description: Azure Document Intelligence
+  grouping_rule_id: 69fae536eb85ac6de355d47c
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: S0 Add-on
+          ignore_case: true
+          op: Contains
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: S0 Pre-built
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: S0 Read
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Azure Search
+  description: Azure Search
+  grouping_rule_id: 69fae536eb85ac6de355d47d
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: Semantic Ranker
+            ignore_case: true
+            op: Contains
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: Standard S1 Unit
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: Standard S2 Unit
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Document Cracking
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Real-time Audio
+  description: Real-time Audio
+  grouping_rule_id: 69fae536eb85ac6de355d47e
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: gpt rt aud
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Assistants
+  description: Assistants
+  grouping_rule_id: 69fae536eb85ac6de355d47f
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Assistants-File Search
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Model Router
+  description: Model Router
+  grouping_rule_id: 69fae537eb85ac6de355d4b0
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Model Router
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Real-time Text
+  description: Real-time Text
+  grouping_rule_id: 69fae537eb85ac6de355d4b6
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: gpt rt txt
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Cohere Embed 3
+  description: Cohere Embed 3
+  grouping_rule_id: 69fae537eb85ac6de355d4b9
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ProductCategoryQueryOperator
+    product_categories:
+    - Cohere Embed 3 Model - English (Amazon Bedrock Edition)
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Vertex AI Search
+  description: Vertex AI Search
+  grouping_rule_id: 69fae537eb85ac6de355d4bb
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Vertex AI Search
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Microsoft Discovery
+  description: Microsoft Discovery
+  grouping_rule_id: 69fae537eb85ac6de355d4be
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ProductCategoryQueryOperator
+      product_categories:
+      - Microsoft.Discovery
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: User Messages
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Unallocated
+  description: System defined rule to capture unallocated cost.
+  grouping_rule_id: unallocated-cost-rule
+  rule_type: System
+  priority: 0

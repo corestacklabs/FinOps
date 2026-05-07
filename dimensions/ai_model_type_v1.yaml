@@ -1,0 +1,1384 @@
+precompute: false
+start_date: 2025-01-01 00:00:00+00:00
+end_date: 2026-12-31 23:59:59+00:00
+enable_cost_center: false
+attributes: []
+access_granted_identities:
+  user_groups: []
+  roles:
+  - tenant_id: 632b09d7f4696bdf76c3fd9a
+    role_ids: []
+grouping_rules:
+- name: Chat Completion Model
+  description: Chat Completion Model
+  grouping_rule_id: 69fae16ceb85ac6de355854b
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: ProductCategoryQueryOperator
+          product_categories:
+          - Claude 3 Haiku (Amazon Bedrock Edition)
+          - Claude 3.5 Haiku (Amazon Bedrock Edition)
+          - Claude Haiku 4.5 (Amazon Bedrock Edition)
+          - Claude 3.5 Sonnet (Amazon Bedrock Edition)
+          - Claude 3.5 Sonnet v2 (Amazon Bedrock Edition)
+          - Claude 3.7 Sonnet (Amazon Bedrock Edition)
+          - Claude Sonnet 4 (Amazon Bedrock Edition)
+          - Claude Sonnet 4.5 (Amazon Bedrock Edition)
+          - Claude Sonnet 4.6 (Amazon Bedrock Edition)
+        b:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: ProductCategoryQueryOperator
+            product_categories:
+            - AmazonBedrock
+          b:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: Llama
+                ignore_case: true
+                op: Contains
+            b:
+              __type: QueryOperatorUnaryNot
+              a:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: Storage
+                  ignore_case: true
+                  op: Contains
+            op: And
+          op: And
+        op: Or
+      b:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: QueryOperatorBinaryLogic
+              a:
+                __type: QueryOperatorBinaryLogic
+                a:
+                  __type: QueryOperatorBinaryLogic
+                  a:
+                    __type: ResourceCategoryRegexQueryOperator
+                    resource_category:
+                      pattern: gpt 4.1
+                      ignore_case: true
+                      op: Contains
+                  b:
+                    __type: ResourceCategoryRegexQueryOperator
+                    resource_category:
+                      pattern: gpt-4.1
+                      ignore_case: true
+                      op: Contains
+                  op: Or
+                b:
+                  __type: ResourceCategoryRegexQueryOperator
+                  resource_category:
+                    pattern: 4.1 pp
+                    ignore_case: true
+                    op: Contains
+                op: Or
+              b:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: gpt 5
+                  ignore_case: true
+                  op: Contains
+              op: Or
+            b:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: gpt-35-turbo
+                ignore_case: true
+                op: Contains
+            op: Or
+          b:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: gpt-4o
+              ignore_case: true
+              op: Contains
+          op: Or
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: gpt 4o
+            ignore_case: true
+            op: Contains
+        op: Or
+      op: Or
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: QueryOperatorBinaryLogic
+              a:
+                __type: QueryOperatorBinaryLogic
+                a:
+                  __type: QueryOperatorBinaryLogic
+                  a:
+                    __type: ResourceCategoryRegexQueryOperator
+                    resource_category:
+                      pattern: 5.1 pp
+                      ignore_case: true
+                      op: Contains
+                  b:
+                    __type: ResourceCategoryRegexQueryOperator
+                    resource_category:
+                      pattern: 5.2 pp
+                      ignore_case: true
+                      op: Contains
+                  op: Or
+                b:
+                  __type: ResourceCategoryRegexQueryOperator
+                  resource_category:
+                    pattern: 5.2 chat
+                    ignore_case: true
+                    op: Contains
+                op: Or
+              b:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: 5.3 chat
+                  ignore_case: true
+                  op: Contains
+              op: Or
+            b:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: '5.4 '
+                ignore_case: true
+                op: Contains
+            op: Or
+          b:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: Model Router
+              ignore_case: true
+              op: Contains
+          op: Or
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: gpt rt txt
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: Gemini
+              ignore_case: true
+              op: Contains
+          b:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: QueryOperatorUnaryNot
+              a:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: Thinking
+                  ignore_case: true
+                  op: Contains
+            b:
+              __type: QueryOperatorUnaryNot
+              a:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: Image
+                  ignore_case: true
+                  op: Contains
+            op: And
+          op: And
+        b:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: GLM
+              ignore_case: true
+              op: Contains
+          b:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: nvidia.nemotron
+              ignore_case: true
+              op: Contains
+          op: Or
+        op: Or
+      op: Or
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Reasoning Model
+  description: Reasoning Model
+  grouping_rule_id: 69fae16ceb85ac6de355854c
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ProductCategoryQueryOperator
+        product_categories:
+        - Claude Opus 4 (Amazon Bedrock Edition)
+        - Claude Opus 4.1 (Amazon Bedrock Edition)
+        - Claude Opus 4.5 (Amazon Bedrock Edition)
+        - Claude Opus 4.6 (Amazon Bedrock Edition)
+        - Claude Opus 4.7 (Amazon Bedrock Edition)
+      b:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: ProductCategoryQueryOperator
+          product_categories:
+          - AmazonBedrock
+        b:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: NovaPro
+              ignore_case: true
+              op: Contains
+          b:
+            __type: QueryOperatorUnaryNot
+            a:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: Customization-Storage
+                ignore_case: true
+                op: Contains
+          op: And
+        op: And
+      op: Or
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: QueryOperatorBinaryLogic
+              a:
+                __type: QueryOperatorBinaryLogic
+                a:
+                  __type: ResourceCategoryRegexQueryOperator
+                  resource_category:
+                    pattern: 'o1 '
+                    ignore_case: true
+                    op: Contains
+                b:
+                  __type: ResourceCategoryRegexQueryOperator
+                  resource_category:
+                    pattern: 'o3 '
+                    ignore_case: true
+                    op: Contains
+                op: Or
+              b:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: o4-mini
+                  ignore_case: true
+                  op: Contains
+              op: Or
+            b:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: Thinking
+                ignore_case: true
+                op: Contains
+            op: Or
+          b:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: moonshot
+              ignore_case: true
+              op: Contains
+          op: Or
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: DeepSeek
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: 'R1 '
+          ignore_case: true
+          op: Contains
+      op: Or
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Multimodal Model
+  description: Multimodal Model
+  grouping_rule_id: 69fae16ceb85ac6de355854d
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    op: Or
+    a:
+      __type: QueryOperatorBinaryLogic
+      op: Or
+      a:
+        __type: QueryOperatorBinaryLogic
+        op: And
+        a:
+          __type: ProductCategoryQueryOperator
+          product_categories:
+          - AmazonBedrock
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: TitanImage
+            ignore_case: true
+            op: Contains
+      b:
+        __type: QueryOperatorBinaryLogic
+        op: And
+        a:
+          __type: ProductCategoryQueryOperator
+          product_categories:
+          - AmazonBedrock
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: StableDiffusion
+            ignore_case: true
+            op: Contains
+    b:
+      __type: QueryOperatorBinaryLogic
+      op: Or
+      a:
+        __type: QueryOperatorBinaryLogic
+        op: Or
+        a:
+          __type: QueryOperatorBinaryLogic
+          op: Or
+          a:
+            __type: QueryOperatorBinaryLogic
+            op: Or
+            a:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: gpt img
+                ignore_case: true
+                op: Contains
+            b:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: gpt-image
+                ignore_case: true
+                op: Contains
+          b:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: Image Analysis
+              ignore_case: true
+              op: Contains
+        b:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: Image
+              ignore_case: true
+              op: Contains
+          b:
+            __type: QueryOperatorUnaryNot
+            a:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: Document Cracking
+                ignore_case: true
+                op: Contains
+          op: And
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: Imagen
+          ignore_case: true
+          op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Embedding Model
+  description: Embedding Model
+  grouping_rule_id: 69fae16ceb85ac6de355854e
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: ProductCategoryQueryOperator
+              product_categories:
+              - AmazonBedrock
+            b:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: TitanEmbeddingV2
+                ignore_case: true
+                op: Contains
+            op: And
+          b:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: ProductCategoryQueryOperator
+              product_categories:
+              - AmazonBedrock
+            b:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: CohereEmbed
+                ignore_case: true
+                op: Contains
+            op: And
+          op: Or
+        b:
+          __type: ProductCategoryQueryOperator
+          product_categories:
+          - Cohere Embed 4 Model (Amazon Bedrock Edition)
+        op: Or
+      b:
+        __type: ProductCategoryQueryOperator
+        product_categories:
+        - Cohere Embed 3 Model - English (Amazon Bedrock Edition)
+      op: Or
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: QueryOperatorBinaryLogic
+              a:
+                __type: QueryOperatorBinaryLogic
+                a:
+                  __type: QueryOperatorBinaryLogic
+                  a:
+                    __type: ResourceCategoryRegexQueryOperator
+                    resource_category:
+                      pattern: embedding-ada
+                      ignore_case: true
+                      op: Contains
+                  b:
+                    __type: ResourceCategoryRegexQueryOperator
+                    resource_category:
+                      pattern: Az-Text-Ada
+                      ignore_case: true
+                      op: Contains
+                  op: Or
+                b:
+                  __type: ResourceCategoryRegexQueryOperator
+                  resource_category:
+                    pattern: text-embedding-3
+                    ignore_case: true
+                    op: Contains
+                op: Or
+              b:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: textembedding-gecko
+                  ignore_case: true
+                  op: Contains
+              op: Or
+            b:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: text-embedding-004
+                ignore_case: true
+                op: Contains
+            op: Or
+          b:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: text-embedding-005
+              ignore_case: true
+              op: Contains
+          op: Or
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: Large Text Embedding
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: Embeddings for Text
+          ignore_case: true
+          op: Contains
+      op: Or
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Code Model
+  description: Code Model
+  grouping_rule_id: 69fae16ceb85ac6de355854f
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ProductCategoryQueryOperator
+        product_categories:
+        - AmazonBedrock
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: CodeWhisperer
+          ignore_case: true
+          op: Contains
+      op: And
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: QueryOperatorBinaryLogic
+              a:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: codex
+                  ignore_case: true
+                  op: Contains
+              b:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: Code-Interpreter
+                  ignore_case: true
+                  op: Contains
+              op: Or
+            b:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: 5.3 codex
+                ignore_case: true
+                op: Contains
+            op: Or
+          b:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: code-bison
+              ignore_case: true
+              op: Contains
+          op: Or
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: code-gecko
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: codey
+          ignore_case: true
+          op: Contains
+      op: Or
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Other Cognitive Services
+  description: Other Cognitive Services
+  grouping_rule_id: 69fae16ceb85ac6de35585a0
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ProductCategoryQueryOperator
+        product_categories:
+        - AmazonBedrock
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: Provisioned
+          ignore_case: true
+          op: Contains
+      op: And
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: Provisioned Throughput
+              ignore_case: true
+              op: Contains
+          b:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: Provisioned Managed
+              ignore_case: true
+              op: Contains
+          op: Or
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: committed-use
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: dedicated-throughput
+          ignore_case: true
+          op: Contains
+      op: Or
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Text to Speech Model
+  description: Text to Speech Model
+  grouping_rule_id: 69fae16ceb85ac6de35585a1
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ProductCategoryQueryOperator
+        product_categories:
+        - AmazonBedrock
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: Polly
+          ignore_case: true
+          op: Contains
+      op: And
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: QueryOperatorBinaryLogic
+            a:
+              __type: QueryOperatorBinaryLogic
+              a:
+                __type: QueryOperatorBinaryLogic
+                a:
+                  __type: ResourceCategoryRegexQueryOperator
+                  resource_category:
+                    pattern: Standard Text Records
+                    ignore_case: true
+                    op: Contains
+                b:
+                  __type: ResourceCategoryRegexQueryOperator
+                  resource_category:
+                    pattern: tts-1
+                    ignore_case: true
+                    op: Contains
+                op: Or
+              b:
+                __type: ResourceCategoryRegexQueryOperator
+                resource_category:
+                  pattern: S1 Neural
+                  ignore_case: true
+                  op: Contains
+              op: Or
+            b:
+              __type: ResourceCategoryRegexQueryOperator
+              resource_category:
+                pattern: S1 Speech
+                ignore_case: true
+                op: Contains
+            op: Or
+          b:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: standard-text-to-speech
+              ignore_case: true
+              op: Contains
+          op: Or
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: wavenet
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: neural2-text
+          ignore_case: true
+          op: Contains
+      op: Or
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Reranking Model
+  description: Reranking Model
+  grouping_rule_id: 69fae16ceb85ac6de35585a2
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: ProductCategoryQueryOperator
+          product_categories:
+          - AmazonBedrock
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: CohereRerank
+            ignore_case: true
+            op: Contains
+        op: And
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: Rerank v4
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: vertex-reranking
+          ignore_case: true
+          op: Contains
+      b:
+        __type: ProductCategoryQueryOperator
+        product_categories:
+        - Cohere Rerank v3.5 (Amazon Bedrock Edition)
+      op: Or
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Document Intelligence
+  description: Document Intelligence
+  grouping_rule_id: 69fae16ceb85ac6de35585a3
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: S0 Add-on
+          ignore_case: true
+          op: Contains
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: S0 Pre-built
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: S0 Read
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Search Service
+  description: Search Service
+  grouping_rule_id: 69fae16ceb85ac6de35585a4
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: QueryOperatorBinaryLogic
+          a:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: Semantic Ranker
+              ignore_case: true
+              op: Contains
+          b:
+            __type: ResourceCategoryRegexQueryOperator
+            resource_category:
+              pattern: Standard S1 Unit
+              ignore_case: true
+              op: Contains
+          op: Or
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: Standard S2 Unit
+            ignore_case: true
+            op: Contains
+        op: Or
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: Document Cracking
+          ignore_case: true
+          op: Contains
+      op: Or
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Vertex AI Search
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Real-time Audio
+  description: Real-time Audio
+  grouping_rule_id: 69fae16ceb85ac6de35585a5
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: gpt rt aud
+        ignore_case: true
+        op: Contains
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: rt aud
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Assistants Storage
+  description: Assistants Storage
+  grouping_rule_id: 69fae16ceb85ac6de35585a6
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ResourceCategoryRegexQueryOperator
+    resource_category:
+      pattern: Assistants-File Search
+      ignore_case: true
+      op: Contains
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Custom Model Storage
+  description: Custom Model Storage
+  grouping_rule_id: 69fae16ceb85ac6de35585a7
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: ProductCategoryQueryOperator
+        product_categories:
+        - AmazonBedrock
+      b:
+        __type: ResourceCategoryRegexQueryOperator
+        resource_category:
+          pattern: Customization-Storage
+          ignore_case: true
+          op: Contains
+      op: And
+    b:
+      __type: QueryOperatorBinaryLogic
+      a:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: ProductCategoryQueryOperator
+          product_categories:
+          - AmazonBedrock
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: Llama-Custom
+            ignore_case: true
+            op: Contains
+        op: And
+      b:
+        __type: QueryOperatorBinaryLogic
+        a:
+          __type: ProductCategoryQueryOperator
+          product_categories:
+          - AmazonBedrock
+        b:
+          __type: ResourceCategoryRegexQueryOperator
+          resource_category:
+            pattern: NovaMultiModal
+            ignore_case: true
+            op: Contains
+        op: And
+      op: Or
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Guardrail
+  description: Guardrail
+  grouping_rule_id: 69fae16deb85ac6de35585a8
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ProductCategoryQueryOperator
+      product_categories:
+      - AmazonBedrock
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: Guardrail
+        ignore_case: true
+        op: Contains
+    op: And
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Agent Framework
+  description: Agent Framework
+  grouping_rule_id: 69fae16deb85ac6de35585a9
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: ProductCategoryQueryOperator
+    product_categories:
+    - AmazonBedrockAgentCore
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: AI Discovery Service
+  description: AI Discovery Service
+  grouping_rule_id: 69fae16deb85ac6de35585aa
+  rule_type: UserDefined
+  attributes: []
+  filters:
+    __type: QueryOperatorBinaryLogic
+    a:
+      __type: ProductCategoryQueryOperator
+      product_categories:
+      - Microsoft.Discovery
+    b:
+      __type: ResourceCategoryRegexQueryOperator
+      resource_category:
+        pattern: User Messages
+        ignore_case: true
+        op: Contains
+    op: Or
+  access_granted_identities:
+    user_groups: []
+    roles:
+    - tenant_id: 632b09d7f4696bdf76c3fd9a
+      role_ids: []
+  dependent_grouping_rule: []
+  cost_anomaly_configuration:
+    threshold:
+      impact:
+        minimum_cost_impact: 0
+        minimum_cost_impact_percentage: 0
+        op: OR
+      minimum_cost_spend: 0
+      op: OR
+    notification:
+      notifications_enabled: false
+      daily_summary_email_enabled: false
+      notify_on_detection: false
+      notify_on_detection_emails: []
+      daily_summary_emails: []
+  priority: 0
+  platform_filters:
+    __type: TenantQueryOperator
+    tenant_ids: []
+- name: Unallocated
+  description: System defined rule to capture unallocated cost.
+  grouping_rule_id: unallocated-cost-rule
+  rule_type: System
+  priority: 0
